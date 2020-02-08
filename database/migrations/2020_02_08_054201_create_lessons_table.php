@@ -18,8 +18,9 @@ class CreateLessonsTable extends Migration
             $table->integer('course_id');
             $table->string('title');
             $table->string('src');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->timestamps();
+            $table->index('course_id');
         });
     }
 
