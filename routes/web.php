@@ -22,26 +22,7 @@ Route::post('/register', 'Auth\RegisterController@create');
 
 // admin routes
 Route::get('/admin', 'StudentController@index');
-Route::resource('/admin/students', 'StudentController', ['only' => [
-    'index',
-    'create',
-    'store',
-    'edit',
-    'update',
-    'destroy'
-]]);
-
-Route::resource('/admin/courses', 'CourseController', ['only' => [
-    'index', 
-    'create', 
-    'show', 
-    'edit',
-    'update',
-    'destroy'
-]]);
-Route::resource('/admin/lessons', 'LessonController', ['only' => [
-    'create', 
-    'edit',
-    'update',
-    'destroy'
-]]);
+Route::resource('/admin/students', 'StudentController');
+Route::resource('/admin/courses', 'CourseController');
+Route::resource('/admin/news', 'NewsController');
+Route::resource('/admin/lessons', 'LessonController');
