@@ -29,33 +29,27 @@ class StudentController extends Controller
 
     public function store()
     {
-        try {
-            $data = request()->validate([
-                'name' => 'required',
-                'username' => 'required|unique:users',
-                'gender' => '',
-                'birthday' => 'required',
-                'address' => 'min:2',
-                'email' => 'unique:users',
-                'phone' => 'unique:users',
-                'password' => 'required',
-            ]);
-            User::create([
-                'name' => $data['name'],
-                'username' => $data['username'],
-                'username' => $data['username'],
-                'gender' => $data['gender'],
-                'birthday' => $data['birthday'],
-                'address' => $data['address'],
-                'email' => $data['email'],
-                'phone' => $data['phone'],
-                'password' => Hash::make($data['password']),
-            ]);
-            return redirect('/admin/students')->with('success', "User successfully created");    
-        } catch (\Throwable $th) {
-            return redirect('/admin/students')->with('error', "Failed to create user"); 
-        }
-        
+        $data = request()->validate([
+            'name' => 'required',
+            'username' => 'required|unique:users',
+            'gender' => '',
+            'birthday' => 'required',
+            'address' => 'min:2',
+            'email' => 'unique:users',
+            'phone' => 'unique:users',
+            'password' => 'required',
+        ]);
+        User::create([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'gender' => $data['gender'],
+            'birthday' => $data['birthday'],
+            'address' => $data['address'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'password' => Hash::make($data['password']),
+        ]);
+        return redirect('/admin/students')->with('success', "User successfully created");    
     }
 
     public function edit($id)
@@ -66,9 +60,26 @@ class StudentController extends Controller
         ]);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
-        
+        try {
+            // $data = request()->validate([
+            //     'name' => 'required',
+            //     'username' => 'required|unique:users',
+            //     'gender' => '',
+            //     'birthday' => 'required',
+            //     'address' => 'min:2',
+            //     'email' => 'unique:users',
+            //     'phone' => 'unique:users',
+            // ]);
+            // User::where('id', $id)->update($request->all());
+            // return redirect('/admin/students')->with(success, "User successfully updated");
+            $student = User::where('id', $id)->first();
+            $student->update([$request->all()]);
+            dd($student);
+        } catch (\Throwable $th) {
+            return redirect('/admin/students')->with('error', "Failed to update user");
+        }
     }
 
     public function destroy($id)
