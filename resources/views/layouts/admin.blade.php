@@ -49,17 +49,17 @@
       </li>
       <li class="nav-item {{ request()->is('admin/news') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/news">
-          <i class="fas fa-book"></i>
+          <i class="fas fa-newspaper"></i>
           <span>Quản lý tin tức</span></a>
       </li>
       <li class="nav-item {{ request()->is('admin/classes') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/classes">
-          <i class="fas fa-book"></i>
+          <i class="fas fa-users"></i>
           <span>Quản lý lớp</span></a>
       </li>
       <li class="nav-item {{ request()->is('admin/result') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/result">
-          <i class="fas fa-book"></i>
+          <i class="fas fa-poll"></i>
           <span>Quản lý điểm</span></a>
       </li>
       <!-- Sidebar Toggler (Sidebar) -->

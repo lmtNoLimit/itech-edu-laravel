@@ -3,10 +3,13 @@
 @section('content')
 <div class="container-fluid">
   <div class="d-sm-flex align-items-center justify-content-between mb-5">
-    <h1 class="h3 mb-0 text-gray-800">Students Management</h1>
+    <h1 class="h3 mb-0 text-gray-800">Quản lý học viên</h1>
   </div>
   <div class="row m-2 d-flex justify-content-end">
-    <a href="/admin/students/create" class="btn btn-sm btn-success">Add new Student</a>
+    <a href="/admin/students/create" class="btn btn-sm btn-success">
+      <i class="fas fa-plus"></i>
+      <span>Thêm học viên</span>
+    </a>
   </div>
   <div class="row mx-2">
     <table class="table table-bordered table-hover">
