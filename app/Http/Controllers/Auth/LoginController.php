@@ -55,11 +55,13 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
    
-        if(Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password, $request->get('remember')]))
-        {
-            return redirect()->intended('/admin');  
+        if(Auth::guard('admin')->attempt([
+            'username' => $request->input('username'), 
+            'password' => $request->input('password'), 
+        ])) {
+            return redirect()->intended('/admin');
         }
-        return back()->withInput($request->only('username', 'remember'));
+        return back()->withInput($request->only('username'));
     }
 
     public function userLogin(Request $request)
@@ -69,7 +71,7 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::guard('writer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
             return redirect()->intended('/');
         }
