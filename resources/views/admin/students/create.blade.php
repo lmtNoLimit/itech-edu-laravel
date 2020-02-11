@@ -10,21 +10,60 @@
       <div class="card display-inline">
         <div class="card-body">
           <form action="/admin/students" method="POST">
+            @csrf
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" value="">
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                value="{{ old('name') }}">
+              @error('name')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" value="">
+              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
+                value="{{ old('email') }}">
+              @error('email')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
-              <input type="text" class="form-control" id="phone" value="">
+              <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone"
+                value="{{ old('phone') }}">
+              @error('phone')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
+                name="password" autocomplete="new-password">
+              @error('password')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+            </div>
+            <div class="form-group">
+              <label for="password-confirm">Confirm Password</label>
+              <input type="password" class="form-control @error('password-confirm') is-invalid @enderror"
+                id="password-confirm" name="password_confirmation" autocomplete="new-password">
+              @error('password-confirm')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
             </div>
             <div class="form-group">
               <label>User Type</label>
-              <select class="form-control">
+              <select class="form-control" name="is_admin">
                 <option value="0">Student</option>
                 <option value="1">Adminstrator</option>
               </select>

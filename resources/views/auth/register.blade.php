@@ -16,9 +16,24 @@
 
               <div class="col-md-6">
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                  value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  value="{{ old('name') }}" autocomplete="name" autofocus>
 
                 @error('name')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Tên tài khoản') }}</label>
+
+              <div class="col-md-6">
+                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror"
+                  name="username" value="{{ old('username') }}" autocomplete="username">
+
+                @error('username')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
@@ -31,7 +46,7 @@
 
               <div class="col-md-6">
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                  value="{{ old('email') }}" required autocomplete="email">
+                  value="{{ old('email') }}" autocomplete="email">
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -46,7 +61,7 @@
 
               <div class="col-md-6">
                 <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
-                  value="{{ old('phone') }}" required autocomplete="phone">
+                  value="{{ old('phone') }}" autocomplete="phone">
 
                 @error('phone')
                 <span class="invalid-feedback" role="alert">
@@ -61,7 +76,7 @@
 
               <div class="col-md-6">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                  name="password" required autocomplete="new-password">
+                  name="password" autocomplete="new-password">
 
                 @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -76,7 +91,7 @@
                 class="col-md-4 col-form-label text-md-right">{{ __('Nhập lại mật khẩu') }}</label>
 
               <div class="col-md-6">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                   autocomplete="new-password">
               </div>
             </div>

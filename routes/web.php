@@ -20,6 +20,8 @@ Route::get('/', 'HomeController@index')->name('home');
 // admin routes
 Route::resource('/admin/students', 'StudentController', ['only' => [
     'index',
+    'create',
+    'store',
     'edit',
     'update',
     'destroy'

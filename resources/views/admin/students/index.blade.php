@@ -5,6 +5,9 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-5">
     <h1 class="h3 mb-0 text-gray-800">Students Management</h1>
   </div>
+  <div class="row m-2 d-flex justify-content-end">
+    <a href="/admin/students/create" class="btn btn-sm btn-success">Add new Student</a>
+  </div>
   <div class="row mx-2">
     <table class="table table-bordered table-hover">
       <thead class="thead-light">
