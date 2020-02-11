@@ -42,8 +42,12 @@ class LoginController extends Controller
         $this->middleware('guest:user')->except('logout');
     }
 
-    public function login() {
-        return view('auth/login');
+    public function getAdminLogin() {
+        return view('auth/adminLogin', ['url' => 'admin']);
+    }
+
+    public function getUserLogin() {
+        return view('auth/login', ['url' => 'user']);
     }
 
     public function adminLogin(Request $request)
@@ -67,14 +71,16 @@ class LoginController extends Controller
     public function userLogin(Request $request)
     {
         $this->validate($request, [
-            'email'   => 'required|email',
+            'username'   => 'required',
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
+        if (Auth::guard('user')->attempt([
+            'username' => $request->input('username'),
+            'password' => $request->input('password')
+        ])) {
             return redirect()->intended('/');
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return back()->withInput($request->only('username'));
     }
 }

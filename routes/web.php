@@ -12,13 +12,13 @@
 */
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/login/admin', 'Auth\LoginController@login')->name('login');
-Route::get('/login', 'Auth\LoginController@login')->name('login');
-Route::get('/register', 'Auth\RegisterController@showUserRegister');
+Route::get('/login/admin', 'Auth\LoginController@getAdminLogin');
+Route::get('/login/user', 'Auth\LoginController@getUserLogin');
+Route::get('/register', 'Auth\RegisterController@showUserRegister')->name('register');
 
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/login', 'Auth\LoginController@userLogin');
-Route::post('/register', 'Auth\LoginController@create');
+Route::post('/register', 'Auth\RegisterController@create');
 
 // admin routes
 Route::get('/admin', 'StudentController@index');

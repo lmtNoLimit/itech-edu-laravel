@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         ]);
         User::create([
             'name' => "Thành",
-            'username' => 'lmt151099@gmail.com',
+            'username' => 'lmt151099',
             'phone' => '0969546799',
             'password' =>Hash::make('lmt151099')
         ]);
