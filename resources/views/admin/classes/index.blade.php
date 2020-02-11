@@ -4,7 +4,12 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Quản lý lớp</h1>
   </div>
-
+  <div class="row m-2 d-flex justify-content-end">
+    <a href="/admin/classes/create" class="btn btn-sm btn-success">
+      <i class="fas fa-plus"></i>
+      <span>Thêm lớp</span>
+    </a>
+  </div>
   <div class="row mx-2">
     <table class="table table-bordered table-hover">
       <thead class="thead-light">
