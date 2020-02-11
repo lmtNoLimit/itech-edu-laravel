@@ -47,7 +47,7 @@ class LoginController extends Controller
     }
 
     public function getUserLogin() {
-        return view('auth/login', ['url' => 'user']);
+        return view('auth/login');
     }
 
     public function adminLogin(Request $request)
