@@ -31,7 +31,6 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
       <div class="sidebar-brand d-flex align-items-center justify-content-center">
-        {{-- <i class="fas fa-laugh-wink"></i> --}}
         <div class="sidebar-brand-text mx-3">LOGO</div>
       </div>
 
@@ -41,12 +40,27 @@
       <li class="nav-item  {{ request()->is('admin/students') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/students">
           <i class="fas fa-user"></i>
-          <span>Students</span></a>
+          <span>Quản lý học viên</span></a>
       </li>
       <li class="nav-item {{ request()->is('admin/courses') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/courses">
           <i class="fas fa-book"></i>
-          <span>Courses</span></a>
+          <span>Quản lý ngành đào tạo</span></a>
+      </li>
+      <li class="nav-item {{ request()->is('admin/news') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/news">
+          <i class="fas fa-book"></i>
+          <span>Quản lý tin tức</span></a>
+      </li>
+      <li class="nav-item {{ request()->is('admin/classes') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/classes">
+          <i class="fas fa-book"></i>
+          <span>Quản lý lớp</span></a>
+      </li>
+      <li class="nav-item {{ request()->is('admin/result') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/result">
+          <i class="fas fa-book"></i>
+          <span>Quản lý điểm</span></a>
       </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">

@@ -13,7 +13,11 @@
       <thead class="thead-light">
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Name</th>
+          <th scope="col">Họ và tên</th>
+          <th scope="col">Tên tài khoản</th>
+          <th scope="col">Ngày sinh</th>
+          <th scope="col">Giới tính</th>
+          <th scope="col">Địa chỉ</th>
           <th scope="col">Email</th>
           <th scope="col">Phone</th>
           <th scope="col">Action</th>
@@ -24,6 +28,10 @@
         <tr>
           <th scope="row">{{$user->id}}</th>
           <td>{{$user->name}}</td>
+          <td>{{$user->username}}</td>
+          <td>{{$user->birthday}}</td>
+          <td>{{$user->gender == 1 ? "Nữ" : "Nam"}}</td>
+          <td>{{$user->address}}</td>
           <td>{{$user->email}}</td>
           <td>{{$user->phone}}</td>
           <td>

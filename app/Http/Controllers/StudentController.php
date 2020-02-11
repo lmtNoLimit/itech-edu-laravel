@@ -9,6 +9,11 @@ use App\User;
 
 class StudentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
         $users = User::all();
@@ -27,17 +32,24 @@ class StudentController extends Controller
         try {
             $data = request()->validate([
                 'name' => 'required',
-                'email' => 'required|unique:users',
+                'username' => 'required|unique:users',
+                'gender' => '',
+                'birthday' => 'required',
+                'address' => 'min:2',
+                'email' => 'unique:users',
                 'phone' => 'unique:users',
                 'password' => 'required',
-                'is_admin' => 'required'
             ]);
             User::create([
                 'name' => $data['name'],
+                'username' => $data['username'],
+                'username' => $data['username'],
+                'gender' => $data['gender'],
+                'birthday' => $data['birthday'],
+                'address' => $data['address'],
                 'email' => $data['email'],
                 'phone' => $data['phone'],
                 'password' => Hash::make($data['password']),
-                'is_admin' => $data['is_admin']
             ]);
             return redirect('/admin/students')->with('success', "User successfully created");    
         } catch (\Throwable $th) {
