@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class ClassController extends Controller
 {
     public function index()
     {
-        return view('admin/news/index');
+        return view('admin/classes/index');
     }
 
     public function create()
     {
-        return view('admin/news/create');
+        return view('admin/classes/create');
     }
 
     public function store()
@@ -23,7 +23,7 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-        return view('admin/news/edit');
+        return view('admin/classes/edit');
     }
 
     public function update()
