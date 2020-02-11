@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Admin;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,11 +13,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'admin',
+        Admin::create([
             'username' => 'admin',
-            'email' => '',
-            'phone' => '',
             'password' => Hash::make('12345678')
         ]);
     }

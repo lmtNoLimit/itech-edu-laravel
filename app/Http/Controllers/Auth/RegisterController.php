@@ -39,6 +39,13 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:user');
+        $this->middleware('guest:admin');
+    }
+
+    public function showUserRegister()
+    {
+        return view('auth.register', ['url' => 'user']);
     }
 
     /**
@@ -66,12 +73,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        User::create([
             'name' => $data['name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
+        return \redirect()->intended('login');
     }
 }

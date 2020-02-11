@@ -12,12 +12,16 @@
 */
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/courses/{course}', "CourseController@index")->name('course.index');
-// Route::get('/courses/{course}/lessons/{lesson}', "CourseController@index")->name('lesson.index');
-// Route::get('/courses/{course}', "CourseController@index")->name('course.index');
+Route::get('/login/admin', 'Auth\LoginController@login')->name('login');
+Route::get('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/register', 'Auth\RegisterController@showUserRegister');
 
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/login', 'Auth\LoginController@userLogin');
+Route::post('/register', 'Auth\LoginController@create');
 
 // admin routes
+Route::get('/admin', 'StudentController@index');
 Route::resource('/admin/students', 'StudentController', ['only' => [
     'index',
     'create',
@@ -25,7 +29,7 @@ Route::resource('/admin/students', 'StudentController', ['only' => [
     'edit',
     'update',
     'destroy'
-]])->middleware('is_admin');
+]]);
 
 Route::resource('/admin/courses', 'CourseController', ['only' => [
     'index', 
@@ -34,11 +38,10 @@ Route::resource('/admin/courses', 'CourseController', ['only' => [
     'edit',
     'update',
     'destroy'
-]])->middleware('is_admin');
-
+]]);
 Route::resource('/admin/lessons', 'LessonController', ['only' => [
     'create', 
     'edit',
     'update',
     'destroy'
-]])->middleware('is_admin');
+]]);
