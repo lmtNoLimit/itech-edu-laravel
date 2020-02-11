@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Classes;
 
 class ClassController extends Controller
 {
@@ -13,7 +14,10 @@ class ClassController extends Controller
     
     public function index()
     {
-        return view('admin/classes/index');
+        $classes = Classes::all();
+        return view('admin/classes/index', [
+            'classes' => $classes
+        ]);
     }
 
     public function create()

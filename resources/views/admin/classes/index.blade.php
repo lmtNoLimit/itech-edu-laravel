@@ -5,7 +5,7 @@
     <h1 class="h3 mb-0 text-gray-800">Quản lý lớp</h1>
   </div>
 
-  <!-- <div class="row mx-2">
+  <div class="row mx-2">
     <table class="table table-bordered table-hover">
       <thead class="thead-light">
         <tr>
@@ -33,6 +33,6 @@
         @endforeach
       </tbody>
     </table>
-  </div> -->
+  </div>
 </div>
 @endsection
