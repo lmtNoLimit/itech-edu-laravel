@@ -11,24 +11,23 @@
     </a>
   </div>
 
-<<<<<<< HEAD
   <div class="row mx-2">
-  	<table class="table table-bordered table-hover">
-  		<thead class="thead-light">
-  			<tr>
-  				<th scope="col">ID</th>
-		        <th scope="col">Tên khoa</th>
-		        <th scope="col">Loại hình đào tạo</th>
-            <th scope="col">Action</th>
-  			</tr>
-  		</thead>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Tên khoa</th>
+          <th scope="col">Loại hình đào tạo</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
       <tbody>
-      @foreach($courses as $course)
-      <tr>
-         <th scope="row">{{$course->id}}</th>
-        <td>{{$course->name}}</td>
-        <td>{{$course->type == "short_term" ? "Ngắn hạn" : "Dài hạn"}}</td>
-        <td>
+        @foreach($courses as $course)
+        <tr>
+          <th scope="row">{{$course->id}}</th>
+          <td>{{$course->name}}</td>
+          <td>{{$course->type == "short_term" ? "Ngắn hạn" : "Dài hạn"}}</td>
+          <td>
             <form class="form-inline" action="/admin/courses/{{$course->id}}" method="POST">
               <a href="/admin/courses/{{$course->id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
               @method('DELETE')
@@ -36,14 +35,11 @@
               <button type="submit" class="btn btn-sm btn-danger">Delete</button>
             </form>
           </td>
-      </tr>
-      @endforeach
+        </tr>
+        @endforeach
       </tbody>
-  	</table>
+    </table>
 
-=======
-  <div class="row">
->>>>>>> 4f058243ca78364927712a56ba53eb8ecde4eff5
   </div>
 </div>
 @endsection
