@@ -15,7 +15,7 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Họ và tên</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" value="{{old('name', $user->name)}}">
+                <input type="text" class="form-control" name="name" id="name" value="{{old('name', $user->name)}}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="username">Tên tài khoản</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="username" value="{{old('username', $user->username)}}"
+                <input type="text" class="form-control" name="username" id="username" value="{{$user->username}}"
                   disabled>
                 @error('username')
                 <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="email">Địa chỉ email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" value="{{old('email', $user->email)}}">
+                <input type="email" class="form-control" name="email" id="email" value="{{old('email', $user->email)}}">
                 @error('email')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -70,7 +70,7 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="phone">Điện thoại</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="phone" value="{{old('phone', $user->phone)}}">
+                <input type="text" class="form-control" name="phone" id="phone" value="{{old('phone', $user->phone)}}">
                 @error('phone')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
