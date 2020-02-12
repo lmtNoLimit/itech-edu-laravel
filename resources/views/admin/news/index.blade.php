@@ -23,10 +23,10 @@
         </tr>
       </thead>
       <tbody>
-      @foreach ($news as $new)
+        @foreach ($news as $new)
         <tr>
           <th scope="row">{{$new->id}}</th>
-          <td>{{$new->title}}</td>>
+          <td>{{$new->title}}</td>
           <td>{{$new->type}}</td>
           <td>
             <a href="/admin/news/{{$new->id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
@@ -49,7 +49,7 @@
         </button>
       </div>
       <div class="modal-footer">
-        <form class="form-inline" action="/admin/students/{{$new->id ?? ''}}" method="POST" id="delete-form">
+        <form class="form-inline" action="/admin/news/{{$new->id ?? ''}}" method="POST" id="delete-form">
           @csrf
           @method('DELETE')
           <button class="btn btn-secondary mr-2" type="button" data-dismiss="modal">Cancel</button>

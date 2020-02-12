@@ -56,16 +56,47 @@ class NewsController extends Controller
 
     public function edit($id)
     {
-        return view('admin/news/edit');
+        $news = News::findOrFail($id);
+        return view('admin/news/edit', [
+            'news' => $news
+        ]);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
-
+        $rules = [
+            'title' => 'required',
+            'content' => 'required',
+            'type' => 'required',
+        ];
+        $messages = [
+    		'title.required' => 'Tiêu đề không được để trống',
+            'content.required' => 'Nội dung tin không được để trống',
+            'type.required' => 'Thể loại tin tức không được để trống',
+    	];
+        $validator = validator()->make($request->all(), $rules, $messages);
+        
+        if ($validator->fails()) {
+    		return redirect()->back()->withErrors($validator)->withInput();
+    	} else {
+            News::where("id", $id)->update([
+                'title' => $request->input('title'),
+                'content' => $request->input('content'),
+                'type' => $request->input('type'),
+            ]);
+            return redirect('/admin/news')->with('success', "Sửa tin tức thành công");    
+        }
+        return redirect('/admin/news')->with('error', "Sửa tin tức không thành công");
     }
 
     public function destroy($id)
     {
-
+        try {
+            $news = News::find($id);
+            $news->delete();
+            return \redirect('/admin/news')->with("success", "Xoá tin thành công");
+        } catch (\Throwable $th) {
+            return \redirect('/admin/news')->with("error", "Xoá tin không thành công");
+        }
     }
 }
