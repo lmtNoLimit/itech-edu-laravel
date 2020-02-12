@@ -16,6 +16,7 @@ class ClassController extends Controller
     public function index()
     {
         $classes = Classes::all();
+        // dd($classes);
         return view('admin/classes/index', [
             'classes' => $classes
         ]);
@@ -26,32 +27,34 @@ class ClassController extends Controller
         return view('admin/classes/create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $rules = request()->validate([
+        $rules = [
+            'slug' => 'required|unique:classes',
             'name' => 'required',
             'year' => 'required',
             'course_id' => 'required'
-        ]);
+        ];
         $messages = [
+            'slug.unique' => "Mã lớp đã tồn tại",
+            'slug.required' => "Yêu cầu nhập mã lớp",
             'name.required' => 'Tên không được để trống',
             'year.required' => 'Năm học không được để trống',
             'course_id.required' => 'Mã khóa học không được',
         ];
-        $validator = validator()->make($request->all(),$rules,$messages);
+        $validator = validator()->make($request->all(), $rules, $messages);
         if ($validator->fails()) {
           return redirect()->back()->withErrors($validator)->withInput();
-        }
-        else{
-          Classes::create([
-            'name' => $rules['name'],
-            'year' => $rules['year'],
-            'course_id' => $rules['course_id']
-         ]);
-         return redirect('/admin/classes')->with('success',"Thêm lớp thành công");
+        } else {
+            Classes::create([
+                'slug' => $request->input('slug'),
+                'name' => $request->input('name'),
+                'year' => $request->input('year'),
+                'course_id' => $request->input('course_id')
+            ]);
+            return redirect('/admin/classes')->with('success',"Thêm lớp thành công");
         }
         return redirect('/admin/classes')->with('error', "Thêm thất bại");
-       
     }
     
 
@@ -63,17 +66,30 @@ class ClassController extends Controller
         ]);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
-        try {
-            $class = Classes::where('id', $id)->first();
-            $class->update([$request->all()]);
-            dd($class);
+        $rules = [
+            'name' => 'required',
+            'year' => 'required',
+            'course_id' => 'required'
+        ];
+        $messages = [
+            'name.required' => 'Tên không được để trống',
+            'year.required' => 'Năm học không được để trống',
+            'course_id.required' => 'Mã khóa học không được',
+        ];
+        $validator = validator()->make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+          return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            Classes::where("id", $id)->update([
+                'name' => $request->input('name'),
+                'year' => $request->input('year'),
+                'course_id' => $request->input('course_id')
+            ]);
+            return redirect('/admin/classes')->with('success',"Cập nhật lớp thành công");
         }
-        catch(\Throwable $t) {
-            return redirect('/admin/classes')->with('error', "Failed to update user");
-        }
-        dd($request->all());
+        return redirect('/admin/classes')->with('error', "Cập nhật lớp không thành công");
     }
 
     public function destroy($id)
@@ -82,7 +98,6 @@ class ClassController extends Controller
             $class = Classes::find($id);
             $class->delete();
             return redirect('/admin/classes')->with('success' , "Classes successfully removed");
-
         }
         catch(\Thorowable $t){
             return redirect('/admin/clases')->with('error',"Faile to remove class");
