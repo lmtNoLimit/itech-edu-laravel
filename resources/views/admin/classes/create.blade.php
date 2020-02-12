@@ -12,40 +12,52 @@
           <form action="/admin/classes" method="POST">
             @csrf
             <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="slug">Mã lớp</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
+                  value="{{ old('slug') }}">
+                @error('slug')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Tên lớp</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                   value="{{ old('name') }}">
+                @error('name')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
-              @error('name')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="year">Năm học</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control @error('year') is-invalid @enderror" id="year" name="year"
                   value="{{ old('year') }}">
+                @error('year')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
-              @error('year')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="course_id">Mã khoa</label>
+              <label class="col-sm-2 col-form-label" for="course_id">Mã ngành</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control @error('course_id') is-invalid @enderror" id="course_id"
                   name="course_id" value="{{old('course_id') }}">
+                @error('course_id')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
-              @error('course_id')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
             </div>
             <div class="form-group text-center">
               <a href="/admin/classes" class="btn btn-secondary">Cancel</a>
