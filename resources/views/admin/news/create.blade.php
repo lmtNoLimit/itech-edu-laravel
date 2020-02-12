@@ -9,7 +9,7 @@
   <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/students" method="POST">
+          <form action="/admin/news" method="POST">
             @csrf
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="title">Tiêu đề</label>
@@ -27,7 +27,7 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="content"> Nội dung</label>
               <div class="col-sm-10">
-                <textarea name="txtContent" class="form-control " id="txtContent" name="content" rows="10"></textarea>
+                <textarea class="form-control " id="txtContent" name="content" rows="10"></textarea>
               </div>
               @error('content')
                 <span class="invalid-feedback" role="alert">
