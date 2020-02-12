@@ -63,7 +63,7 @@ class LoginController extends Controller
             'username' => $request->input('username'), 
             'password' => $request->input('password'), 
         ])) {
-            return redirect()->intended('/admin');
+            return redirect()->intended('/admin/students');
         }
         return back()->withInput($request->only('username'));
     }

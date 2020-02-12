@@ -28,7 +28,7 @@ class ClassController extends Controller
 
     public function store()
     {
-        $data = request()->validate([
+        $rules = request()->validate([
             'name' => 'required',
             'year' => 'required',
             'course_id' => 'required'
@@ -38,19 +38,19 @@ class ClassController extends Controller
             'year.required' => 'Năm học không được để trống',
             'course_id.required' => 'Mã khóa học không được',
         ];
-        $vali = validator()->make($request->all(),$data,$messages);
-        if ($vali->fails()) {
-          return redirect()->back()->withErrors($vali)->withInput();
+        $validator = validator()->make($request->all(),$rules,$messages);
+        if ($validator->fails()) {
+          return redirect()->back()->withErrors($validator)->withInput();
         }
         else{
           Classes::create([
-            'name' => $data['name'],
-            'year' => $data['year'],
-            'course_id' => $data['course_id']
+            'name' => $rules['name'],
+            'year' => $rules['year'],
+            'course_id' => $rules['course_id']
          ]);
-         return \redirect('/admin/classes')->with('success',"Thêm lớp thành công");
+         return redirect('/admin/classes')->with('success',"Thêm lớp thành công");
         }
-        return \redirect('/admin/classes')->with('error', "Thêm thất bại");
+        return redirect('/admin/classes')->with('error', "Thêm thất bại");
        
     }
     
