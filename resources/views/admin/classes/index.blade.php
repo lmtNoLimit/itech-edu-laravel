@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container-fluid">
+  @include('message')
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Quản lý lớp</h1>
   </div>
@@ -14,17 +15,19 @@
     <table class="table table-bordered table-hover">
       <thead class="thead-light">
         <tr>
-          <th scope="col">ID</th>
+          <th scope="col">Mã Lớp</th>
           <th scope="col">Tên lớp</th>
           <th scope="col">Năm</th>
-          <th scope="col">Mã khoa</th>
+          <th scope="col">Mã ngành</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($classes as $class)
         <tr>
-          <th scope="row">{{$class->id}}</th>
+          <th scope="row">{{$class->slug}}</th>
           <td>{{$class->name}}</td>
+          <td>{{$class->year}}</td>
           <td>{{$class->course_id}}</td>
           <td>
             <form class="form-inline" action="/admin/classes/{{$class->id}}" method="POST">

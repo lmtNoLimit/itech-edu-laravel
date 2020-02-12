@@ -11,6 +11,7 @@
     </a>
   </div>
 
+<<<<<<< HEAD
   <div class="row mx-2">
   	<table class="table table-bordered table-hover">
   		<thead class="thead-light">
@@ -40,6 +41,9 @@
       </tbody>
   	</table>
 
+=======
+  <div class="row">
+>>>>>>> 4f058243ca78364927712a56ba53eb8ecde4eff5
   </div>
 </div>
 @endsection

@@ -21,7 +21,6 @@ Route::post('/login', 'Auth\LoginController@userLogin');
 Route::post('/register', 'Auth\RegisterController@create');
 
 // admin routes
-Route::get('/admin', 'StudentController@index');
 Route::resource('/admin/students', 'StudentController');
 Route::resource('/admin/courses', 'CourseController');
 Route::resource('/admin/news', 'NewsController');
