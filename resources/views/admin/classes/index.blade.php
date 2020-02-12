@@ -18,6 +18,7 @@
           <th scope="col">Tên lớp</th>
           <th scope="col">Năm</th>
           <th scope="col">Mã khoa</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +26,7 @@
         <tr>
           <th scope="row">{{$class->id}}</th>
           <td>{{$class->name}}</td>
+          <td>{{$class->year}}</td>
           <td>{{$class->course_id}}</td>
           <td>
             <form class="form-inline" action="/admin/classes/{{$class->id}}" method="POST">

@@ -8,23 +8,25 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/students" method="POST">
+          <form action="/admin/classes/{{$class->id}}" method="POST">
+          @csrf
+          @method('PUT')
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Tên lớp</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" value="{{$class->name}}">
+                <input type="text" class="form-control" id="name" value="{{old('name', $class->name)}}">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="year">Năm</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="year" value="{{$class->year}}">
+                <input type="text" class="form-control" id="year" value="{{old('year', $class->year)}}">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="course_id">Mã ngành</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="course_id" value="{{$class->course_id}}">
+                <input type="text" class="form-control" id="course_id" value="{{old('course_id',  $class->course_id)}}">
               </div>
             </div>
             <div class="form-group text-center">
