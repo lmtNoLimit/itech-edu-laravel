@@ -1,0 +1,125 @@
+#app {
+    background: #ededed;
+}
+
+.logo {
+    height: 50px;
+    padding: 5px 0;
+}
+
+#header.navbar {
+    padding: 0 16px;
+    background: #F4BF22;
+}
+
+#header .navbar-brand {
+    padding: 0 17px;
+    background: #fff;
+}
+
+.navbar__form-search {
+    width: 450px;
+}
+
+.navbar__form-search>input {
+    width: 330px !important;
+    border-radius: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.navbar__form-search__button {
+    border-radius: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+#navbar {
+    padding: 0 16px;
+    background: #309F5A;
+}
+
+#navbar .nav-link {
+    color: #fff;
+}
+
+#navbar .nav-link:hover {
+    background: #5bc082;
+    /* color: #309F5A !important; */
+}
+
+#footer {
+    background: #309F5A;
+}
+
+.active {
+    background: #5bc082;
+}
+
+.dropdown-divider {
+    margin: 0;
+}
+
+.dropdown-menu {
+    padding: 0;
+    top: 38px;
+    left: unset;
+    border-radius: 0;
+}
+
+.dropdown-submenu {
+    position: relative;
+    top: 0;
+}
+
+.dropdown-parent:hover>.dropdown-submenu {
+    position: relative;
+    top: 38px;
+    left: unset;
+}
+
+.dropdown-parent:hover>.dropdown-submenu .nav-link {
+    color: #fff !important;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: -3px;
+    left: 100%;
+    border-radius: 0;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#nganh-dao-tao .card .card-text {
+    display: none;
+}
+
+#nganh-dao-tao .card:hover .card-img-overlay,
+#nganh-dao-tao .card:hover .card-text {
+    display: block;
+    background: rgba(0, 0, 0, .4);
+}
+
+.feature-item {
+    text-decoration: none !important;
+}
+
+.feature-item:nth-of-type(odd) {
+    color: #000
+}
+
+.feature-item:nth-of-type(even) {
+    color: #fff
+}
