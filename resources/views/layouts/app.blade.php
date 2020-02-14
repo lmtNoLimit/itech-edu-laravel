@@ -101,11 +101,11 @@
           <li class="nav-item">
             <a class="nav-link px-3" href="#">GIỚI THIỆU</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
             <a class="nav-link px-3 dropdown-toggle" data-toggle="dropdown" href="#">
               <span>NGÀNH ĐÀO TẠO</span>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style="width: 200px">
               <li class="nav-item"><a class="nav-link text-dark" href=" #">Cao đẳng chất lượng cao</a></li>
               <li class="dropdown-divider"></li>
               <li class="nav-item dropdown-submenu">
