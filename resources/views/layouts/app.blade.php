@@ -140,11 +140,41 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#">TUYỂN SINH</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link px-3 dropdown-toggle" data-toggle="dropdown" href="#">TUYỂN SINH</a>
+            <ul class="dropdown-menu" style="width: 170px">
+              <li class="nav-item">
+                <a href="#" class="nav-link text-dark">Tuyển sinh năm 2020</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-item dropdown-submenu">
+                <a href="#" class="nav-link text-dark">Quy chế tuyển sinh</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-item dropdown-submenu">
+                <a href="#" class="nav-link text-dark">Học phí - Học bổng</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-item dropdown-submenu">
+                <a href="#" class="nav-link text-dark">Hỏi đáp</a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#">TIN TỨC</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link px-3 dropdown-toggle" data-toggle="dropdown" href="#">TIN TỨC</a>
+            <ul class="dropdown-menu" style="width: 120px">
+              <li class="nav-item">
+                <a href="#" class="nav-link text-dark">Tin nội bộ</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-item dropdown-submenu">
+                <a href="#" class="nav-link text-dark">Tin công nghệ</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-item dropdown-submenu">
+                <a href="#" class="nav-link text-dark">Sự kiện</a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="#">HỘI NHẬP QUỐC TẾ</a>
