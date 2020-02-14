@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
   <section id="images-slider">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="3500" data-pause="hover">
       <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselIndicators" data-slide-to="3"></li>
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -168,15 +168,17 @@
       <div class="col-lg p-3 bg-light">
         <a href="#" class="feature-item">
           <div class="d-flex justify-content-center align-items-center flex-column">
-            <i class="fas fa-toilet-paper fa-3x my-2"></i>
+          <img src="{{ asset('images/svg/trac_nghiem.svg') }}" alt="" class="my-2 text-green" width="45">
             <p class="text-center">BÀI TEST CHỌN NGÀNH NGHỀ</p>
           </div>
         </a>
       </div>
-      <div class="col-lg p-3 bg-success">
+      <div class="col-lg p-3 bg-green">
         <a href="" class="feature-item">
           <div class="d-flex justify-content-center align-items-center flex-column text-white">
-            <i class="fas fa-pencil-alt fa-3x  my-2"></i>
+            
+          <i class="fas fa-pencil-alt fa-3x my-2"></i>
+            
             <p class="text-center">ĐĂNG KÝ TƯ VẤN</p>
           </div>
         </a>
@@ -184,12 +186,12 @@
       <div class="col-lg p-3 bg-light">
         <a href="#" class="feature-item">
           <div class="d-flex justify-content-center align-items-center flex-column">
-            <i class="fas fa-search fa-3x my-2"></i>
+            <i class="fas fa-search fa-3x my-2  text-green"></i>
             <p class="text-center">TRA CỨU</p>
           </div>
         </a>
       </div>
-      <div class="col-lg p-3 bg-success">
+      <div class="col-lg p-3 bg-green">
         <a href="#" class="feature-item">
           <div class="d-flex justify-content-center align-items-center flex-column text-white">
             <i class="fas fa-gift fa-3x my-2"></i>
@@ -200,7 +202,7 @@
       <div class="col-lg p-3 bg-light">
         <a href="#" class="feature-item">
           <div class="d-flex justify-content-center align-items-center flex-column">
-            <i class="fas fa-tv fa-3x my-2"></i>
+            <i class="fas fa-tv fa-3x my-2 text-green"></i>
             <p class="text-center">ĐĂNG KÝ DỰ TUYỂN ONLINE</p>
           </div>
         </a>

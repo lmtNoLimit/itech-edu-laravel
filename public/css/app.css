@@ -1,3 +1,10 @@
+.bg-green {
+    background: #128a43;
+}
+.text-green {
+    color: #128a43;
+}
+
 #app {
     background: #ededed;
 }
@@ -36,7 +43,6 @@
 
 #navbar {
     padding: 0 16px;
-    background: #309F5A;
 }
 
 #navbar .nav-link {
@@ -48,10 +54,6 @@
     /* color: #309F5A !important; */
 }
 
-#footer {
-    background: #309F5A;
-}
-
 .active {
     background: #5bc082;
 }
@@ -61,6 +63,7 @@
 }
 
 .dropdown-menu {
+    min-width: 100px;
     padding: 0;
     top: 38px;
     left: unset;
@@ -122,4 +125,8 @@
 
 .feature-item:nth-of-type(even) {
     color: #fff
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
 }

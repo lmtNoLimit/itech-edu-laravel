@@ -65,7 +65,7 @@ class LoginController extends Controller
         ])) {
             return redirect()->intended('/admin/students');
         }
-        return back()->withInput($request->only('username'));
+        return back()->withInput($request->only('username'))->with('error', "Tài khoản hoặc mật khẩu không đúng");
     }
 
     public function userLogin(Request $request)
