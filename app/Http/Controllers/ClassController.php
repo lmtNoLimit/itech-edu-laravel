@@ -16,7 +16,6 @@ class ClassController extends Controller
     public function index()
     {
         $classes = Classes::all();
-        // dd($classes);
         return view('admin/classes/index', [
             'classes' => $classes
         ]);
@@ -94,7 +93,7 @@ class ClassController extends Controller
 
     public function destroy($id)
     {
-        try{
+        try {
             $class = Classes::find($id);
             $class->delete();
             return redirect('/admin/classes')->with('success' , "Classes successfully removed");
@@ -102,6 +101,6 @@ class ClassController extends Controller
         catch(\Thorowable $t){
             return redirect('/admin/clases')->with('error',"Faile to remove class");
         }
-
     }
+
 }

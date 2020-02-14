@@ -123,3 +123,7 @@
 .feature-item:nth-of-type(even) {
     color: #fff
 }
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
