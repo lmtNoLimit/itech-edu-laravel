@@ -62,6 +62,11 @@
           <i class="fas fa-poll"></i>
           <span>Quản lý điểm</span></a>
       </li>
+      <li class="nav-item {{ request()->is('admin/registrations') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/registrations">
+          <i class="fas fa-address-card"></i>
+          <span>Quản lý đăng ký</span></a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

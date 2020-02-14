@@ -89,7 +89,7 @@
   </div>
   </header>
 
-  <nav id="navbar" class="navbar navbar-expand-md">
+  <nav id="navbar" class="navbar navbar-expand-md bg-green">
     <div class="container">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
@@ -194,7 +194,7 @@
     @yield('content')
   </main>
 
-  <footer id="footer" class="py-5">
+  <footer id="footer" class="py-5 bg-green">
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-6 d-flex justify-content-center">

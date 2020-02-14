@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRegistrationControllersTable extends Migration
+class CreateRegistrationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateRegistrationControllersTable extends Migration
      */
     public function up()
     {
-        Schema::create('registration_controllers', function (Blueprint $table) {
+        Schema::create('registrations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('phone');
-            $table->string('gmail');
+            $table->string('birthday');
+            $table->string('number');
+            $table->string('email');
             $table->string('type_of_education');
-            $table->string('majors');
-            $table->timestamps();
+            $table->string('course');
         });
     }
 
@@ -31,6 +31,6 @@ class CreateRegistrationControllersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registration_controllers');
+        Schema::dropIfExists('registrations');
     }
 }

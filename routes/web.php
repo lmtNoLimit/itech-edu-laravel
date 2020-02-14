@@ -26,3 +26,4 @@ Route::resource('/admin/courses', 'CourseController');
 Route::resource('/admin/news', 'NewsController');
 Route::resource('/admin/classes', 'ClassController');
 Route::resource('/admin/lessons', 'LessonController');
+Route::resource('/admin/registrations', 'RegistrationController');
