@@ -102,7 +102,7 @@
     </div>
   </section>
 
-  <section id="" class="mb-3">
+  <section id="banner-intro" class="mb-3">
     <div class="row">
       <div class="col-12">
         <img src="{{ asset('images/theo_hoc_tai_itech.jpg')}}" alt="Theo hoc tai itech" width="100%">
@@ -163,66 +163,105 @@
     </div>
   </section>
 
-  <section id="features" class="mt-3">
-    <div class="row px-3">
-      <div class="col-lg p-3 bg-light">
-        <a href="#" class="feature-item">
-          <div class="d-flex justify-content-center align-items-center flex-column">
-          <img src="{{ asset('images/svg/trac_nghiem.svg') }}" alt="" class="my-2 text-green" width="45">
-            <p class="text-center">BÀI TEST CHỌN NGÀNH NGHỀ</p>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg p-3 bg-green">
-        <a href="" class="feature-item">
-          <div class="d-flex justify-content-center align-items-center flex-column text-white">
-            
-          <i class="fas fa-pencil-alt fa-3x my-2"></i>
-            
-            <p class="text-center">ĐĂNG KÝ TƯ VẤN</p>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg p-3 bg-light">
-        <a href="#" class="feature-item">
-          <div class="d-flex justify-content-center align-items-center flex-column">
-            <i class="fas fa-search fa-3x my-2  text-green"></i>
-            <p class="text-center">TRA CỨU</p>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg p-3 bg-green">
-        <a href="#" class="feature-item">
-          <div class="d-flex justify-content-center align-items-center flex-column text-white">
-            <i class="fas fa-gift fa-3x my-2"></i>
-            <p class="text-center">HỌC BỔNG</p>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg p-3 bg-light">
-        <a href="#" class="feature-item">
-          <div class="d-flex justify-content-center align-items-center flex-column">
-            <i class="fas fa-tv fa-3x my-2 text-green"></i>
-            <p class="text-center">ĐĂNG KÝ DỰ TUYỂN ONLINE</p>
-          </div>
-        </a>
-      </div>
+  <section id="news" class="my-3 bg-light">
 
+    <h2 class="mx-3 pt-3">Tin Tức</h2>
+    <div class="row" style="padding: 0 1rem">
+      <div class="col-lg-6 col-md-12 my-3">
+        <div class="card border-0 mb-3">
+          <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap" height="300">
+          <div class="card-body bg-light px-0">
+            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, nesciunt impedit!
+              Voluptatibus.</h5>
+            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi delectus molestiae
+              necessitatibus ex ducimus pariatur esse cumque optio, officiis, minus quas, cupiditate possimus quis
+              accusantium laboriosam! Quas impedit ipsam rem..</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 my-3">
+        {{-- <h3>Danh sách tin tức</h3> --}}
+        <div style="max-height: 500px; overflow: auto">
+
+          @for ($i = 0; $i < 5; $i++) <div class="card border-0 mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" class="card-img" alt="..." style="height: 100%">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to</p>
+                </div>
+              </div>
+            </div>
+        </div>
+        @endfor
+      </div>
     </div>
-  </section>
+</div>
+</section>
 
-  <section id="facebook">
-			<div id="fb-root"></div>
-				<script>(function(d, s, id) {
+<section id="features" class="mt-3">
+  <div class="row px-3">
+    <div class="col-lg p-3 bg-light">
+      <a href="#" class="feature-item">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <img src="{{ asset('images/svg/trac_nghiem.svg') }}" alt="" class="my-2 text-green" width="45">
+          <p class="text-center">BÀI TEST CHỌN NGÀNH NGHỀ</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-lg p-3 bg-green">
+      <a href="" class="feature-item">
+        <div class="d-flex justify-content-center align-items-center flex-column text-white">
+          <i class="fas fa-pencil-alt fa-3x my-2"></i>
+          <p class="text-center">ĐĂNG KÝ TƯ VẤN</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-lg p-3 bg-light">
+      <a href="#" class="feature-item">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <i class="fas fa-search fa-3x my-2  text-green"></i>
+          <p class="text-center">TRA CỨU</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-lg p-3 bg-green">
+      <a href="#" class="feature-item">
+        <div class="d-flex justify-content-center align-items-center flex-column text-white">
+          <i class="fas fa-gift fa-3x my-2"></i>
+          <p class="text-center">HỌC BỔNG</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-lg p-3 bg-light">
+      <a href="#" class="feature-item">
+        <div class="d-flex justify-content-center align-items-center flex-column">
+          <i class="fas fa-tv fa-3x my-2 text-green"></i>
+          <p class="text-center">ĐĂNG KÝ DỰ TUYỂN ONLINE</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="facebook">
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
 				  var js, fjs = d.getElementsByTagName(s)[0];
 				  if (d.getElementById(id)) return;
 				  js = d.createElement(s); js.id = id;
 				  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=297302807515934&autoLogAppEvents=1';
 				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));</script>
-			<div class="container">
-				<div class="fb-comments" data-href="http://i-tech.edu.vn/" data-numposts="5" data-width="100%" data-order-by="reverse_time"></div>
-			</div>
-		</section>
+				}(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div class="container">
+    <div class="fb-comments" data-href="http://i-tech.edu.vn/" data-numposts="5" data-width="100%"
+      data-order-by="reverse_time"></div>
+  </div>
+</section>
 </div>
 @endsection
