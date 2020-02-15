@@ -12,20 +12,16 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
-
   <!-- Fonts -->
   <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+  {{-- <link rel="stylesheet" href="{{ asset('css/animate.css') }}"> --}}
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 
-<body>
+<body class="custom-scrollbar">
   <div id="app">
     <header id="header" class="navbar navbar-expand-md navbar-dark shadow-sm">
       <div class="container">
@@ -109,33 +105,33 @@
               <li class="nav-item"><a class="nav-link text-dark" href=" #">Cao đẳng chất lượng cao</a></li>
               <li class="dropdown-divider"></li>
               <li class="nav-item dropdown-submenu">
-                <a href="#" class="nav-link text-dark">Các khoá học ngắn hạn</a>
+                <span class="nav-link text-dark">Các khoá học ngắn hạn</span>
                 <ul class="dropdown-menu" style="width: 400px">
-                  <li class="nav-item"><a class="nav-link text-dark href=" #">Giải pháp hạ tầng mạng trong doanh
+                  <li class="nav-item"><a class="nav-link text-dark" href="/ccna">Giải pháp hạ tầng mạng trong doanh
                       nghiệp
                       (CCNA)</a></li>
                   <li class="dropdown-divider"></li>
 
-                  <a class="nav-link text-dark href=" #">
+                  <a class="nav-link text-dark" href="/mcsa">
                     <li class="nav-item">
                       Giải pháp dịch vụ mạng trong doanh
                       nghiệp
-                      (MSNA)
+                      (MCSA)
                     </li>
                   </a>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-item"><a class="nav-link text-dark href=" #">Quản trị server Linux</a></li>
+                  <li class="nav-item"><a class="nav-link text-dark" href="/linux">Quản trị server Linux</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-item"><a class="nav-link text-dark href=" #">Hacker mũ trắng (CEH)</a></li>
+                  <li class="nav-item"><a class="nav-link text-dark" href="/ceh">Hacker mũ trắng (CEH)</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-item"><a class="nav-link text-dark href=" #">Chuyên gia điều tra tội phạm mạng
+                  <li class="nav-item"><a class="nav-link text-dark" href="/chfi">Chuyên gia điều tra tội phạm mạng
                       (CHFI)</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-item"><a class="nav-link text-dark href=" #">Lập trình PHP</a></li>
+                  <li class="nav-item"><a class="nav-link text-dark" href="/php">Lập trình PHP</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-item"><a class="nav-link text-dark href=" #">Lập trình Android</a></li>
+                  <li class="nav-item"><a class="nav-link text-dark" href="/android">Lập trình Android</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-item"><a class="nav-link text-dark href=" #">Thiết kế đồ hoạ</a></li>
+                  <li class="nav-item"><a class="nav-link text-dark" href="/graphic">Thiết kế đồ hoạ</a></li>
                 </ul>
               </li>
             </ul>
@@ -179,8 +175,21 @@
           <li class="nav-item">
             <a class="nav-link px-3" href="#">HỘI NHẬP QUỐC TẾ</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#">SINH VIÊN</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link px-3 dropdown-toggle" data-toggle="dropdown" href="#">SINH VIÊN</a>
+            <ul class="dropdown-menu" style="width: 130px">
+              <li class="nav-item">
+                <a href="#" class="nav-link text-dark">Thời khoá biểu</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-item dropdown-submenu">
+                <a href="#" class="nav-link text-dark">Bảng điểm</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="nav-item dropdown-submenu">
+                <a href="#" class="nav-link text-dark">Mẫu văn bản</a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link px-3" href="#">LIÊN HỆ</a>

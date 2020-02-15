@@ -132,7 +132,7 @@
       </div>
       <div class="col-lg-6 col-md-12 my-3">
         <h2>CÂU HỎI</h2>
-        <div style="max-height: 480px; overflow: auto">
+        <div class="custom-scrollbar" style="max-height: 470px; overflow: auto">
           <ul class="list-group">
             @for ($i = 0; $i < sizeof($questions); $i++) <li class="list-group-item">
               <a class="text-dark" href="#">{{$i+1}}. {{$questions[$i]}}</a>
@@ -156,7 +156,7 @@
         <div class="card border-0 mb-3">
           <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap" height="300">
           <div class="card-body bg-light px-0">
-            <h5 class="card-title">{{$news['0']->title}}</h5>
+            <h5 class="card-title">{{$news['0']->title ?? ''}}</h5>
             <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi delectus molestiae
               necessitatibus ex ducimus pariatur esse cumque optio, officiis, minus quas, cupiditate possimus quis
               accusantium laboriosam! Quas impedit ipsam rem..</p>
@@ -164,7 +164,8 @@
         </div>
       </div>
       <div class="col-lg-6 col-md-12 my-3">
-        <div style="max-height: 500px; overflow: auto">
+        <div class="custom-scrollbar" style="max-height: 500px; overflow: auto">
+          @if($news)
           @for($i = 1; $i < sizeof($news); $i++) <div class="card border-0 mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
@@ -179,6 +180,7 @@
             </div>
         </div>
         @endfor
+        @endif
       </div>
     </div>
 </div>

@@ -26,12 +26,15 @@
         @foreach ($classes as $class)
         <tr>
           <th scope="row">{{$class->class_id}}</th>
-          <td>{{$class->name}}</td>
+          <td>
+            <a href="/admin/classes/{{$class->class_id}}" class="text-dark">
+              {{$class->name}}
+            </a>
+          </td>
           <td>{{$class->year}}</td>
           <td>{{$class->majors_id}}</td>
           <td>
             <form class="form-inline" action="/admin/classes/{{$class->class_id}}" method="POST">
-              <a href="/admin/classes/{{$class->class_id}}" class="btn btn-sm btn-info mr-1">Danh sách sinh viên</a>
               <a href="/admin/classes/{{$class->class_id}}/addStudent" class="btn btn-sm btn-info mr-1">Thêm sinh
                 viên</a>
               <a href="/admin/classes/{{$class->class_id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>

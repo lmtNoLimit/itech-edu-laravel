@@ -12,12 +12,7 @@
 
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
   <!-- Custom styles for this template-->
-  <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('css/admin.min.css') }}">
 
 </head>
@@ -83,6 +78,7 @@
             <i class="fa fa-bars"></i>
           </button>
           <!-- Topbar Navbar -->
+
           <ul class="navbar-nav ml-auto">
             {{-- <div class="topbar-divider d-none d-sm-block"></div> --}}
 
@@ -150,8 +146,7 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
   </script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <!-- Custom scripts for all pages-->
-  <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+  <script src="{{ asset('js/admin.min.js') }}"></script>
 
 </body>
 
