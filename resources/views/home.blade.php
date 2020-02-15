@@ -60,7 +60,7 @@
     </div>
     <div class="row no-gutters">
       <div class="col-md-3">
-        <div class="card border-0 mb-3">
+        <div class="card border-0">
           <a class="text-white" href="#">
             <img src="{{ asset('images/lap_trinh_ai.jpg') }}" alt="Du lịch khách sạn" width="100%">
             <div class="card-img-overlay d-flex align-items-end">
@@ -117,62 +117,46 @@
         <div class="card border-0 mb-3">
           <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap" height="300">
           <div class="card-body bg-light px-0">
-            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, nesciunt impedit!
-              Voluptatibus.</h5>
+            <h5 class="card-title">Card title</h5>
             <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi delectus molestiae
               necessitatibus ex ducimus pariatur esse cumque optio, officiis, minus quas, cupiditate possimus quis
               accusantium laboriosam! Quas impedit ipsam rem..</p>
           </div>
         </div>
         <div class="d-flex justify-content-center mt-3">
-          <a href="#" class="btn btn-outline-warning">XEM TẤT CẢ</a>
+
+          <a href="#" class="btn btn-outline-warning">XEM TẤT CẢ
+            <i class="fas fa-angle-right"></i>
+          </a>
         </div>
       </div>
       <div class="col-lg-6 col-md-12 my-3">
         <h2>CÂU HỎI</h2>
-        <div style="max-height: 500px; overflow: auto">
+        <div style="max-height: 480px; overflow: auto">
           <ul class="list-group">
-            <li class="list-group-item">1. Điều kiện tuyển sinh của Viện Đào tạo CNTT Quốc tế I-Tech là gì?</li>
-            <li class="list-group-item">2. Trình độ Tiếng Anh chưa tốt có đủ điều kiện học tại Viện Đào tạo CNTT Quốc
-              tế
-              I-Tech không?</li>
-            <li class="list-group-item">3. Khi đã có người thân học tại Viện Đào tạo CNTT Quốc tế I-Tech thì khi nhập
-              học
-              có được giảm học phí không?</li>
-            <li class="list-group-item">4. Trong chương trình học có kỳ thực tập doanh nghiệp không? Em sẽ được tự chọn
-              chỗ thực tập không hay nhà
-              trường sắp xếp? Và thực tập có lương hay không?</li>
-            <li class="list-group-item"> 5. Tại Viện Đào tạo CNTT Quốc tế I-Tech, mỗi lớp có bao nhiêu sinh viên?</li>
-            <li class="list-group-item"> 6. Ngành Quản trị và bảo mật hệ thống mạng sinh viên học tại Viện Đào tạo CNTT
-              Quốc tế I-Tech có điểm gì nổi
-              bật so với những Trường khác?</li>
-            <li class="list-group-item"> 7. Học lập trình tại Viện Đào tạo CNTT Quốc tế I-Tech ra trường làm những công
-              việc gì?</li>
-            <li class="list-group-item"> 8. Giữa Phần mềm và An toàn thông tin, ngành nào khó học hơn, ngành nào dễ kiếm
-              việc hơn?</li>
-            <li class="list-group-item"> 9. Ngành Thiết kế đồ họa sinh viên học tại Viện Đào tạo CNTT Quốc tế I-Tech có
-              nơi để thực tập không?</li>
-            <li class="list-group-item">10. Sinh viên học tại Viện Đào tạo CNTT Quốc tế I-Tech có thể đi du học ở nước
-              ngoài được không?</li>
+            @for ($i = 0; $i < sizeof($questions); $i++) <li class="list-group-item">
+              <a class="text-dark" href="#">{{$i+1}}. {{$questions[$i]}}</a>
+              </li>
+              @endfor
           </ul>
         </div>
         <div class="d-flex justify-content-center mt-3">
-          <a href="#" class="btn btn-outline-success">XEM TẤT CẢ</a>
+          <a href="#" class="btn btn-outline-success">XEM TẤT CẢ
+            <i class="fas fa-angle-right"></i>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <section id="news" class="my-3 bg-light">
-
-    <h2 class="mx-3 pt-3">Tin Tức</h2>
+    <h2 class="mx-3 pt-3 text-center">Tin Tức</h2>
     <div class="row" style="padding: 0 1rem">
       <div class="col-lg-6 col-md-12 my-3">
         <div class="card border-0 mb-3">
           <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap" height="300">
           <div class="card-body bg-light px-0">
-            <h5 class="card-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, nesciunt impedit!
-              Voluptatibus.</h5>
+            <h5 class="card-title">{{$news['0']->title}}</h5>
             <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi delectus molestiae
               necessitatibus ex ducimus pariatur esse cumque optio, officiis, minus quas, cupiditate possimus quis
               accusantium laboriosam! Quas impedit ipsam rem..</p>
@@ -180,16 +164,15 @@
         </div>
       </div>
       <div class="col-lg-6 col-md-12 my-3">
-        {{-- <h3>Danh sách tin tức</h3> --}}
         <div style="max-height: 500px; overflow: auto">
-          @for ($i = 0; $i < 5; $i++) <div class="card border-0 mb-3">
+          @for($i = 1; $i < sizeof($news); $i++) <div class="card border-0 mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="https://via.placeholder.com/150" class="card-img" alt="..." style="height: 100%">
+                <img src="" class="card-img" alt="..." style="height: 100%">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
+                  <h5 class="card-title">{{$news[$i]->title}}</h5>
                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to</p>
                 </div>
               </div>
@@ -198,6 +181,12 @@
         @endfor
       </div>
     </div>
+</div>
+<div class="d-flex justify-content-center py-3">
+  <a href="#" class="btn btn-outline-warning">
+    <span>XEM THÊM</span>
+    <i class="fas fa-angle-right"></i>
+  </a>
 </div>
 </section>
 

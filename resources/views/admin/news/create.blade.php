@@ -9,7 +9,7 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/news" method="POST">
+          <form action="/admin/news" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="title">Tiêu đề</label>
