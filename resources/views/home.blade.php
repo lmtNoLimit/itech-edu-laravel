@@ -182,7 +182,6 @@
       <div class="col-lg-6 col-md-12 my-3">
         {{-- <h3>Danh sách tin tức</h3> --}}
         <div style="max-height: 500px; overflow: auto">
-
           @for ($i = 0; $i < 5; $i++) <div class="card border-0 mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">

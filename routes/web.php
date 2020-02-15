@@ -21,7 +21,7 @@ Route::post('/login', 'Auth\LoginController@userLogin');
 Route::post('/register', 'Auth\RegisterController@create');
 
 // admin routes
-Route::resource('/admin/students', 'StudentController');
+Route::resource('/admin/students', 'StudentController')->except(['show']);
 Route::resource('/admin/courses', 'CourseController');
 Route::resource('/admin/news', 'NewsController');
 Route::resource('/admin/classes', 'ClassController');
@@ -31,3 +31,4 @@ Route::resource('/admin/registrations', 'RegistrationController');
 
 Route::get('/admin/classes/{classId}/addStudent', 'ClassController@getAddStudent');
 Route::post('/admin/classes/{classId}', 'ClassController@postAddStudent');
+Route::get('/admin/students/export', 'ExcelController@export')->name('export');
