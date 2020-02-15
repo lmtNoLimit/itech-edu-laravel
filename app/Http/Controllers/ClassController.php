@@ -54,8 +54,11 @@ class ClassController extends Controller
     }
 
     public function show($classId){
-        $studentIds = StudentClass::select("student_id")->get();
-        $students = User::whereIn("users.id", $studentIds)->get();
+        $students = User::join("student_classes", "users.id", "=", "student_id")
+            ->join("classes", "classes.slug", "=", "class_id")
+            ->where("class_id", $classId)
+            ->select("users.id", "users.name", "gender", "birthday", "address", "phone")
+            ->get();
         $class = Classes::where("slug", $classId)->first();
         return view("admin/classes/show", [
             'students' => $students,

@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container-fluid">
+  @include('message')
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Danh sách sinh viên</h1>
   </div>
@@ -27,12 +28,32 @@
           <td>{{$student->address}}</td>
           <td>{{$student->phone}}</td>
           <td>
-            <form class="form-inline" action="/admin/classes/{{$class->slug}}" method="POST">
-              @csrf
-              <input type="hidden" name="class_id" value={{$class->slug}}>
-              <input type="hidden" name="student_id" value={{$student->id}}>
-              <button type="submit" class="btn btn-success btn-sm">Thêm</button>              
-            </form>
+            <button data-toggle="modal" data-target="#addModal" class="btn btn-sm btn-success">Thêm</button>
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header border-0">
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn thêm {{$student->name}} vào lớp
+                      {{$class->slug}}?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                  <div class="modal-footer border-0">
+                    <form class="form-inline" action="/admin/classes/{{$class->slug}}" method="POST">
+                      @csrf
+                      <input type="hidden" name="class_id" value={{$class->slug}}>
+                      <input type="hidden" name="student_id" value={{$student->id}}>
+                      <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" aria-label="Close">
+                        Huỷ
+                      </button>
+                      <button type="submit" class="btn btn-success btn-sm ml-2">Thêm</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </td>
         </tr>
         @endforeach
@@ -40,4 +61,5 @@
     </table>
   </div>
 </div>
+
 @endsection
