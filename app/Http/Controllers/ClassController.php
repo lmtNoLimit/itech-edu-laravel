@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Hash;
 use App\Classes;
+use App\Course;
+use App\User;
+use App\StudentClass;
 
 class ClassController extends Controller
 {
@@ -16,6 +19,7 @@ class ClassController extends Controller
     public function index()
     {
         $classes = Classes::all();
+        
         return view('admin/classes/index', [
             'classes' => $classes
         ]);
@@ -23,7 +27,40 @@ class ClassController extends Controller
 
     public function create()
     {
-        return view('admin/classes/create');
+        $courses = Course::all();
+        return view('admin/classes/create', [
+            'courses' => $courses
+        ]);
+    }
+
+    public function getAddStudent($classId){
+        $studentIds = StudentClass::select("student_id")->get();
+        $students = User::whereNotIn("users.id", $studentIds)->get();
+        $class = Classes::where("slug", $classId)->first();
+        return view("admin/classes/addStudent", [
+            'students' => $students,
+            'class' => $class
+        ]);
+    }
+
+    public function postAddStudent(Request $request, $classId){
+        // dd($studentId, $classId);
+        $classId = $request->input("class_id");
+        StudentClass::create([
+            'class_id' => $classId,
+            'student_id' => $request->input('student_id')
+        ]);
+        return redirect("/admin/classes/$classId/addStudent")->with("success", "Thêm thành công");
+    }
+
+    public function show($classId){
+        $studentIds = StudentClass::select("student_id")->get();
+        $students = User::whereIn("users.id", $studentIds)->get();
+        $class = Classes::where("slug", $classId)->first();
+        return view("admin/classes/show", [
+            'students' => $students,
+            'class' => $class
+        ]);
     }
 
     public function store(Request $request)

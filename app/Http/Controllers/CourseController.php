@@ -26,21 +26,21 @@ class CourseController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'id' => 'required',
+            'course_id' => 'required',
             'name' => 'required',
             'type' => 'required',
         ]);
         Course::create([
-            'id' => $data['id'],
+            'course_id' => $data['course_id'],
             'name' => $data['name'],
             'type' => $data['type']
         ]);
         return redirect('/admin/courses')->with('success', "User successfully created");
     }
 
-    public function edit($id)
+    public function edit($course_id)
     {
-        $course = Course::findOrFail($id);
+        $course = Course::findOrFail($course_id);
         return view('admin/courses/edit', [
             'course' => $course
         ]);
@@ -49,12 +49,12 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-          'id' => 'required',
+          'course_id' => 'required',
             'name' => 'required',
             'type' => 'required', 
         ];
         $messages = [
-          'id.required' => 'nhập đủ',
+          'course_id.required' => 'Yêu cầu nhập mã ngành',
           'name.required' => 'Yêu cầu nhập tên ngành',
           'type.required' => 'Yêu cầu nhập đầy đủ',
         ]; 
@@ -62,7 +62,7 @@ class CourseController extends Controller
         if($validtor->fails()){
           return redirect()->back()->withErrors($validtor)->withInput();
         }else{
-          Course::where("id",$id)->update([
+          Course::where("course_id",$course_id)->update([
             'name' => $request->input('name'),
             'type' => $request->input('type'),
           ]);
@@ -71,10 +71,10 @@ class CourseController extends Controller
         return redirect("/admin/courses")->with("error", "Cập nhật thông tin không thành công");
     }
 
-    public function destroy($id)
+    public function destroy($course_id)
     {
         try{
-            $course = Course::find($id);
+            $course = Course::find($course_id);
             $course ->delete();
             return redirect('/admin/courses')->with('success', "User successfully removed");
         } catch (\Throwable $th){

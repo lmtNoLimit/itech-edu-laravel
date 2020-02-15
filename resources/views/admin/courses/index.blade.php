@@ -24,7 +24,7 @@
       <tbody>
         @foreach($courses as $course)
         <tr>
-          <th scope="row">{{$course->id}}</th>
+          <th scope="row">{{$course->course_id}}</th>
           <td>{{$course->name}}</td>
           <td>{{$course->type == "short_term" ? "Ngắn hạn" : "Dài hạn"}}</td>
           <td>

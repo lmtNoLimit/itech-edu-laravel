@@ -27,3 +27,7 @@ Route::resource('/admin/news', 'NewsController');
 Route::resource('/admin/classes', 'ClassController');
 Route::resource('/admin/lessons', 'LessonController');
 Route::resource('/admin/registrations', 'RegistrationController');
+
+
+Route::get('/admin/classes/{classId}/addStudent', 'ClassController@getAddStudent');
+Route::post('/admin/classes/{classId}', 'ClassController@postAddStudent');

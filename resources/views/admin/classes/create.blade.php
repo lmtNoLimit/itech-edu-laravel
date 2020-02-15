@@ -50,8 +50,13 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="course_id">Mã ngành</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control @error('course_id') is-invalid @enderror" id="course_id"
-                  name="course_id" value="{{old('course_id') }}">
+                
+              <select class="form-control" id="name" name="course_id">
+                @foreach ($courses as $course)
+                  <option value="{{$course->course_id}}">{{$course->course_id.' - '.$course->name}}</option>  
+                @endforeach
+                </select>
+
                 @error('course_id')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

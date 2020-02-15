@@ -15,5 +15,5 @@ class Course extends Model
     {
         return $this->hasMany(Classes::class);
     }
-    protected $fillable = ['id', 'name', 'type'];
+    protected $fillable = ['id','course_id', 'name', 'type'];
 }

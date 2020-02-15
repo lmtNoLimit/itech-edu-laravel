@@ -12,11 +12,11 @@
           <form action="/admin/courses" method="POST">
           @csrf
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="id">Mã ngành</label>
+              <label class="col-sm-2 col-form-label" for="course_id">Mã ngành</label>
               <div class="col-sm-10">
-                <input type="text" name="id" class="form-control @error('id') is-invalid @enderror" id="name"
-                  value="{{ old('id') }}">
-                @error('id')
+                <input type="text" name="course_id" class="form-control @error('course_id') is-invalid @enderror" id="name"
+                  value="{{ old('course_id') }}">
+                @error('course_id')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>

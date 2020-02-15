@@ -14,24 +14,28 @@
           <th scope="col">Ngày sinh</th>
           <th scope="col">Địa chỉ</th>
           <th scope="col">Số điện thoại</th>
+          <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        {{-- @foreach ($students as $classID) -->
+        @foreach ($students as $student)
         <tr>
-          <th scope="row">{{$classes->class_id}}</th>
-          <td>{{$students->students_id}}</td>
+          <th scope="row">{{$student->id}}</th>
+          <td>{{$student->name}}</td>
+          <td>{{$student->gender == 1 ? "Nữ" : "Nam"}}</td>
+          <td>{{$student->birthday}}</td>
+          <td>{{$student->address}}</td>
+          <td>{{$student->phone}}</td>
           <td>
-            <form class="form-inline" action="/admin/classes/{{$class->id}}" method="POST">
-              <a href="/admin/classes/{{$class->id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
-              @method('DELETE')
+            <form class="form-inline" action="/admin/classes/{{$class->slug}}" method="POST">
               @csrf
-              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-              
+              <input type="hidden" name="class_id" value={{$class->slug}}>
+              <input type="hidden" name="student_id" value={{$student->id}}>
+              <button type="submit" class="btn btn-success btn-sm">Thêm</button>              
             </form>
           </td>
         </tr>
-        <!-- @endforeach --}}
+        @endforeach
       </tbody>
     </table>
   </div>

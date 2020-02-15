@@ -30,8 +30,10 @@
           <td>{{$class->year}}</td>
           <td>{{$class->course_id}}</td>
           <td>
-            <form class="form-inline" action="/admin/classes/{{$class->id}}" method="POST">
-              <a href="/admin/classes/{{$class->id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
+            <form class="form-inline" action="/admin/classes/{{$class->slug}}" method="POST">
+              <a href="/admin/classes/{{$class->slug}}" class="btn btn-sm btn-info mr-1">Danh sách sinh viên</a>
+              <a href="/admin/classes/{{$class->slug}}/addStudent" class="btn btn-sm btn-info mr-1">Thêm sinh viên</a>
+              <a href="/admin/classes/{{$class->slug}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
               @method('DELETE')
               @csrf
               <button type="submit" class="btn btn-sm btn-danger">Delete</button>
