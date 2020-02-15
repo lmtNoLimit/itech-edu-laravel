@@ -8,32 +8,42 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/classes/{{$class->id}}" method="POST">
+          <form action="/admin/classes/{{$class->class_id}}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="slug">Mã lớp</label>
+              <label class="col-sm-2 col-form-label" for="class_id">Mã lớp</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="slug" value="{{$class->slug}}" disabled>
+                <input type="text" class="form-control" id="class_id" value="{{ $class->class_id }}" disabled>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="majors_id" id="majors_id"
+                  value="{{old('majors_id',  $class->majors_id)}}">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Tên lớp</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="name" id="name" value="{{old('name', $class->name)}}">
+                @error('name')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="year">Năm</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" name="year" id="year" value="{{old('year', $class->year)}}">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="course_id">Mã ngành</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" name="course_id" id="course_id"
-                  value="{{old('course_id',  $class->course_id)}}">
+                @error('year')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
             </div>
             <div class="form-group text-center">

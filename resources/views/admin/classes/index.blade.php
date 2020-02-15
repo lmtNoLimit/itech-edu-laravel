@@ -25,15 +25,16 @@
       <tbody>
         @foreach ($classes as $class)
         <tr>
-          <th scope="row">{{$class->slug}}</th>
+          <th scope="row">{{$class->class_id}}</th>
           <td>{{$class->name}}</td>
           <td>{{$class->year}}</td>
-          <td>{{$class->course_id}}</td>
+          <td>{{$class->majors_id}}</td>
           <td>
-            <form class="form-inline" action="/admin/classes/{{$class->slug}}" method="POST">
-              <a href="/admin/classes/{{$class->slug}}" class="btn btn-sm btn-info mr-1">Danh sách sinh viên</a>
-              <a href="/admin/classes/{{$class->slug}}/addStudent" class="btn btn-sm btn-info mr-1">Thêm sinh viên</a>
-              <a href="/admin/classes/{{$class->slug}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
+            <form class="form-inline" action="/admin/classes/{{$class->class_id}}" method="POST">
+              <a href="/admin/classes/{{$class->class_id}}" class="btn btn-sm btn-info mr-1">Danh sách sinh viên</a>
+              <a href="/admin/classes/{{$class->class_id}}/addStudent" class="btn btn-sm btn-info mr-1">Thêm sinh
+                viên</a>
+              <a href="/admin/classes/{{$class->class_id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
               @method('DELETE')
               @csrf
               <button type="submit" class="btn btn-sm btn-danger">Delete</button>

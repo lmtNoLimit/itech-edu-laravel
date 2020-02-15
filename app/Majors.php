@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Majors extends Model
 {
+    protected $fillable = ['id','majors_id', 'name', 'type_of_education'];
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
@@ -15,5 +16,4 @@ class Course extends Model
     {
         return $this->hasMany(Classes::class);
     }
-    protected $fillable = ['id','course_id', 'name', 'type'];
 }

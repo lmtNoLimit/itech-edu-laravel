@@ -27,10 +27,10 @@
           <td>{{$student->address}}</td>
           <td>{{$student->phone}}</td>
           <td>
-            <form class="form-inline" action="/admin/classes/{{$class->slug}}" method="POST">
+            <form class="form-inline" action="/admin/classes/{{$class->class_id}}" method="POST">
               @csrf
               @method('DELETE')
-              <button type="submit" class="btn btn-danger btn-sm">Xoá</button>              
+              <button type="submit" class="btn btn-danger btn-sm">Xoá</button>
             </form>
           </td>
         </tr>

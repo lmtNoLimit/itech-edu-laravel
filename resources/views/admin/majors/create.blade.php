@@ -9,14 +9,14 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/courses" method="POST">
-          @csrf
+          <form action="/admin/majors" method="POST">
+            @csrf
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="course_id">Mã ngành</label>
+              <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
               <div class="col-sm-10">
-                <input type="text" name="course_id" class="form-control @error('course_id') is-invalid @enderror" id="name"
-                  value="{{ old('course_id') }}">
-                @error('course_id')
+                <input type="text" name="majors_id" class="form-control @error('majors_id') is-invalid @enderror"
+                  id="name" value="{{ old('majors_id') }}">
+                @error('majors_id')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
@@ -36,24 +36,23 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="type">Loại hình đào tạo</label>
+              <label class="col-sm-2 col-form-label" for="type_of_education">Loại hình đào tạo</label>
               <div class="col-sm-10">
-                <select class="form-control" id="name" name="type">
+                <select class="form-control" id="name" name="type_of_education">
                   <option value="short_term">Ngắn hạn</option>
                   <option value="long_term">Dài hạn</option>
                 </select>
               </div>
             </div>
-            </div>
-            <div class="form-group text-center">
-              <a href="/admin/courses" class="btn btn-secondary">Cancel</a>
-              <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-          </form>
         </div>
+        <div class="form-group text-center">
+          <a href="/admin/majors" class="btn btn-secondary">Cancel</a>
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+        </form>
       </div>
     </div>
   </div>
 </div>
+</div>
 @endsection
-

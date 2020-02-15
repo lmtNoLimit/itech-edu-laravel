@@ -6,17 +6,18 @@
   </div>
 
   <div class="row">
-  <div class="col">
+    <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/courses/{{$course->id}}" method="POST">
+          <form action="/admin/majors/{{$majors->majors_id}}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="id">Mã ngành</label>
+              <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="id" id="name" value="{{old('id', $course->id)}}">
-                @error('id')
+                <input type="text" class="form-control" name="majors_id" id="majors_id"
+                  value="{{old('majors_id', $majors->majors_id)}}">
+                @error('majors_id')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
@@ -26,7 +27,7 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Tên ngành</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" id="name" value="{{old('name', $course->name)}}">
+                <input type="text" class="form-control" name="name" id="name" value="{{old('name', $majors->name)}}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -35,21 +36,20 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="type">Loại hình đào tạo</label>
+              <label class="col-sm-2 col-form-label" for="type_of_education">Loại hình đào tạo</label>
               <div class="col-sm-10">
-              <select class="form-control" id="name" name="type">
-                  <option value="short_term">Ngắn hạn</option>
-                  <option value="long_term">Dài hạn</option>
+                <select class="form-control" id="name" name="type_of_education">
+                  <option value="short_term" @if($majors->type_of_education == "short_term") selected @endif>
+                    Ngắn hạn
+                  </option>
+                  <option value="long_term" @if($majors->type_of_education == "long_term") selected @endif>
+                    Dài hạn
+                  </option>
                 </select>
-                @error('birthday')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
               </div>
             </div>
             <div class="form-group text-center">
-              <a href="/admin/courses" class="btn btn-secondary">Cancel</a>
+              <a href="/admin/majors" class="btn btn-secondary">Cancel</a>
               <button type="submit" class="btn btn-success">Save Changes</button>
             </div>
           </form>
@@ -59,4 +59,3 @@
   </div>
 </div>
 @endsection
-

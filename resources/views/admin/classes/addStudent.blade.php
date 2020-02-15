@@ -35,15 +35,15 @@
                 <div class="modal-content">
                   <div class="modal-header border-0">
                     <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn thêm {{$student->name}} vào lớp
-                      {{$class->slug}}?</h5>
+                      {{$class->class_id}}?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
                   </div>
                   <div class="modal-footer border-0">
-                    <form class="form-inline" action="/admin/classes/{{$class->slug}}" method="POST">
+                    <form class="form-inline" action="/admin/classes/{{$class->class_id}}" method="POST">
                       @csrf
-                      <input type="hidden" name="class_id" value={{$class->slug}}>
+                      <input type="hidden" name="class_id" value={{$class->class_id}}>
                       <input type="hidden" name="student_id" value={{$student->id}}>
                       <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" aria-label="Close">
                         Huỷ

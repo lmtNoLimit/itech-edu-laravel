@@ -12,11 +12,11 @@
           <form action="/admin/classes" method="POST">
             @csrf
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="slug">Mã lớp</label>
+              <label class="col-sm-2 col-form-label" for="class_id">Mã lớp</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                  value="{{ old('slug') }}">
-                @error('slug')
+                <input type="text" class="form-control @error('class_id') is-invalid @enderror" id="class_id"
+                  name="class_id" value="{{ old('class_id') }}">
+                @error('class_id')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
@@ -48,16 +48,18 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="course_id">Mã ngành</label>
+              <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
               <div class="col-sm-10">
-                
-              <select class="form-control" id="name" name="course_id">
-                @foreach ($courses as $course)
-                  <option value="{{$course->course_id}}">{{$course->course_id.' - '.$course->name}}</option>  
-                @endforeach
+
+                <select class="form-control" id="name" name="majors_id">
+                  @foreach ($majors as $majorsItem)
+                  <option value="{{$majorsItem->majors_id}}">
+                    {{$majorsItem->majors_id.' - '.$majorsItem->name}}
+                  </option>
+                  @endforeach
                 </select>
 
-                @error('course_id')
+                @error('majors_id')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>

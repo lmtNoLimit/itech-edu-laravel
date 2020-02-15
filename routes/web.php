@@ -22,7 +22,7 @@ Route::post('/register', 'Auth\RegisterController@create');
 
 // admin routes
 Route::resource('/admin/students', 'StudentController')->except(['show']);
-Route::resource('/admin/courses', 'CourseController');
+Route::resource('/admin/majors', 'MajorsController');
 Route::resource('/admin/news', 'NewsController');
 Route::resource('/admin/classes', 'ClassController');
 Route::resource('/admin/lessons', 'LessonController');

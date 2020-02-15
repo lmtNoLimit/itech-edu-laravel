@@ -15,12 +15,13 @@ class CreateClassesTable extends Migration
     {
         Schema::create('classes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('slug');
+            $table->string('class_id');
+            $table->string('majors_id');
             $table->string('name');
             $table->string('year');
-            $table->string('course_id');
-            // $table->index('course_id');
             $table->timestamps();
+            
+            $table->index('majors_id');
         });
     }
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Hash;
 use App\Classes;
-use App\Course;
+use App\Majors;
 use App\User;
 use App\StudentClass;
 
@@ -27,16 +27,16 @@ class ClassController extends Controller
 
     public function create()
     {
-        $courses = Course::all();
+        $majors = Majors::all();
         return view('admin/classes/create', [
-            'courses' => $courses
+            'majors' => $majors
         ]);
     }
 
     public function getAddStudent($classId){
         $studentIds = StudentClass::select("student_id")->get();
         $students = User::whereNotIn("users.id", $studentIds)->get();
-        $class = Classes::where("slug", $classId)->first();
+        $class = Classes::where("class_id", $classId)->first();
         return view("admin/classes/addStudent", [
             'students' => $students,
             'class' => $class
@@ -44,7 +44,6 @@ class ClassController extends Controller
     }
 
     public function postAddStudent(Request $request, $classId){
-        // dd($studentId, $classId);
         $classId = $request->input("class_id");
         StudentClass::create([
             'class_id' => $classId,
@@ -55,11 +54,11 @@ class ClassController extends Controller
 
     public function show($classId){
         $students = User::join("student_classes", "users.id", "=", "student_id")
-            ->join("classes", "classes.slug", "=", "class_id")
-            ->where("class_id", $classId)
+            ->join("classes", "classes.class_id", "=", "student_classes.class_id")
+            ->where("classes.class_id", $classId)
             ->select("users.id", "users.name", "gender", "birthday", "address", "phone")
             ->get();
-        $class = Classes::where("slug", $classId)->first();
+        $class = Classes::where("class_id", $classId)->first();
         return view("admin/classes/show", [
             'students' => $students,
             'class' => $class
@@ -69,27 +68,27 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'slug' => 'required|unique:classes',
+            'class_id' => 'required|unique:classes',
             'name' => 'required',
             'year' => 'required',
-            'course_id' => 'required'
+            'majors_id' => 'required'
         ];
         $messages = [
-            'slug.unique' => "Mã lớp đã tồn tại",
-            'slug.required' => "Yêu cầu nhập mã lớp",
+            'class_id.unique' => "Mã lớp đã tồn tại",
+            'class_id.required' => "Yêu cầu nhập mã lớp",
             'name.required' => 'Tên không được để trống',
             'year.required' => 'Năm học không được để trống',
-            'course_id.required' => 'Mã khóa học không được',
+            'majors_id.required' => 'Mã khóa học không được',
         ];
         $validator = validator()->make($request->all(), $rules, $messages);
         if ($validator->fails()) {
           return redirect()->back()->withErrors($validator)->withInput();
         } else {
             Classes::create([
-                'slug' => $request->input('slug'),
+                'class_id' => $request->input('class_id'),
                 'name' => $request->input('name'),
                 'year' => $request->input('year'),
-                'course_id' => $request->input('course_id')
+                'majors_id' => $request->input('majors_id')
             ]);
             return redirect('/admin/classes')->with('success',"Thêm lớp thành công");
         }
@@ -99,32 +98,32 @@ class ClassController extends Controller
 
     public function edit($id)
     {
-        $class = Classes::findOrFail($id);
+        $class = Classes::where("class_id", $id)->first();
         return view('admin/classes/edit', [
             'class' => $class
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $classId)
     {
         $rules = [
             'name' => 'required',
             'year' => 'required',
-            'course_id' => 'required'
+            'majors_id' => 'required'
         ];
         $messages = [
-            'name.required' => 'Tên không được để trống',
-            'year.required' => 'Năm học không được để trống',
-            'course_id.required' => 'Mã khóa học không được',
+            'name.required' => 'Yêu cầu nhập tên lớp',
+            'year.required' => 'Yêu cầu nhập năm học',
+            'majors_id.required' => 'Mã khóa học không được',
         ];
         $validator = validator()->make($request->all(), $rules, $messages);
         if ($validator->fails()) {
           return redirect()->back()->withErrors($validator)->withInput();
         } else {
-            Classes::where("id", $id)->update([
+            Classes::where("class_id", $classId)->update([
                 'name' => $request->input('name'),
                 'year' => $request->input('year'),
-                'course_id' => $request->input('course_id')
+                'majors_id' => $request->input('majors_id')
             ]);
             return redirect('/admin/classes')->with('success',"Cập nhật lớp thành công");
         }
@@ -134,12 +133,12 @@ class ClassController extends Controller
     public function destroy($id)
     {
         try {
-            $class = Classes::find($id);
+            $class = Classes::where("class_id", $id)->first();
             $class->delete();
-            return redirect('/admin/classes')->with('success' , "Classes successfully removed");
+            return redirect('/admin/classes')->with('success' , "Xoá lớp học thành công");
         }
         catch(\Thorowable $t){
-            return redirect('/admin/clases')->with('error',"Faile to remove class");
+            return redirect('/admin/clases')->with('error',"Xoá lớp không thành công");
         }
     }
 
