@@ -11,6 +11,7 @@
       <i class="fas fa-plus"></i>
       <span>Thêm học viên</span>
     </a>
+    <a class="btn btn-sm btn-warning ml-2" href={{ route('export') }}>Xuất excel</a>
   </div>
   <div class="row mx-2">
     <table class="table table-bordered table-hover">
