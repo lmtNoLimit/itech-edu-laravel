@@ -40,8 +40,13 @@
           <td>{{$user->email}}</td>
           <td>{{$user->phone}}</td>
           <td>
-            <a href="/admin/students/{{$user->id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
-            <button data-toggle="modal" data-target="#deleteModal" class="btn btn-sm btn-danger">Delete</button>
+            <a data-toggle="tooltip" data-placement="bottom" title="Edit" href="/admin/students/{{$user->id}}/edit"
+              class="text-info">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a data-toggle="tooltip" data-placement="bottom" title="Delete" href="#" class="text-danger">
+              <i data-toggle="modal" data-target="#deleteModal" class="fas fa-trash-alt"></i>
+            </a>
           </td>
         </tr>
         @endforeach
