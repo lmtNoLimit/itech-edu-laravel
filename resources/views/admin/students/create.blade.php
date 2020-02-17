@@ -9,7 +9,7 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/students" method="POST">
+          <form id="form" action="/admin/students" method="POST">
             @csrf
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Họ và tên</label>
@@ -118,7 +118,7 @@
             </div>
             <div class="form-group text-center">
               <a href="/admin/students" class="btn btn-secondary">Cancel</a>
-              <button type="submit" class="btn btn-primary">Create</button>
+              <button type="submit" id="btnSubmit" class="btn btn-primary">Create</button>
             </div>
           </form>
         </div>

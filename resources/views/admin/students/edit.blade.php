@@ -9,7 +9,7 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/students/{{$user->id}}" method="POST">
+          <form id="form" action="/admin/students/{{$user->id}}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group row">
@@ -81,7 +81,7 @@
 
             <div class="form-group text-center">
               <a href="/admin/students" class="btn btn-secondary">Cancel</a>
-              <button type="submit" class="btn btn-success">Save Changes</button>
+              <button type="submit" id="btnSubmit" class="btn btn-success">Save Changes</button>
             </div>
           </form>
         </div>
