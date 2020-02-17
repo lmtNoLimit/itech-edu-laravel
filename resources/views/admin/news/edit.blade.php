@@ -66,7 +66,7 @@
 <script src="{{asset('js/plugins/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('js/plugins/ckfinder/ckfinder.js')}}"></script>
 <script>
-  CKEDITOR.replace('txtContent', {
+  CKEDITOR.replace('txtContent', {  
     height: 1500,
     filebrowserBrowseUrl: "{{asset('js/plugins/ckfinder/ckfinder.html')}}",
     filebrowserUploadUrl: "{{asset('js/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files')}}"});
