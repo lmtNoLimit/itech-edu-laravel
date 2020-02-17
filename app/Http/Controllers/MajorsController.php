@@ -35,7 +35,7 @@ class MajorsController extends Controller
             'name' => $data['name'],
             'type_of_education' => $data['type_of_education']
         ]);
-        return redirect('/admin/majors')->with('success', "User successfully created");
+        return redirect('/admin/majors')->with('success', "Thêm thành công");
     }
 
     public function edit($majors_id)
