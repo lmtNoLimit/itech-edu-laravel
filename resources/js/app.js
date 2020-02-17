@@ -6,3 +6,7 @@ $(window).on("load", function() {
         $(this).attr("disabled", "disabled");
     });
 });
+$("#btnDelete").click(function() {
+    $("#delete-form").submit();
+    $(this).attr("disabled", "disabled");
+});
