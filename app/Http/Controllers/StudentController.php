@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Hash;
+use DB;
 use App\User;
 
 class StudentController extends Controller
@@ -17,7 +18,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = DB::table('users')->paginate(5);
         return view('admin/students/index', [
             'users' => $users
         ]);
@@ -31,6 +32,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'student_id' => 'required:unique:users',
             'name' => 'required',
             'username' => 'required|unique:users',
             'birthday' => 'required',
@@ -39,6 +41,8 @@ class StudentController extends Controller
             'password' => 'required',
         ];
         $messages = [
+    		'student_id.required' => 'Yêu cầu nhập họ tên',
+    		'student_id.unique' => 'Mã sinh viên đã tồn tại',
     		'name.required' => 'Yêu cầu nhập họ tên',
             'username.required' => 'Yêu cầu nhập tên tài khoản',
             'username.unique' => 'Tên tài khoản đã tồn tại',
@@ -54,6 +58,7 @@ class StudentController extends Controller
     		return redirect()->back()->withErrors($validator)->withInput();
     	} else {
             User::create([
+                'student_id' => $request->input('student_id'),
                 'name' => $request->input('name'),
                 'username' => $request->input('username'),
                 'gender' => $request->input('gender'),
@@ -70,19 +75,20 @@ class StudentController extends Controller
 
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::where("student_id", $id)->first();
         return view('admin/students/edit', [
             'user' => $user
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $studentId)
     {
+        $user = User::where("student_id", $studentId)->first();
         $rules = [
             'name' => 'required',
             'birthday' => 'required',
-            'email' => ['email', Rule::unique('users')->ignore($id)],
-            'phone' => [Rule::unique('users')->ignore($id)],
+            'email' => ['email', Rule::unique('users')->ignore($user->id)],
+            'phone' => [Rule::unique('users')->ignore($user->id)],
         ];
         $messages = [
     		'name.required' => 'Yêu cầu nhập họ tên',
@@ -95,12 +101,7 @@ class StudentController extends Controller
         if ($validator->fails()) {
     		return redirect()->back()->withErrors($validator)->withInput();
     	} else {
-            User::where("id", $id)->update([
-                'name' => $request->input('name'),
-                'birthday' => $request->input('birthday'),
-                'email' => $request->input('email'),
-                'phone' => $request->input('phone'),
-            ]);
+            $user->update($request->all());
             return redirect("/admin/students")->with("success", "Cập nhật thông tin thành công");
         }
         return redirect("/admin/students")->with("error", "Cập nhật thông tin không thành công");
@@ -109,12 +110,11 @@ class StudentController extends Controller
     public function destroy($id)
     {
         try {
-            $user = User::find($id);
+            $user = User::where("student_id", $id)->first();
             $user->delete();
-            return redirect('/admin/students')->with('success', "User successfully removed");
+            return redirect('/admin/students')->with('success', "Xoá thành công");
         } catch (\Throwable $th) {
-            //throw $th;
-            return redirect('/admin/students')->with('error', "Failed to remove user");
+            return redirect('/admin/students')->with('error', "Xoá không thành công");
         }
     }
 }

@@ -9,13 +9,21 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form id="form" action="/admin/students/{{$user->id}}" method="POST">
+          <form id="form" action="/admin/students/{{$user->student_id}}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="student_id">Mã sinh viên</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="student_id" id="student_id" value="{{ $user->student_id}}"
+                  disabled>
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Họ và tên</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" id="name" value="{{old('name', $user->name)}}">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
+                  value="{{old('name', $user->name)}}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -59,10 +67,11 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="email">Địa chỉ email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" name="email" id="email" value="{{old('email', $user->email)}}">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email"
+                  value="{{old('email', $user->email)}}">
                 @error('email')
                 <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
+                  <strong>{{$errors->first('email')}}</strong>
                 </span>
                 @enderror
               </div>
@@ -70,7 +79,8 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="phone">Điện thoại</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="phone" id="phone" value="{{old('phone', $user->phone)}}">
+                <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" id="phone"
+                  value="{{old('phone', $user->phone)}}">
                 @error('phone')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>

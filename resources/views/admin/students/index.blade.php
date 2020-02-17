@@ -17,21 +17,21 @@
     <table class="table table-bordered table-hover">
       <thead class="thead-light">
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Họ và tên</th>
-          <th scope="col">Tên tài khoản</th>
-          <th scope="col">Ngày sinh</th>
-          <th scope="col">Giới tính</th>
-          <th scope="col">Địa chỉ</th>
-          <th scope="col">Email</th>
-          <th scope="col">Phone</th>
-          <th scope="col">Action</th>
+          <th scope="col" class="text-center">Mã sinh viên</th>
+          <th scope="col" class="text-center">Họ và tên</th>
+          <th scope="col" class="text-center">Tên tài khoản</th>
+          <th scope="col" class="text-center">Ngày sinh</th>
+          <th scope="col" class="text-center">Giới tính</th>
+          <th scope="col" class="text-center">Địa chỉ</th>
+          <th scope="col" class="text-center">Email</th>
+          <th scope="col" class="text-center">Phone</th>
+          <th scope="col" class="text-center">Action</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($users as $user)
         <tr>
-          <th scope="row">{{$user->id}}</th>
+          <th>{{$user->student_id}}</th>
           <td>{{$user->name}}</td>
           <td>{{$user->username}}</td>
           <td>{{$user->birthday}}</td>
@@ -40,16 +40,16 @@
           <td>{{$user->email}}</td>
           <td>{{$user->phone}}</td>
           <td>
-            <a data-toggle="tooltip" data-placement="bottom" title="Edit" href="/admin/students/{{$user->id}}/edit"
-              class="text-info">
+            <a data-toggle="tooltip" data-placement="bottom" title="Edit"
+              href="/admin/students/{{$user->student_id}}/edit" class="text-info">
               <i class="fas fa-edit"></i>
             </a>
             <a data-toggle="tooltip" data-placement="bottom" title="Delete" href="#" class="text-danger">
-              <i data-toggle="modal" data-target="#deleteModal{{$user->id}}" class="fas fa-trash-alt"></i>
+              <i data-toggle="modal" data-target="#deleteModal{{$user->student_id}}" class="fas fa-trash-alt"></i>
             </a>
           </td>
         </tr>
-        <div class="modal fade" id="deleteModal{{$user->id}}" tabindex="-1" role="dialog"
+        <div class="modal fade" id="deleteModal{{$user->student_id}}" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -60,11 +60,11 @@
                 </button>
               </div>
               <div class="modal-footer">
-                <form id="delete-form" class="form-inline" action="/admin/students/{{$user->id}}" method="POST">
+                <form id="form" class="form-inline" action="/admin/students/{{$user->student_id}}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-secondary mr-2" data-dismiss="modal">Cancel</button>
-                  <button id="btnDelete" class="btn btn-danger" type="submit">Delete</button>
+                  <button id="btnSubmit" class="btn btn-danger" type="submit">Delete</button>
                 </form>
               </div>
             </div>
@@ -73,6 +73,9 @@
         @endforeach
       </tbody>
     </table>
+    <div class="d-flex justify-content-end" style="width: 100%">
+      {{ $users->links() }}
+    </div>
   </div>
 </div>
 

@@ -54,8 +54,7 @@ class ClassController extends Controller
 
     public function show($classId){
         $students = User::join("student_classes", "users.id", "=", "student_id")
-            ->join("classes", "classes.class_id", "=", "student_classes.class_id")
-            ->where("classes.class_id", $classId)
+            ->where("student_classes.class_id", $classId)
             ->select("users.id", "users.name", "gender", "birthday", "address", "phone")
             ->get();
         $class = Classes::where("class_id", $classId)->first();

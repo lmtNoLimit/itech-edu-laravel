@@ -59,6 +59,11 @@
   border-radius: 0;
 }
 
+.dropdown:hover {
+  background: #5bc082;
+  color: #fff;
+}
+
 .dropdown:hover > .dropdown-menu {
   display: block;
 }
@@ -76,6 +81,11 @@
   top: -3px;
   left: 100%;
   border-radius: 0;
+}
+
+.dropdown .dropdown-submenu:hover {
+  background: #5bc082;
+  color: #fff;
 }
 
 .dropdown .dropdown-submenu:hover > .dropdown-menu {

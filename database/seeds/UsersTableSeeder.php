@@ -13,10 +13,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        Admin::create([
-            'username' => 'admin',
-            'password' => Hash::make('12345678')
-        ]);
+        // Admin::create([
+        //     'username' => 'admin',
+        //     'password' => Hash::make('12345678')
+        // ]);
 
         $faker = Faker\Factory::create();
 
@@ -24,6 +24,7 @@ class UsersTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('users')->insert([
+                'student_id' => $faker->unique()->numberBetween(1000, 9999),
                 'name' => $faker->name,
                 'username' => $faker->unique()->lastName,
                 'gender' => $faker->boolean,
