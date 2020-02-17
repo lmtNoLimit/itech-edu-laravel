@@ -1,5 +1,8 @@
 require("./bootstrap");
-$("#btnSubmit").click(function() {
-    $("#form").submit();
-    $(this).attr("disabled", "disabled");
+$(window).on("load", function() {
+    $("#btnSubmit").click(function(e) {
+        e.preventDefault();
+        $("#form").submit();
+        $(this).attr("disabled", "disabled");
+    });
 });

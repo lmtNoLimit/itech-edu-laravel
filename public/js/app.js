@@ -19283,9 +19283,12 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-$("#btnCreate").click(function () {
-  $("#form").submit();
-  $(this).attr("disabled", "disabled");
+$(window).on("load", function () {
+  $("#btnSubmit").click(function (e) {
+    e.preventDefault();
+    $("#form").submit();
+    $(this).attr("disabled", "disabled");
+  });
 });
 
 /***/ }),
@@ -19362,10 +19365,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Working\i-tech\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! F:\Working\i-tech\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! F:\Working\i-tech\resources\sass\custom.scss */"./resources/sass/custom.scss");
-module.exports = __webpack_require__(/*! F:\Working\i-tech\resources\sass\animate.scss */"./resources/sass/animate.scss");
+__webpack_require__(/*! D:\Projects\Laravel\i-tech\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\Projects\Laravel\i-tech\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Projects\Laravel\i-tech\resources\sass\custom.scss */"./resources/sass/custom.scss");
+module.exports = __webpack_require__(/*! D:\Projects\Laravel\i-tech\resources\sass\animate.scss */"./resources/sass/animate.scss");
 
 
 /***/ })
