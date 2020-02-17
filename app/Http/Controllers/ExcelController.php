@@ -40,7 +40,12 @@ class ExcelController extends Controller
         // }
     }
 
-    public function export()
+    public function exportStudentList()
+    {
+        return Excel::download(new StudentExport, 'DanhSachSinhVien.xlsx');
+    }
+
+    public function exportStudentsInClass()
     {
         return Excel::download(new StudentExport, 'DanhSachSinhVien.xlsx');
     }

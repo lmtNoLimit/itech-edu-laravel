@@ -19,7 +19,6 @@ class ClassController extends Controller
     public function index()
     {
         $classes = Classes::all();
-        
         return view('admin/classes/index', [
             'classes' => $classes
         ]);
@@ -35,7 +34,7 @@ class ClassController extends Controller
 
     public function getAddStudent($classId){
         $studentIds = StudentClass::select("student_id")->get();
-        $students = User::whereNotIn("users.id", $studentIds)->get();
+        $students = User::whereNotIn("student_id", $studentIds)->paginate(10);
         $class = Classes::where("class_id", $classId)->first();
         return view("admin/classes/addStudent", [
             'students' => $students,
@@ -44,18 +43,17 @@ class ClassController extends Controller
     }
 
     public function postAddStudent(Request $request, $classId){
-        $classId = $request->input("class_id");
         StudentClass::create([
-            'class_id' => $classId,
+            'class_id' => $request->input("class_id"),
             'student_id' => $request->input('student_id')
         ]);
         return redirect("/admin/classes/$classId/addStudent")->with("success", "Thêm thành công");
     }
 
     public function show($classId){
-        $students = User::join("student_classes", "users.id", "=", "student_id")
+        $students = User::join("student_classes", "users.student_id", "=", "student_classes.student_id")
             ->where("student_classes.class_id", $classId)
-            ->select("users.id", "users.name", "gender", "birthday", "address", "phone")
+            ->select("users.student_id", "users.name", "gender", "birthday", "address", "phone")
             ->get();
         $class = Classes::where("class_id", $classId)->first();
         return view("admin/classes/show", [
@@ -98,8 +96,10 @@ class ClassController extends Controller
     public function edit($id)
     {
         $class = Classes::where("class_id", $id)->first();
+        $majors = Majors::all();
         return view('admin/classes/edit', [
-            'class' => $class
+            'class' => $class,
+            'majors' => $majors
         ]);
     }
 

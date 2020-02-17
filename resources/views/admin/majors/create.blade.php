@@ -9,7 +9,7 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/majors" method="POST">
+          <form id="form" action="/admin/majors" method="POST">
             @csrf
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group text-center">
           <a href="/admin/majors" class="btn btn-secondary">Cancel</a>
-          <button type="submit" class="btn btn-primary">Create</button>
+          <button id="btnSubmit" type="submit" class="btn btn-primary">Create</button>
         </div>
         </form>
       </div>

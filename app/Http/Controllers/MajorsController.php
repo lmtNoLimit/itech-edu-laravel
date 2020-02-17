@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Majors;
+use App\Classes;
 
 class MajorsController extends Controller
 {
@@ -19,23 +20,33 @@ class MajorsController extends Controller
             'majors' => $majors
         ]);
     }
+
     public function create() 
     {
         return view('admin/majors/create');
     }
-    public function store()
+
+    public function store(Request $request)
     {
-        $data = request()->validate([
-            'majors_id' => 'required',
+        $rules = [
+            'majors_id' => 'required|unique:majors',
             'name' => 'required',
             'type_of_education' => 'required',
-        ]);
-        Majors::create([
-            'majors_id' => $data['majors_id'],
-            'name' => $data['name'],
-            'type_of_education' => $data['type_of_education']
-        ]);
-        return redirect('/admin/majors')->with('success', "Thêm thành công");
+        ];
+        $messages = [
+    		'majors_id.required' => 'Yêu cầu nhập mã ngành',
+    		'majors_id.unique' => 'Mã ngành đã tồn tại',
+    		'name.required' => 'Yêu cầu nhập tên ngành',
+    	];
+        $validator = validator()->make($request->all(), $rules, $messages);
+        
+        if ($validator->fails()) {
+    		return redirect()->back()->withErrors($validator)->withInput();
+    	} else {
+            Majors::create($request->all());
+            return redirect('/admin/majors')->with('success', "Thêm thành công");    
+        }
+        return redirect('/admin/majors')->with('error', "Thêm không thành công");
     }
 
     public function edit($majors_id)
@@ -67,16 +78,18 @@ class MajorsController extends Controller
                 'name' => $request->input('name'),
                 'type_of_education' => $request->input('type_of_education'),
             ]);
-            return redirect("/admin/majors")->with("success", "Cập nhật thông tin thành công");
+            return redirect("/admin/majors")->with("success", "Cập nhật thành công");
         }
-        return redirect("/admin/majors")->with("error", "Cập nhật thông tin không thành công");
+        return redirect("/admin/majors")->with("error", "Cập nhật không thành công");
     }
 
     public function destroy($majorsId)
     {
         try{
-            $majors = Majors::find($majorsId);
-            $majors->delete();
+            Classes::where("majors_id", $majorsId)->delete();
+            Majors::where("majors_id", $majorsId)
+                ->first()
+                ->delete();
             return redirect('/admin/majors')->with('success', "Xoá thành công");
         } catch (\Throwable $th){
             return redirect('/admin/majors')->with('error', "Xoá không thành công");

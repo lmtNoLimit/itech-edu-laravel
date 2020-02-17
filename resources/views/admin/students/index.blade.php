@@ -40,13 +40,15 @@
           <td>{{$user->email}}</td>
           <td>{{$user->phone}}</td>
           <td>
-            <a data-toggle="tooltip" data-placement="bottom" title="Edit"
-              href="/admin/students/{{$user->student_id}}/edit" class="text-info">
-              <i class="fas fa-edit"></i>
-            </a>
-            <a data-toggle="tooltip" data-placement="bottom" title="Delete" href="#" class="text-danger">
-              <i data-toggle="modal" data-target="#deleteModal{{$user->student_id}}" class="fas fa-trash-alt"></i>
-            </a>
+            <div class="d-flex">
+              <a data-toggle="tooltip" data-placement="bottom" title="Sửa"
+                href="/admin/students/{{$user->student_id}}/edit" class="btn btn-sm btn-info mr-1">
+                <i class="far fa-edit"></i>
+              </a>
+              <button data-toggle="tooltip" data-placement="bottom" title="Xoá" class="btn btn-sm btn-danger">
+                <i data-toggle="modal" data-target="#deleteModal{{$user->student_id}}" class="fas fa-trash-alt"></i>
+              </button>
+            </div>
           </td>
         </tr>
         <div class="modal fade" id="deleteModal{{$user->student_id}}" tabindex="-1" role="dialog"
