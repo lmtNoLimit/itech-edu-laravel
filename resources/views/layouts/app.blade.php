@@ -16,9 +16,7 @@
   <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-  {{-- <link rel="stylesheet" href="{{ asset('css/animate.css') }}"> --}}
-  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 
 <body class="custom-scrollbar">

@@ -83,8 +83,12 @@
         <div class="card border-0">
           <a class="text-white" href="#">
             <img src="{{ asset('images/ngon_ngu.jpg') }}" alt="Ngôn ngữ" width="100%">
-            <div class="card-img-overlay d-flex align-items-end">
+            <div class="card-img-overlay d-flex justify-content-end flex-column">
               <p class="card-text h5">NGÔN NGỮ</p>
+              <div class="d-flex flex-column">
+                <a href="#" class="border">Tiếng Anh</a>
+                <a href="#" class="border">Tiếng Nhật</a>
+              </div>
             </div>
           </a>
         </div>
