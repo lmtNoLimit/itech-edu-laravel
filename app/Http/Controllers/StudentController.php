@@ -75,19 +75,20 @@ class StudentController extends Controller
 
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::where("student_id", $id)->first();
         return view('admin/students/edit', [
             'user' => $user
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $studentId)
     {
+        $user = User::where("student_id", $studentId)->first();
         $rules = [
             'name' => 'required',
             'birthday' => 'required',
-            'email' => ['email', Rule::unique('users')->ignore($id)],
-            'phone' => [Rule::unique('users')->ignore($id)],
+            'email' => ['email', Rule::unique('users')->ignore($user->id)],
+            'phone' => [Rule::unique('users')->ignore($user->id)],
         ];
         $messages = [
     		'name.required' => 'Yêu cầu nhập họ tên',
@@ -100,12 +101,7 @@ class StudentController extends Controller
         if ($validator->fails()) {
     		return redirect()->back()->withErrors($validator)->withInput();
     	} else {
-            User::where("id", $id)->update([
-                'name' => $request->input('name'),
-                'birthday' => $request->input('birthday'),
-                'email' => $request->input('email'),
-                'phone' => $request->input('phone'),
-            ]);
+            $user->update($request->all());
             return redirect("/admin/students")->with("success", "Cập nhật thông tin thành công");
         }
         return redirect("/admin/students")->with("error", "Cập nhật thông tin không thành công");
@@ -114,11 +110,10 @@ class StudentController extends Controller
     public function destroy($id)
     {
         try {
-            $user = User::find($id);
+            $user = User::where("student_id", $id)->first();
             $user->delete();
             return redirect('/admin/students')->with('success', "Xoá thành công");
         } catch (\Throwable $th) {
-            //throw $th;
             return redirect('/admin/students')->with('error', "Xoá không thành công");
         }
     }
