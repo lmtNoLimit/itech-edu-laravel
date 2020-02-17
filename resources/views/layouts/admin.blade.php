@@ -62,6 +62,11 @@
           <i class="fas fa-address-card"></i>
           <span>Quản lý đăng ký</span></a>
       </li>
+      <li class="nav-item {{ request()->is('admin/subjects') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/subjects">
+          <i class="fas fa-book-reader"></i>
+          <span>Quản lý môn học</span></a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
