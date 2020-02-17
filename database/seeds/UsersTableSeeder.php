@@ -13,10 +13,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        Admin::create([
-            'username' => 'admin',
-            'password' => Hash::make('12345678')
-        ]);
+        // Admin::create([
+        //     'username' => 'admin',
+        //     'password' => Hash::make('12345678')
+        // ]);
 
         $faker = Faker\Factory::create();
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Hash;
+use DB;
 use App\User;
 
 class StudentController extends Controller
@@ -17,7 +18,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = DB::table('users')->paginate(5);
         return view('admin/students/index', [
             'users' => $users
         ]);
