@@ -47,6 +47,6 @@ class ExcelController extends Controller
 
     public function exportStudentsInClass()
     {
-        return Excel::download(new StudentExport, 'DanhSachSinhVien.xlsx');
+        return Excel::download(new StudentInClassExport, 'DanhSachSinhVien.xlsx');
     }
 }

@@ -9,7 +9,7 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/news" method="POST" enctype="multipart/form-data">
+          <form id="form" action="/admin/news" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="title">Tiêu đề</label>
@@ -27,7 +27,8 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="content"> Nội dung</label>
               <div class="col-sm-10">
-                <textarea class="form-control " id="txtContent" name="content" rows="10"></textarea>
+                <textarea class="form-control @error('content') is-invalid @enderror" id="txtContent" name="content"
+                  rows="10"></textarea>
               </div>
               @error('content')
               <span class="invalid-feedback" role="alert">
@@ -50,7 +51,7 @@
             </div>
 
             <div class="form-group text-center">
-              <button type="submit" class="btn btn-primary">Đăng bài</button>
+              <button id="btnSubmit" type="submit" class="btn btn-primary">Đăng bài</button>
               <a href="/admin/students" class="btn btn-secondary">Cancel</a>
             </div>
           </form>

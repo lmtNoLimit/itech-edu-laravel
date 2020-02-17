@@ -29,25 +29,26 @@
           <td>{{$new->title}}</td>
           <td>{{$new->type}}</td>
           <td>
-            <a href="/admin/news/{{$new->id}}/edit" class="btn btn-sm btn-info mr-1">Edit</a>
-          <button data-toggle="modal" data-target="#deleteModal{{$new->id}}" class="btn btn-sm btn-danger">Delete</button>
+            <a href="/admin/news/{{$new->id}}/edit" class="btn btn-sm btn-info mr-1">Sửa</a>
+            <button data-toggle="modal" data-target="#deleteModal{{$new->id}}"
+              class="btn btn-sm btn-danger">Xoá</button>
           </td>
-            <div class="modal fade" id="deleteModal{{$new->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+          <div class="modal fade" id="deleteModal{{$new->id}}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header border-0">
                   <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xoá?</h5>
                   <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer border-0">
                   <form class="form-inline" action="/admin/news/{{$new->id}}" method="POST" id="form">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-secondary mr-2" type="button" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-danger" id="btnSubmit" type="submit">Delete</button>
+                    <button class="btn btn-sm btn-secondary mr-2" type="button" data-dismiss="modal">Huỷ</button>
+                    <button class="btn btn-sm btn-danger" id="btnSubmit" type="submit">Xoá</button>
                   </form>
                 </div>
               </div>
