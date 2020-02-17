@@ -45,34 +45,35 @@
               <i class="fas fa-edit"></i>
             </a>
             <a data-toggle="tooltip" data-placement="bottom" title="Delete" href="#" class="text-danger">
-              <i data-toggle="modal" data-target="#deleteModal" class="fas fa-trash-alt"></i>
+              <i data-toggle="modal" data-target="#deleteModal{{$user->id}}" class="fas fa-trash-alt"></i>
             </a>
           </td>
         </tr>
+        <div class="modal fade" id="deleteModal{{$user->id}}" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xoá?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div class="modal-footer">
+                <form id="delete-form" class="form-inline" action="/admin/students/{{$user->id}}" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-secondary mr-2" data-dismiss="modal">Cancel</button>
+                  <button id="btnDelete" class="btn btn-danger" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         @endforeach
       </tbody>
     </table>
   </div>
 </div>
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xoá?</h5>
-        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-footer">
-        <form class="form-inline" action="/admin/students/{{$user->id ?? ''}}" method="POST" id="delete-form">
-          @csrf
-          @method('DELETE')
-          <button class="btn btn-secondary mr-2" type="button" data-dismiss="modal">Cancel</button>
-          <button class="btn btn-danger" type="submit">Delete</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+
 @endsection

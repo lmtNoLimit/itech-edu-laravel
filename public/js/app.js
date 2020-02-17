@@ -19283,8 +19283,12 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-$("#btnCreate").click(function () {
+$("#btnSubmit").click(function () {
   $("#form").submit();
+  $(this).attr("disabled", "disabled");
+});
+$("#btnDelete").click(function () {
+  $("#delete-form").submit();
   $(this).attr("disabled", "disabled");
 });
 
