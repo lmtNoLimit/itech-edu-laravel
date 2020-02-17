@@ -60,11 +60,11 @@
                 </button>
               </div>
               <div class="modal-footer">
-                <form id="delete-form" class="form-inline" action="/admin/students/{{$user->id}}" method="POST">
+                <form id="form" class="form-inline" action="/admin/students/{{$user->id}}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-secondary mr-2" data-dismiss="modal">Cancel</button>
-                  <button id="btnDelete" class="btn btn-danger" type="submit">Delete</button>
+                  <button id="btnSubmit" class="btn btn-danger" type="submit">Delete</button>
                 </form>
               </div>
             </div>
