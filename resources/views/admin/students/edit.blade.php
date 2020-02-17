@@ -9,9 +9,15 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form id="form" action="/admin/students/{{$user->id}}" method="POST">
+          <form id="form" action="/admin/students/{{$user->student_id}}" method="POST">
             @csrf
             @method('PUT')
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="name">Mã sinh viên</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" id="name" value="{{ $user->student_id}}" disabled>
+              </div>
+            </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Họ và tên</label>
               <div class="col-sm-10">

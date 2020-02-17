@@ -12,6 +12,18 @@
           <form id="form" action="/admin/students" method="POST">
             @csrf
             <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="student_id">Mã sinh viên</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control @error('student_id') is-invalid @enderror" id="student_id" name="student_id"
+                  value="{{ old('student_id') }}">
+                @error('student_id')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+            <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Họ và tên</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"

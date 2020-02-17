@@ -31,6 +31,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $rules = [
+            'student_id' => 'required:unique:users',
             'name' => 'required',
             'username' => 'required|unique:users',
             'birthday' => 'required',
@@ -39,6 +40,8 @@ class StudentController extends Controller
             'password' => 'required',
         ];
         $messages = [
+    		'student_id.required' => 'Yêu cầu nhập họ tên',
+    		'student_id.unique' => 'Mã sinh viên đã tồn tại',
     		'name.required' => 'Yêu cầu nhập họ tên',
             'username.required' => 'Yêu cầu nhập tên tài khoản',
             'username.unique' => 'Tên tài khoản đã tồn tại',
@@ -54,6 +57,7 @@ class StudentController extends Controller
     		return redirect()->back()->withErrors($validator)->withInput();
     	} else {
             User::create([
+                'student_id' => $request->input('student_id'),
                 'name' => $request->input('name'),
                 'username' => $request->input('username'),
                 'gender' => $request->input('gender'),
@@ -111,10 +115,10 @@ class StudentController extends Controller
         try {
             $user = User::find($id);
             $user->delete();
-            return redirect('/admin/students')->with('success', "User successfully removed");
+            return redirect('/admin/students')->with('success', "Xoá thành công");
         } catch (\Throwable $th) {
             //throw $th;
-            return redirect('/admin/students')->with('error', "Failed to remove user");
+            return redirect('/admin/students')->with('error', "Xoá không thành công");
         }
     }
 }
