@@ -146,6 +146,7 @@
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
   </script>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/admin.min.js') }}"></script>
 
 </body>
