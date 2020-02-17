@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResultsTable extends Migration
+class CreateResultDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('result_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('student_id');
-            $table->string('subject_id');
+            $table->integer('result_id');
+            $table->float('diem_a', 6, 2);
+            $table->float('diem_b', 6, 2);
+            $table->float('diem_c', 6, 2);
+            $table->float('diem_d', 6, 2);
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('result_details');
     }
 }
