@@ -56,6 +56,7 @@ class ClassController extends Controller
             ->select("users.student_id", "users.name", "gender", "birthday", "address", "phone")
             ->get();
         $class = Classes::where("class_id", $classId)->first();
+        // dd($class);
         return view("admin/classes/show", [
             'students' => $students,
             'class' => $class
@@ -139,6 +140,11 @@ class ClassController extends Controller
         catch(\Thorowable $t){
             return redirect('/admin/clases')->with('error',"Xoá lớp không thành công");
         }
+    }
+
+    public function postDeleteStudent($classId, $studentId){
+        StudentClass::where('student_id', $studentId)->first()->delete();
+        return redirect("/admin/classes/$classId")->with('success', "Xoá sinh viên khỏi lớp thành công");
     }
 
 }
