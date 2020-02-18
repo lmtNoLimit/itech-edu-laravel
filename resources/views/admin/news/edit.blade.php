@@ -26,19 +26,6 @@
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="slug">Slug</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
-                  value="{{ old('slug', $news->slug) }}" disabled>
-                @error('slug')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-              </div>
-            </div>
-
-            <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="description">Mô tả</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"

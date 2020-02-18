@@ -8,17 +8,18 @@ use App\Registration;
 
 class RegistrationController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth:admin');
-  }
-  
-  public function index()
-  {
-      $registrations = Registration::all();
-      return view('admin/registrations/index', compact('registrations'));
-  }
-  public function create() 
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
+    public function index()
+    {
+        $registrations = Registration::all();
+        return view('admin/registrations/index', compact('registrations'));
+    }
+
+    public function create() 
     {
         return view('/formtest');
     }
@@ -26,8 +27,7 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
         $rules = [
-
-            'name' => 'required',           
+            'name' => 'required',
             'email' => 'email|unique:registrations',
             'phone' => 'unique:users',
             'type_of_education' => 'required',
@@ -41,9 +41,8 @@ class RegistrationController extends Controller
             'phone.unique' => 'Số điện thoại đã tồn tại',
             'type_of_education' =>'nhập đầy đủ',
             'majors_id' => 'Yêu cầu nhập ngành',
-      ];
+        ];
         $validator = validator()->make($request->all(), $rules, $messages);
-        
         if ($validator->fails()) {
         return redirect()->back()->withErrors($validator)->withInput();
       } else {

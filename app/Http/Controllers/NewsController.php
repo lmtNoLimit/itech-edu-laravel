@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 use App\News;
 
 class NewsController extends Controller
@@ -31,7 +32,6 @@ class NewsController extends Controller
     {
         $rules = [
             'title' => 'required',
-            'slug' => 'required',
             'description' => 'required',
             'image' => 'image',
             'content' => 'required',
@@ -40,7 +40,6 @@ class NewsController extends Controller
 
         $messages = [
     		'title.required' => 'Tiêu đề không được để trống',
-    		'slug.required' => 'Slug không được để trống',
     		'description.required' => 'Yêu cầu nhập mô tả',
             'image.image' => "Ảnh không đúng định dạng",
             'content.required' => 'Nội dung tin không được để trống',
@@ -55,7 +54,7 @@ class NewsController extends Controller
             $imagePath = $request->file('image')->store('uploads', 'public');
             News::create([
                 'title' => $request->input('title'),
-                'slug' => $request->input('slug'),
+                'slug' => Str::slug($request->input('title'), '-'),
                 'description' => $request->input('description'),
                 'image' => $imagePath,
                 'title' => $request->input('title'),
@@ -99,6 +98,7 @@ class NewsController extends Controller
             $imagePath = $request->file('image')->store('uploads', 'public');
             News::where("id", $id)->update([
                 'title' => $request->input('title'),
+                'slug' => Str::slug($request->input('title'), "-"),
                 'description' => $request->input('description'),
                 'image' => $imagePath,
                 'content' => $request->input('content'),
