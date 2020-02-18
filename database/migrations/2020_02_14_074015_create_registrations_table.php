@@ -16,11 +16,10 @@ class CreateRegistrationsTable extends Migration
         Schema::create('registrations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('birthday');
-            $table->string('number');
             $table->string('email');
+            $table->string('phone');
             $table->string('type_of_education');
-            $table->string('course');
+            $table->string('majors_id');
         });
     }
 
