@@ -158,12 +158,10 @@
     <div class="row" style="padding: 0 1rem">
       <div class="col-lg-6 col-md-12 my-3">
         <div class="card border-0 mb-3">
-          <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap" height="300">
+          <img class="card-img-top" src="/storage/{{$news['0']->image}}" alt="Card image cap" height="300">
           <div class="card-body bg-light px-0">
-            <h5 class="card-title">{{$news['0']->title ?? ''}}</h5>
-            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi delectus molestiae
-              necessitatibus ex ducimus pariatur esse cumque optio, officiis, minus quas, cupiditate possimus quis
-              accusantium laboriosam! Quas impedit ipsam rem..</p>
+            <h5 class="card-title">{{$news['0']->title}}</h5>
+            <p class="card-text">{{$news['0']->description}}</p>
           </div>
         </div>
       </div>
@@ -173,12 +171,12 @@
           @for($i = 1; $i < sizeof($news); $i++) <div class="card border-0 mb-3">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <img src="" class="card-img" alt="..." style="height: 100%">
+                <img src="/storage/{{$news[$i]->image}}" class="card-img" alt="..." style="height: 100%">
               </div>
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">{{$news[$i]->title}}</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to</p>
+                  <p class=" card-text">{{$news[$i]->description}}</p>
                 </div>
               </div>
             </div>

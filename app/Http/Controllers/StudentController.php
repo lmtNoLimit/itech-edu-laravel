@@ -19,7 +19,7 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $q = $request->input('q');
-        $users = User::search($q)->paginate(10);
+        $users = User::search($q)->paginate(5);
         return view('admin/students/index', compact("users", "q"));
     }
 

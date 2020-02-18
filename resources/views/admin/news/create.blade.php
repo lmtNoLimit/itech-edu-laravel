@@ -25,6 +25,47 @@
             </div>
 
             <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="slug">Slug</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
+                  value="{{ old('slug') }}">
+                @error('slug')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="description">Mô tả</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
+                  name="description" value="{{ old('description') }}">
+                @error('description')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="image">
+                Ảnh
+              </label>
+              <div class="col-sm-10">
+                <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image"
+                  name="image">
+                @error('image')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="content"> Nội dung</label>
               <div class="col-sm-10">
                 <textarea class="form-control @error('content') is-invalid @enderror" id="txtContent" name="content"
