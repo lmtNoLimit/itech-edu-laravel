@@ -156,21 +156,23 @@
   <section id="news" class="my-3 bg-light">
     <h2 class="mx-3 pt-3 text-center">Tin Tức</h2>
     <div class="row" style="padding: 0 1rem">
+      @if($news)
       <div class="col-lg-6 col-md-12 my-3">
         <div class="card border-0 mb-3">
-          <img class="card-img-top" src="/storage/{{$news['0']->image}}" alt="Card image cap" height="300">
+          <img class="card-img-top" src="/storage/{{$news['0']->image ?? ''}}" alt="Card image cap" height="300">
           <div class="card-body bg-light px-0">
-            <h5 class="card-title">{{$news['0']->title}}</h5>
-            <p class="card-text">{{$news['0']->description}}</p>
+            <h5 class="card-title">{{$news['0']->title ?? ''}}</h5>
+            <p class="card-text">{{$news['0']->description ?? ''}}</p>
           </div>
         </div>
       </div>
+      @endif
       <div class="col-lg-6 col-md-12 my-3">
         <div class="custom-scrollbar" style="max-height: 500px; overflow: auto">
           @if($news)
           @for($i = 1; $i < sizeof($news); $i++) <div class="card border-0 mb-3">
             <div class="row no-gutters">
-              <div class="col-md-4">
+              <div class="col-md-4" style="height: 100px">
                 <img src="/storage/{{$news[$i]->image}}" class="card-img" alt="..." style="height: 100%">
               </div>
               <div class="col-md-8">

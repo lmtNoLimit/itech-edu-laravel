@@ -30,14 +30,15 @@
           <td>{{$student->address}}</td>
           <td>{{$student->phone}}</td>
           <td>
-          {{-- <form class="form-inline" action="/admin/classes/{{$class->class_id}}/{{$student->student_id}}" method="POST"> --}}
-              {{-- @csrf --}}
-              {{-- <button type="submit" class="btn btn-danger btn-sm">Xoá</button> --}}
-              <button data-toggle="modal" data-target="#addModal" class="btn btn-sm btn-danger">
-                <i class="far fa-trash-alt" data-toggle="tooltip" data-placement="bottom" title="Xoá"></i>
-              </button>
+            {{-- <form class="form-inline" action="/admin/classes/{{$class->class_id}}/{{$student->student_id}}"
+            method="POST"> --}}
+            {{-- @csrf --}}
+            {{-- <button type="submit" class="btn btn-danger btn-sm">Xoá</button> --}}
+            <button data-toggle="modal" data-target="#addModal" class="btn btn-sm btn-danger">
+              <i class="far fa-trash-alt" data-toggle="tooltip" data-placement="bottom" title="Xoá"></i>
+            </button>
 
-              <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -52,7 +53,8 @@
                     </button>
                   </div>
                   <div class="modal-footer border-0">
-                    <form class="form-inline" action="/admin/classes/{{$class->class_id}}/{{$student->student_id}}" method="POST">
+                    <form class="form-inline" action="/admin/classes/{{$class->class_id}}/{{$student->student_id}}"
+                      method="POST">
                       @csrf
                       <input type="hidden" name="class_id" value={{$class->class_id}}>
                       <input type="hidden" name="student_id" value={{$student->student_id}}>
@@ -65,7 +67,7 @@
                 </div>
               </div>
             </div>
-              
+
             </form>
           </td>
         </tr>

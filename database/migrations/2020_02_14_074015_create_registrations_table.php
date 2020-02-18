@@ -20,6 +20,7 @@ class CreateRegistrationsTable extends Migration
             $table->string('phone');
             $table->string('type_of_education');
             $table->string('majors_id');
+            $table->timestamps();
         });
     }
 
