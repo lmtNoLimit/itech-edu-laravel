@@ -16,12 +16,11 @@ class StudentController extends Controller
         $this->middleware('auth:admin');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = DB::table('users')->paginate(5);
-        return view('admin/students/index', [
-            'users' => $users
-        ]);
+        $q = $request->input('q');
+        $users = User::search($q)->paginate(5);
+        return view('admin/students/index', compact("users", "q"));
     }
 
     public function create() 

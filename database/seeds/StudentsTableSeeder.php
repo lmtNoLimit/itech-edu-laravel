@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class StudentsTableSeeder extends Seeder
 {
@@ -11,6 +12,22 @@ class StudentsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = Faker\Factory::create();
+
+        $limit = 50;
+
+        for ($i = 0; $i < $limit; $i++) {
+            DB::table('users')->insert([
+                'student_id' => $faker->unique()->numberBetween(1000, 9999),
+                'name' => $faker->name,
+                'username' => $faker->unique()->lastName,
+                'gender' => $faker->boolean,
+                'email' => $faker->email,
+                'birthday' => '1999-12-8',
+                'address' => $faker->city,
+                'phone' => $faker->phoneNumber,
+                'password' => Hash::make('12345678')
+            ]);
+        }
     }
 }

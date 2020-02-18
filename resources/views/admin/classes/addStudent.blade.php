@@ -21,7 +21,7 @@
       <tbody>
         @foreach ($students as $student)
         <tr>
-          <th scope="row">{{$student->id}}</th>
+          <th scope="row">{{$student->student_id}}</th>
           <td>{{$student->name}}</td>
           <td>{{$student->gender == 1 ? "Nữ" : "Nam"}}</td>
           <td>{{$student->birthday}}</td>

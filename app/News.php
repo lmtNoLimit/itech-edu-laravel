@@ -8,6 +8,6 @@ class News extends Model
 {
     public $table = "news";
     protected $fillable = [
-        'title', 'content', 'type'
+        'title', 'slug', 'description', 'image', 'content', 'type'
     ];
 }

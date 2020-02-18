@@ -31,20 +31,33 @@ class NewsController extends Controller
     {
         $rules = [
             'title' => 'required',
+            'slug' => 'required',
+            'description' => 'required',
+            'image' => 'image',
             'content' => 'required',
             'type' => 'required',
         ];
+
         $messages = [
     		'title.required' => 'Tiêu đề không được để trống',
+    		'slug.required' => 'Slug không được để trống',
+    		'description.required' => 'Yêu cầu nhập mô tả',
+            'image.image' => "Ảnh không đúng định dạng",
             'content.required' => 'Nội dung tin không được để trống',
             'type.required' => 'Thể loại tin tức không được để trống',
-    	];
+        ];
+        
         $validator = validator()->make($request->all(), $rules, $messages);
         
         if ($validator->fails()) {
     		return redirect()->back()->withErrors($validator)->withInput();
     	} else {
+            $imagePath = $request->file('image')->store('uploads', 'public');
             News::create([
+                'title' => $request->input('title'),
+                'slug' => $request->input('slug'),
+                'description' => $request->input('description'),
+                'image' => $imagePath,
                 'title' => $request->input('title'),
                 'content' => $request->input('content'),
                 'type' => $request->input('type'),
@@ -66,11 +79,15 @@ class NewsController extends Controller
     {
         $rules = [
             'title' => 'required',
+            'description' => 'required',
+            'image' => 'image',
             'content' => 'required',
             'type' => 'required',
         ];
         $messages = [
     		'title.required' => 'Tiêu đề không được để trống',
+    		'description.required' => 'Mô tả không được để trống',
+    		'image.image' => 'Ảnh không đúng định dạng',
             'content.required' => 'Nội dung tin không được để trống',
             'type.required' => 'Thể loại tin tức không được để trống',
     	];
@@ -79,8 +96,11 @@ class NewsController extends Controller
         if ($validator->fails()) {
     		return redirect()->back()->withErrors($validator)->withInput();
     	} else {
+            $imagePath = $request->file('image')->store('uploads', 'public');
             News::where("id", $id)->update([
                 'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'image' => $imagePath,
                 'content' => $request->input('content'),
                 'type' => $request->input('type'),
             ]);

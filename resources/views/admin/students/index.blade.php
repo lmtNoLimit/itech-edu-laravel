@@ -6,12 +6,21 @@
   <div class="d-sm-flex align-items-center justify-content-between mb-5">
     <h1 class="h3 mb-0 text-gray-800">Quản lý học viên</h1>
   </div>
-  <div class="row m-2 d-flex justify-content-end">
-    <a href="/admin/students/create" class="btn btn-sm btn-success">
-      <i class="fas fa-plus"></i>
-      <span>Thêm học viên</span>
-    </a>
-    <a class="btn btn-sm btn-warning ml-2" href={{ route('export') }}>Xuất excel</a>
+  <div class="row m-2 d-flex justify-content-between">
+    <div>
+      <form class="form-inline" action="/admin/students" method="GET">
+        <input type="text" class="form-control form-control-sm mb-2 mr-sm-2" id="inlineFormInputName2"
+          placeholder="Search..." name="q" value={{isset($q) ? $q : ''}}>
+        <button type="submit" class="btn btn-sm btn-primary mb-2">search</button>
+      </form>
+    </div>
+    <div>
+      <a href="/admin/students/create" class="btn btn-sm btn-success">
+        <i class="fas fa-plus"></i>
+        <span>Thêm học viên</span>
+      </a>
+      <a class="btn btn-sm btn-warning ml-2" href={{ route('export') }}>Xuất excel</a>
+    </div>
   </div>
   <div class="row mx-2">
     <table class="table table-bordered table-hover">
