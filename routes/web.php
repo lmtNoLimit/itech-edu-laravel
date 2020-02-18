@@ -29,8 +29,11 @@ Route::resource('/admin/lessons', 'LessonController');
 Route::resource('/admin/registrations', 'RegistrationController');
 Route::resource('/admin/subjects', 'SubjectController');
 
-
 Route::get('/admin/classes/{classId}/addStudent', 'ClassController@getAddStudent');
 Route::post('/admin/classes/{classId}', 'ClassController@postAddStudent');
 Route::post('/admin/classes/{classId}/{studentID}', 'ClassController@postDeleteStudent');
 Route::get('/admin/students/export', 'ExcelController@export')->name('export');
+
+
+Route::get('/test', 'RegistrationController@create');
+Route::post('/test', 'RegistrationController@store');
