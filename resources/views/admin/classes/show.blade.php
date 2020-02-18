@@ -30,14 +30,9 @@
           <td>{{$student->address}}</td>
           <td>{{$student->phone}}</td>
           <td>
-            {{-- <form class="form-inline" action="/admin/classes/{{$class->class_id}}/{{$student->student_id}}"
-            method="POST"> --}}
-            {{-- @csrf --}}
-            {{-- <button type="submit" class="btn btn-danger btn-sm">Xoá</button> --}}
             <button data-toggle="modal" data-target="#addModal" class="btn btn-sm btn-danger">
               <i class="far fa-trash-alt" data-toggle="tooltip" data-placement="bottom" title="Xoá"></i>
             </button>
-
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog" role="document">
@@ -66,9 +61,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            </form>
+              <<<<<<< HEAD </div>=======</div>>>>>>>> 3749819d2a0867daabb8e017685aaae0aa4f42d2
+                </form>
           </td>
         </tr>
         @endforeach
