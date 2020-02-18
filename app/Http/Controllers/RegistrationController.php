@@ -15,7 +15,6 @@ class RegistrationController extends Controller
   public function index()
   {
       $registrations = Registration::all();
-      // dd($classes);
-      return view('admin/registrations/index');
+      return view('admin/registrations/index', compact('registrations'));
   }
 }

@@ -11,32 +11,27 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Họ và tên</th>
-          <th scope="col">Ngày sinh</th>
           <th scope="col">Số điện thoại</th>
-          <th scope="col">Email</th>        
-          <th scope="col">Loại hình đào tạo</th>
+          <th scope="col">Email</th>
           <th scope="col">Ngành đào tạo</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
-      <!-- <tbody>
-        {{-- @foreach ($users as $user)
+      <tbody>
+        @foreach ($registrations as $registration)
         <tr>
-          <th scope="row">{{$user->id}}</th>
-          <td>{{$user->name}}</td>
-          <td>{{$user->username}}</td>
-          <td>{{$user->birthday}}</td>
-          <td>{{$user->gender == 1 ? "Nữ" : "Nam"}}</td>
-          <td>{{$user->address}}</td>
-          <td>{{$user->email}}</td>
-          <td>{{$user->phone}}</td>
+          <th scope="row">{{$registration->id}}</th>
+          <td>{{$registration->name}}</td>
+          <td>{{$registration->phone}}</td>
+          <td>{{$registration->email}}</td>
+          <td>{{$registration->majors_id}}</td>
           <td>
             <a href="/admin/registrations/edit" class="btn btn-sm btn-info mr-1">Edit</a>
             <button data-toggle="modal" data-target="#deleteModal" class="btn btn-sm btn-danger">Delete</button>
           </td>
         </tr>
-        @endforeach --}}
-      </tbody> -->
+        @endforeach
+      </tbody>
     </table>
   </div>
 </div>
@@ -52,10 +47,10 @@
       </div>
       <div class="modal-footer">
         <!-- <form class="form-inline" action="/admin/students/{{$user->id ?? ''}}" method="POST" id="delete-form"> -->
-          @csrf
-          @method('DELETE')
-          <button class="btn btn-secondary mr-2" type="button" data-dismiss="modal">Cancel</button>
-          <button class="btn btn-danger" type="submit">Delete</button>
+        @csrf
+        @method('DELETE')
+        <button class="btn btn-secondary mr-2" type="button" data-dismiss="modal">Cancel</button>
+        <button class="btn btn-danger" type="submit">Delete</button>
         </form>
       </div>
     </div>
