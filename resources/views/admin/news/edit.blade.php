@@ -9,7 +9,7 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form id="form" action="/admin/news/{{$news->id}}" method="POST">
+          <form id="form" action="/admin/news/{{$news->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method("PUT")
             <div class="form-group row">
@@ -22,6 +22,42 @@
                   <strong>{{ $message }}</strong>
                 </span>
                 @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="slug">Slug</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug"
+                  value="{{ old('slug', $news->slug) }}" disabled>
+                @error('slug')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="description">Mô tả</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
+                  name="description" value="{{ old('description', $news->description) }}">
+                @error('description')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="image">
+                Ảnh
+              </label>
+              <div class="col-sm-10">
+                <input type="file" class="form-control-file @error('description') is-invalid @enderror" id="image"
+                  name="image">
               </div>
             </div>
 
@@ -67,8 +103,8 @@
 <script src="{{asset('js/plugins/ckeditor/ckeditor.js')}}"></script>
 <script src="{{asset('js/plugins/ckfinder/ckfinder.js')}}"></script>
 <script>
-  CKEDITOR.replace('txtContent', {  
-    height: 1500,
+  CKEDITOR.replace('txtContent', {
+    height: 500,
     filebrowserBrowseUrl: "{{asset('js/plugins/ckfinder/ckfinder.html')}}",
     filebrowserUploadUrl: "{{asset('js/plugins/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files')}}"});
     
