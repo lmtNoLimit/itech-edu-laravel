@@ -8,7 +8,7 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/classes/{{$class->class_id}}" method="POST">
+          <form id="form" action="/admin/classes/{{$class->class_id}}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group row">
@@ -20,14 +20,21 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="majors_id" id="majors_id"
-                  value="{{old('majors_id',  $class->majors_id)}}">
+                <select class="form-control" id="name" name="majors_id">
+                  @foreach ($majors as $majorsItem)
+                  <option value="{{$majorsItem->majors_id}}" @if($class->majors_id == $majorsItem->majors_id) selected
+                    @endif>
+                    {{$majorsItem->majors_id.' - '.$majorsItem->name}}
+                  </option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="name">Tên lớp</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" id="name" value="{{old('name', $class->name)}}">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name"
+                  value="{{old('name', $class->name)}}">
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -48,7 +55,7 @@
             </div>
             <div class="form-group text-center">
               <a href="/admin/classes" class="btn btn-secondary">Cancel</a>
-              <button type="submit" class="btn btn-success">Save Changes</button>
+              <button id="btnSubmit" type="submit" class="btn btn-success">Save Changes</button>
             </div>
           </form>
         </div>

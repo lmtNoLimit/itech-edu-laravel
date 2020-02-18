@@ -40,31 +40,35 @@
           <td>{{$user->email}}</td>
           <td>{{$user->phone}}</td>
           <td>
-            <a data-toggle="tooltip" data-placement="bottom" title="Edit"
-              href="/admin/students/{{$user->student_id}}/edit" class="text-info">
-              <i class="fas fa-edit"></i>
-            </a>
-            <a data-toggle="tooltip" data-placement="bottom" title="Delete" href="#" class="text-danger">
-              <i data-toggle="modal" data-target="#deleteModal{{$user->student_id}}" class="fas fa-trash-alt"></i>
-            </a>
+            <div class="d-flex">
+              <a data-toggle="tooltip" data-placement="bottom" title="Sửa"
+                href="/admin/students/{{$user->student_id}}/edit" class="btn btn-sm btn-info mr-1">
+                <i class="far fa-edit"></i>
+              </a>
+              <button data-toggle="tooltip" data-placement="bottom" title="Xoá" class="btn btn-sm btn-danger">
+                <i data-toggle="modal" data-target="#deleteModal{{$user->student_id}}" class="fas fa-trash-alt"></i>
+              </button>
+            </div>
           </td>
         </tr>
         <div class="modal fade" id="deleteModal{{$user->student_id}}" tabindex="-1" role="dialog"
           aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xoá?</h5>
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  Bạn có chắc chắn muốn xoá <strong>{{$user->name}}</strong>?
+                </h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <div class="modal-footer">
+              <div class="modal-footer border-0">
                 <form id="form" class="form-inline" action="/admin/students/{{$user->student_id}}" method="POST">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-secondary mr-2" data-dismiss="modal">Cancel</button>
-                  <button id="btnSubmit" class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-sm btn-secondary mr-2" data-dismiss="modal">Huỷ</button>
+                  <button id="btnSubmit" class="btn btn-sm btn-danger" type="submit">Xoá</button>
                 </form>
               </div>
             </div>

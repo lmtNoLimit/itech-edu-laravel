@@ -9,8 +9,20 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form action="/admin/classes" method="POST">
+          <form id="form" action="/admin/classes" method="POST">
             @csrf
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
+              <div class="col-sm-10">
+                <select class="form-control" id="name" name="majors_id">
+                  @foreach ($majors as $majorsItem)
+                  <option value="{{$majorsItem->majors_id}}">
+                    {{$majorsItem->majors_id.' - '.$majorsItem->name}}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label" for="class_id">Mã lớp</label>
               <div class="col-sm-10">
@@ -47,28 +59,10 @@
                 @enderror
               </div>
             </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="majors_id">Mã ngành</label>
-              <div class="col-sm-10">
 
-                <select class="form-control" id="name" name="majors_id">
-                  @foreach ($majors as $majorsItem)
-                  <option value="{{$majorsItem->majors_id}}">
-                    {{$majorsItem->majors_id.' - '.$majorsItem->name}}
-                  </option>
-                  @endforeach
-                </select>
-
-                @error('majors_id')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-              </div>
-            </div>
             <div class="form-group text-center">
               <a href="/admin/classes" class="btn btn-secondary">Cancel</a>
-              <button type="submit" class="btn btn-primary">Create</button>
+              <button id="btnSubmit" type="submit" class="btn btn-primary">Create</button>
             </div>
           </form>
         </div>

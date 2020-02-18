@@ -32,41 +32,42 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <li class="nav-item  {{ request()->is('admin/students') ? 'active' : '' }}">
+      <li class="nav-item  {{ request()->is('admin/students*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/students">
           <i class="fas fa-user"></i>
           <span>Quản lý học viên</span></a>
       </li>
-      <li class="nav-item {{ request()->is('admin/majors') ? 'active' : '' }}">
+      <li class="nav-item {{ request()->is('admin/majors*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/majors">
           <i class="fas fa-book"></i>
           <span>Quản lý ngành đào tạo</span></a>
       </li>
-      <li class="nav-item {{ request()->is('admin/classes') ? 'active' : '' }}">
+      <li class="nav-item {{ request()->is('admin/classes*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/classes">
           <i class="fas fa-users"></i>
           <span>Quản lý lớp</span></a>
       </li>
-      <li class="nav-item {{ request()->is('admin/news') ? 'active' : '' }}">
-        <a class="nav-link" href="/admin/news">
-          <i class="fas fa-newspaper"></i>
-          <span>Quản lý tin tức</span></a>
-      </li>
-      <li class="nav-item {{ request()->is('admin/result') ? 'active' : '' }}">
-        <a class="nav-link" href="/admin/result">
-          <i class="fas fa-poll"></i>
-          <span>Quản lý điểm</span></a>
-      </li>
-      <li class="nav-item {{ request()->is('admin/registrations') ? 'active' : '' }}">
-        <a class="nav-link" href="/admin/registrations">
-          <i class="fas fa-address-card"></i>
-          <span>Quản lý đăng ký</span></a>
-      </li>
-      <li class="nav-item {{ request()->is('admin/subjects') ? 'active' : '' }}">
+      <li class="nav-item {{ request()->is('admin/subjects*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/subjects">
           <i class="fas fa-book-reader"></i>
           <span>Quản lý môn học</span></a>
       </li>
+      <li class="nav-item {{ request()->is('admin/news*') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/news">
+          <i class="fas fa-newspaper"></i>
+          <span>Quản lý tin tức</span></a>
+      </li>
+      <li class="nav-item {{ request()->is('admin/result*') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/result">
+          <i class="fas fa-poll"></i>
+          <span>Quản lý điểm</span></a>
+      </li>
+      <li class="nav-item {{ request()->is('admin/registrations*') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/registrations">
+          <i class="fas fa-address-card"></i>
+          <span>Quản lý đăng ký</span></a>
+      </li>
+
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

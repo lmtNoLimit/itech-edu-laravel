@@ -30,10 +30,10 @@
           <td>{{$item->type == "short_term" ? "Ngắn hạn" : "Dài hạn"}}</td>
           <td>
             <a href="/admin/majors/{{$item->majors_id}}/edit" class="btn btn-sm btn-info mr-1">
-              Edit
+              Sửa
             </a>
-            <button data-toggle="modal" data-target="#deleteModal{{$item->majors_id}}" type="submit"
-              class="btn btn-sm btn-danger">Delete</button>
+            <button data-toggle="modal" data-target="#deleteModal{{$item->majors_id}}"
+              class="btn btn-sm btn-danger">Xoá</button>
             <div class="modal fade" id="deleteModal{{$item->majors_id}}" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">

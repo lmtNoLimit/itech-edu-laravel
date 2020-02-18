@@ -21,21 +21,26 @@
       <tbody>
         @foreach ($students as $student)
         <tr>
-          <th scope="row">{{$student->id}}</th>
+          <th scope="row">{{$student->student_id}}</th>
           <td>{{$student->name}}</td>
           <td>{{$student->gender == 1 ? "Nữ" : "Nam"}}</td>
           <td>{{$student->birthday}}</td>
           <td>{{$student->address}}</td>
           <td>{{$student->phone}}</td>
           <td>
-            <button data-toggle="modal" data-target="#addModal" class="btn btn-sm btn-success">Thêm</button>
+            <button data-toggle="modal" data-target="#addModal" class="btn btn-sm btn-success">
+              <i class="fas fa-plus" data-toggle="tooltip" data-placement="bottom" title="Thêm"></i>
+            </button>
             <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header border-0">
-                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn thêm {{$student->name}} vào lớp
-                      {{$class->class_id}}?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      <span>Bạn có chắc chắn muốn thêm <strong>{{$student->name}}</strong> vào lớp
+                        <strong>{{$class->class_id}}</strong>?
+                      </span>
+                    </h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
@@ -44,7 +49,7 @@
                     <form class="form-inline" action="/admin/classes/{{$class->class_id}}" method="POST">
                       @csrf
                       <input type="hidden" name="class_id" value={{$class->class_id}}>
-                      <input type="hidden" name="student_id" value={{$student->id}}>
+                      <input type="hidden" name="student_id" value={{$student->student_id}}>
                       <button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" aria-label="Close">
                         Huỷ
                       </button>
@@ -59,6 +64,9 @@
         @endforeach
       </tbody>
     </table>
+    <div class="d-flex justify-content-end" style="width: 100%">
+      {{ $students->links() }}
+    </div>
   </div>
 </div>
 
