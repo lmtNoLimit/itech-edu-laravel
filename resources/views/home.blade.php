@@ -81,16 +81,20 @@
       </div>
       <div class="col-md-3">
         <div class="card border-0">
-          <a class="text-white" href="#">
-            <img src="{{ asset('images/ngon_ngu.jpg') }}" alt="Ngôn ngữ" width="100%">
-            <div class="card-img-overlay d-flex justify-content-end flex-column">
-              <p class="card-text h5">NGÔN NGỮ</p>
-              <div class="d-flex flex-column">
-                <a href="#" class="border">Tiếng Anh</a>
-                <a href="#" class="border">Tiếng Nhật</a>
-              </div>
+          {{-- <a class="text-white" href="#"> --}}
+          <img src="{{ asset('images/ngon_ngu.jpg') }}" alt="Ngôn ngữ" width="100%">
+          <div class="card-img-overlay d-flex justify-content-end flex-column">
+            <p class="card-text h5 animated faster fadeInUp">NGÔN NGỮ</p>
+            <div class="d-flex flex-column">
+              <a href="#" class="btn btn-sm btn-warning my-1 border card-subtext  animated faster fadeInUp">
+                Tiếng Anh
+              </a>
+              <a href="#" class="btn btn-sm btn-warning my-1 border card-subtext animated faster fadeInUp">
+                Tiếng Nhật
+              </a>
             </div>
-          </a>
+          </div>
+          {{-- </a> --}}
         </div>
       </div>
       <div class="col-md-3">

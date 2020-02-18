@@ -19295,7 +19295,7 @@ $("#btnDelete").click(function () {
   $(this).attr("disabled", "disabled");
 });
 
-/***/ }), 
+/***/ }),
 
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
