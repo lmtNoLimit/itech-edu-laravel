@@ -231,7 +231,7 @@
       </a>
     </div>
     <div class="col-lg p-3 bg-light">
-      <a href="#" class="feature-item">
+      <a href="/admin/registrations/create" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column">
           <i class="fas fa-tv fa-3x my-2 text-green"></i>
           <p class="text-center">ĐĂNG KÝ DỰ TUYỂN ONLINE</p>
