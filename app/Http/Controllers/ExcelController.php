@@ -15,8 +15,9 @@ class ExcelController extends Controller
         // return view('admin.result.index', \compact('data'));
     }
 
-    public function import(Request $request) 
+    public function import(Request $request)
     {
+        $request->
         // $rules = [
         //     'file' => 'required|mimes:xls,xlsx'
         // ];
@@ -26,7 +27,7 @@ class ExcelController extends Controller
         // ];
         // $path = $request->file('file')->getRealPath();
         // $data = Excel::load($path)->get();
-        // if($data->count() > 0) 
+        // if($data->count() > 0)
         // {
         //     foreach ($data->toArray() as $key => $value) {
         //         foreach ($value as $row) {
