@@ -16,6 +16,7 @@ class CreateResultDetailsTable extends Migration
         Schema::create('result_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('result_id');
+            $table->string('student_id');
             $table->float('diem_a', 6, 2);
             $table->float('diem_b', 6, 2);
             $table->float('diem_c', 6, 2);
