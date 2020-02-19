@@ -19,6 +19,7 @@ class CreateResultsTable extends Migration
             $table->foreign('class_id')->references("class_id")->on("classes");
             $table->string('subject_id');
             // $table->foreign('subject_id')->references("subject_id")->on("subjects");
+            $table->longText('content');
             $table->timestamps();
         });
     }
