@@ -14,9 +14,10 @@ class CreateStudentClassesTable extends Migration
     public function up()
     {
         Schema::create('student_classes', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->string('class_id');
-            $table->integer('student_id');
+            $table->string('student_id');
+            $table->foreign('class_id')->references("class_id")->on("classes");
+            $table->foreign('student_id')->references("student_id")->on("users");
             $table->timestamps();
         });
     }

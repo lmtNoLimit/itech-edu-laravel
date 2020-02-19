@@ -73,3 +73,6 @@ Route::get('/admin/students/export', 'ExcelController@export')->name('export');
 
 Route::get('/test', 'RegistrationController@create')->name('registration');
 Route::post('/test', 'RegistrationController@store');
+
+
+Route::get('/admin/results/excel-test', 'ResultController@test');
