@@ -64,6 +64,7 @@ Route::resource('/admin/classes', 'ClassController');
 Route::resource('/admin/lessons', 'LessonController');
 Route::resource('/admin/registrations', 'RegistrationController');
 Route::resource('/admin/subjects', 'SubjectController');
+Route::resource('/admin/results', 'ResultController');
 
 Route::get('/admin/classes/{classId}/addStudent', 'ClassController@getAddStudent');
 Route::post('/admin/classes/{classId}', 'ClassController@postAddStudent');
@@ -75,4 +76,4 @@ Route::get('/test', 'RegistrationController@create')->name('registration');
 Route::post('/test', 'RegistrationController@store');
 
 
-Route::get('/admin/results/excel-test', 'ResultController@test');
+Route::get('/admin/results/test', 'ResultController@test');
