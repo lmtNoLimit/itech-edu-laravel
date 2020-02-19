@@ -146,6 +146,29 @@
     &:nth-of-type(even) {
         color: #fff;
     }
+
+    
+}
+
+.hover-green {
+    &:hover{
+        background: #5bc082 !important;
+        color: #fff !important;
+    }
+}
+
+.hover-white {
+    &:hover{
+        color: #fff !important;
+    }
+}
+
+.hover-green:hover .hover-white{
+    color: #FFF !important;
+}
+
+.svg {
+    fill:white;
 }
 
 .custom-scrollbar {

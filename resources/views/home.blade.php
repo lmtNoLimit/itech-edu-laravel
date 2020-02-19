@@ -200,43 +200,45 @@
 
 <section id="features" class="mt-3">
   <div class="row px-3">
-    <div class="col-lg p-3 bg-light">
+    <div class="col-lg p-3 bg-light hover-green ">
       <a href="#" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column">
-          <img src="{{ asset('images/svg/trac_nghiem.svg') }}" alt="" class="my-2 text-green" width="45">
-          <p class="text-center">BÀI TEST CHỌN NGÀNH NGHỀ</p>
+          {{-- <img src="{{ asset('images/svg/trac_nghiem.svg') }}" alt="" class="my-2 svg" width="45"> --}}
+            <i class="far fa-ballot-check fa-3x my-2 hover-white text-green hover-white"></i>  
+
+          <p class="text-center hover-white">BÀI TEST CHỌN NGÀNH NGHỀ</p>
         </div>
       </a>
     </div>
-    <div class="col-lg p-3 bg-green">
+    <div class="col-lg p-3 bg-green hover-green">
       <a href="" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column text-white">
-          <i class="fas fa-pencil-alt fa-3x my-2"></i>
-          <p class="text-center">ĐĂNG KÝ TƯ VẤN</p>
+          <i class="fas fa-pencil-alt fa-3x my-2 hover-white"></i>
+          <p class="text-center hover-white">ĐĂNG KÝ TƯ VẤN</p>
         </div>
       </a>
     </div>
-    <div class="col-lg p-3 bg-light">
+    <div class="col-lg p-3 bg-light hover-green">
       <a href="#" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column">
-          <i class="fas fa-search fa-3x my-2  text-green"></i>
-          <p class="text-center">TRA CỨU</p>
+          <i class="fas fa-search fa-3x my-2  text-green hover-white"></i>
+          <p class="text-center hover-white">TRA CỨU</p>
         </div>
       </a>
     </div>
-    <div class="col-lg p-3 bg-green">
+    <div class="col-lg p-3 bg-green hover-green">
       <a href="#" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column text-white">
-          <i class="fas fa-gift fa-3x my-2"></i>
-          <p class="text-center">HỌC BỔNG</p>
+          <i class="fas fa-gift fa-3x my-2 hover-white"></i>
+          <p class="text-center hover-white">HỌC BỔNG</p>
         </div>
       </a>
     </div>
-    <div class="col-lg p-3 bg-light">
+    <div class="col-lg p-3 bg-light hover-green">
       <a href="{{route('registration')}}" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column">
-          <i class="fas fa-tv fa-3x my-2 text-green"></i>
-          <p class="text-center">ĐĂNG KÝ DỰ TUYỂN ONLINE</p>
+          <i class="fas fa-tv fa-3x my-2 text-green hover-white" ></i>
+          <p class="text-center hover-white">ĐĂNG KÝ DỰ TUYỂN ONLINE</p>
         </div>
       </a>
     </div>
