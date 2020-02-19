@@ -107,6 +107,8 @@
 
 #nganh-dao-tao .card .card-img-overlay .card-subtext {
   display: none;
+  background: #E6AF2E;
+  font-weight: 600;
 }
 
 #nganh-dao-tao .card:hover .card-img-overlay {
