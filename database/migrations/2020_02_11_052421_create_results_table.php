@@ -14,9 +14,11 @@ class CreateResultsTable extends Migration
     public function up()
     {
         Schema::create('results', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->unsignedInteger('id')->primary();
             $table->string('class_id');
+            $table->foreign('class_id')->references("class_id")->on("classes");
             $table->string('subject_id');
+            // $table->foreign('subject_id')->references("subject_id")->on("subjects");
             $table->timestamps();
         });
     }
