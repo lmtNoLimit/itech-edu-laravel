@@ -34,7 +34,7 @@
           <a class="text-white" href="#">
             <img src="{{ asset('images/cntt.jpg') }}" alt="Công nghệ thông tin" width="100%">
             <div class="card-img-overlay d-flex align-items-end">
-              <p class="card-text h5">CÔNG NGHỆ THÔNG TIN</p>
+              <p class="card-text h5 animated faster fadeInUp">CÔNG NGHỆ THÔNG TIN</p>
             </div>
           </a>
         </div>
@@ -52,7 +52,7 @@
           <a class="text-white" href="#">
             <img src="{{ asset('images/an_toan_thong_tin.jpg') }}" alt="An toàn thông tin" width="100%">
             <div class="card-img-overlay d-flex align-items-end">
-              <p class="card-text h5">AN TOÀN THÔNG TIN</p>
+              <p class="card-text h5 animated faster fadeInUp">AN TOÀN THÔNG TIN</p>
             </div>
           </a>
         </div>
@@ -64,7 +64,7 @@
           <a class="text-white" href="#">
             <img src="{{ asset('images/lap_trinh_ai.jpg') }}" alt="Du lịch khách sạn" width="100%">
             <div class="card-img-overlay d-flex align-items-end">
-              <p class="card-text h5">LẬP TRÌNH AI</p>
+              <p class="card-text h5 animated faster fadeInUp">LẬP TRÌNH AI</p>
             </div>
           </a>
         </div>
@@ -74,23 +74,25 @@
           <a class="text-white" href="#">
             <img src="{{ asset('images/du_lich_khach_san.jpg') }}" alt="Du lịch khách sạn" width="100%">
             <div class="card-img-overlay d-flex align-items-end">
-              <p class="card-text h5">DU LỊCH KHÁCH SẠN</p>
+              <p class="card-text h5 animated faster fadeInUp">DU LỊCH KHÁCH SẠN</p>
             </div>
           </a>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card border-0">
-          <a class="text-white" href="#">
-            <img src="{{ asset('images/ngon_ngu.jpg') }}" alt="Ngôn ngữ" width="100%">
-            <div class="card-img-overlay d-flex justify-content-end flex-column">
-              <p class="card-text h5">NGÔN NGỮ</p>
-              <div class="d-flex flex-column">
-                <a href="#" class="border">Tiếng Anh</a>
-                <a href="#" class="border">Tiếng Nhật</a>
-              </div>
+          <img src="{{ asset('images/ngon_ngu.jpg') }}" alt="Ngôn ngữ" width="100%">
+          <div class="card-img-overlay d-flex justify-content-end flex-column">
+            <p class="card-text h5 animated faster fadeInUp">NGÔN NGỮ</p>
+            <div class="d-flex flex-column">
+              <a href="#" class="btn btn-sm my-1 text-left card-subtext  animated faster fadeInUp">
+                Tiếng Anh
+              </a>
+              <a href="#" class="btn btn-sm my-1 text-left card-subtext animated faster fadeInUp">
+                Tiếng Nhật
+              </a>
             </div>
-          </a>
+          </div>
         </div>
       </div>
       <div class="col-md-3">
@@ -98,7 +100,7 @@
           <a class="text-white" href="#">
             <img src="{{ asset('images/cong_nghe_oto.jpg') }}" alt="Công nghệ ô tô" width="100%">
             <div class="card-img-overlay d-flex align-items-end">
-              <p class="card-text h5">CÔNG NGHỆ Ô TÔ</p>
+              <p class="card-text h5 animated faster fadeInUp">CÔNG NGHỆ Ô TÔ</p>
             </div>
           </a>
         </div>

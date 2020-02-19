@@ -39,6 +39,10 @@
 #navbar {
     padding: 0 16px;
 
+    span.nav-link {
+        cursor: pointer;
+    }
+
     .nav-link {
         color: #fff;
 
@@ -93,7 +97,6 @@
         &:hover>.dropdown-menu {
             display: block;
         }
-
     }
 }
 
@@ -110,12 +113,24 @@
             display: none;
         }
 
-        &:hover {
+        .card-img-overlay {
+            .card-subtext {
+                display: none;
+                background: #E6AF2E;
+                font-weight: 600;
+            }
+        }
 
-            .card-img-overlay,
-            .card-text {
+        &:hover {
+            .card-img-overlay {
                 display: block;
                 background: rgba(0, 0, 0, 0.4);
+            }
+
+            .card-text,
+            .card-subtext {
+                color: #fff;
+                display: block;
             }
         }
     }

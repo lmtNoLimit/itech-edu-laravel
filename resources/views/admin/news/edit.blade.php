@@ -43,13 +43,18 @@
                 Ảnh
               </label>
               <div class="col-sm-10">
-                <input type="file" class="form-control-file @error('description') is-invalid @enderror" id="image"
+                <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image"
                   name="image">
+                @error('image')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="content"> Nội dung</label>
+              <label class="col-sm-2 col-form-label" for="content">Nội dung</label>
               <div class="col-sm-10">
                 <textarea class="form-control @error('content') is-invalid @enderror" id="txtContent" name="content"
                   rows="10">

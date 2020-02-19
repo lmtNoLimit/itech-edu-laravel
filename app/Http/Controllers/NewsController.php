@@ -18,9 +18,7 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::all();
-        return view('admin/news/index', [
-            'news' => $news
-        ]);
+        return view('admin/news/index', compact('news'));
     }
 
     public function create()
@@ -69,9 +67,7 @@ class NewsController extends Controller
     public function edit($id)
     {
         $news = News::findOrFail($id);
-        return view('admin/news/edit', [
-            'news' => $news
-        ]);
+        return view('admin/news/edit', compact('news'));
     }
 
     public function update(Request $request, $id)
@@ -79,13 +75,14 @@ class NewsController extends Controller
         $rules = [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'image',
+            'image' => 'required|image',
             'content' => 'required',
             'type' => 'required',
         ];
         $messages = [
     		'title.required' => 'Tiêu đề không được để trống',
     		'description.required' => 'Mô tả không được để trống',
+    		'image.required' => 'Yêu cầu thêm ảnh',
     		'image.image' => 'Ảnh không đúng định dạng',
             'content.required' => 'Nội dung tin không được để trống',
             'type.required' => 'Thể loại tin tức không được để trống',
