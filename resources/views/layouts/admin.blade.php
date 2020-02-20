@@ -67,6 +67,11 @@
           <i class="fas fa-poll"></i>
           <span>Quản lý điểm</span></a>
       </li>
+      <li class="nav-item {{ request()->is('admin/documents*') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/documents">
+        <i class="far fa-file-alt"></i>
+          <span>Quản lý mẫu tin</span></a>
+      </li>
       <li class="nav-item {{ request()->is('admin/registrations*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/registrations">
           <i class="fas fa-address-card"></i>
