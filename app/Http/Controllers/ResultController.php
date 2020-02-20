@@ -18,6 +18,12 @@ class ResultController extends Controller
     public function index()
     {
         $results = Result::all();
+        foreach ($results as $result) {
+            $class = Classes::where("class_id", $result->class_id)->first();
+            $subject = Subject::where("subject_id", $result->subject_id)->first();
+            $result->class_name = $class->name;
+            $result->subject_name = $subject->name;
+        }
         return view('admin.results.index', compact('results'));
     }
 
@@ -28,7 +34,7 @@ class ResultController extends Controller
         return view('admin.results.create', compact("classes", "subjects"));
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $rules = [
             'class_id' => 'required',

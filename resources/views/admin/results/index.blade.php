@@ -18,43 +18,46 @@
         <tr>
           <th scope="col">Mã lớp</th>
           <th scope="col">Tên lớp</th>
-          <th scope="col">Môn học</th>
+          <th scope="col">Mã môn</th>
+          <th scope="col">Tên môn</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        {{-- @foreach ($news as $new)
+        @foreach ($results as $result)
         <tr>
-          <th scope="row">{{$new->id}}</th>
-        <td>{{$new->title}}</td>
-        <td>{{$new->type}}</td>
-        <td>
-          <a href="/admin/news/{{$new->id}}/edit" class="btn btn-sm btn-info mr-1">Sửa</a>
-          <button data-toggle="modal" data-target="#deleteModal{{$new->id}}" class="btn btn-sm btn-danger">Xoá</button>
-        </td>
-        <div class="modal fade" id="deleteModal{{$new->id}}" tabindex="-1" role="dialog"
-          aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xoá?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
-              <div class="modal-footer border-0">
-                <form class="form-inline" action="/admin/news/{{$new->id}}" method="POST" id="form">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-sm btn-secondary mr-2" type="button" data-dismiss="modal">Huỷ</button>
-                  <button class="btn btn-sm btn-danger" id="btnSubmit" type="submit">Xoá</button>
-                </form>
+          <th scope="row">{{$result->class_id}}</th>
+          <td>{{$result->class_name}}</td>
+          <td>{{$result->subject_id}}</td>
+          <td>{{$result->subject_name}}</td>
+          <td>
+            <a href="/admin/results/{{$result->id}}/edit" class="btn btn-sm btn-info mr-1">Sửa</a>
+            <button data-toggle="modal" data-target="#deleteModal{{$result->id}}"
+              class="btn btn-sm btn-danger">Xoá</button>
+          </td>
+          <div class="modal fade" id="deleteModal{{$result->id}}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header border-0">
+                  <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc chắn muốn xoá?</h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-footer border-0">
+                  <form class="form-inline" action="/admin/results/{{$result->id}}" method="POST" id="form">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-sm btn-secondary mr-2" type="button" data-dismiss="modal">Huỷ</button>
+                    <button class="btn btn-sm btn-danger" id="btnSubmit" type="submit">Xoá</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </tr>
-        @endforeach --}}
+        @endforeach
       </tbody>
     </table>
   </div>
