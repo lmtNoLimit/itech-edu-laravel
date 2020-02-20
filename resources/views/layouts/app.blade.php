@@ -29,6 +29,11 @@
       @yield('content')
     </main>
 
+    <!-- Start of  Zendesk Widget script -->
+{{-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=a1e33a20-56bc-4555-ac8e-eb72da9a9c88"> </script> --}}
+<script src="https://uhchat.net/code.php?f=b90111"></script>
+<!-- End of  Zendesk Widget script -->
+
     @include('layouts.footer')
   </div>
 

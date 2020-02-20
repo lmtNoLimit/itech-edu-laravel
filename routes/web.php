@@ -16,34 +16,55 @@ Route::get('/', 'HomeController@index')->name('home');
 // gioi thieu
 Route::get('/about', 'HomeController@index')->name('about');
 // nganh dao tao
-Route::get('/nganh-dao-tao/ccna', 'HomeController@index')->name('ccna');
-Route::get('/nganh-dao-tao/mcsa', 'HomeController@index')->name('mcsa');
-Route::get('/nganh-dao-tao/linux', 'HomeController@index')->name('linux');
-Route::get('/nganh-dao-tao/ceh', 'HomeController@index')->name('ceh');
-Route::get('/nganh-dao-tao/chfi', 'HomeController@index')->name('chfi');
-Route::get('/nganh-dao-tao/php', 'HomeController@index')->name('php');
-Route::get('/nganh-dao-tao/android', 'HomeController@index')->name('android');
-Route::get('/nganh-dao-tao/graphic-design', 'HomeController@index')->name('graphic');
+// Route::get('/nganh-dao-tao/ccna', 'HomeController@index')->name('ccna');
+// Route::get('/nganh-dao-tao/mcsa', 'HomeController@index')->name('mcsa');
+// Route::get('/nganh-dao-tao/linux', 'HomeController@index')->name('linux');
+// Route::get('/nganh-dao-tao/ceh', 'HomeController@index')->name('ceh');
+// Route::get('/nganh-dao-tao/chfi', 'HomeController@index')->name('chfi');
+// Route::get('/nganh-dao-tao/php', 'HomeController@index')->name('php');
+// Route::get('/nganh-dao-tao/android', 'HomeController@index')->name('android');
+// Route::get('/nganh-dao-tao/graphic-design', 'HomeController@index')->name('graphic');
+
+Route::group(['prefix' => "nganh-dao-tao"],function(){
+    Route::get('ccna', 'HomeController@index')->name('ccna');
+    Route::get('mcsa', 'HomeController@index')->name('mcsa');
+    Route::get('linux', 'HomeController@index')->name('linux');
+    Route::get('ceh', 'HomeController@index')->name('ceh');
+    Route::get('chfi', 'HomeController@index')->name('chfi');
+    Route::get('php', 'HomeController@index')->name('php');
+    Route::get('android', 'HomeController@index')->name('android');
+    Route::get('graphic-design', 'HomeController@index')->name('graphic');
+});
+
 // tuyen sinh
-Route::get('/tuyen-sinh/tin-tuyen-sinh', 'HomeController@index')->name('tin_tuyen_sinh');
-Route::get('/tuyen-sinh/quy-che-tuyen-sinh', 'HomeController@index')
-    ->name('quy_che_tuyen_sinh');
-Route::get('/tuyen-sinh/hoc-phi-hoc-bong', 'HomeController@index')
-    ->name('hoc_phi_hoc_bong');
-Route::get('/tuyen-sinh/hoi-dap', 'HomeController@index')->name('hoi_dap');
+
+Route::group(['prefix' => 'tuyen-sinh'], function(){
+    Route::get('tin-tuyen-sinh', 'HomeController@index')->name('tin_tuyen_sinh');
+    Route::get('quy-che-tuyen-sinh', 'HomeController@index')
+        ->name('quy_che_tuyen_sinh');
+    Route::get('hoc-phi-hoc-bong', 'HomeController@index')
+        ->name('hoc_phi_hoc_bong');
+    Route::get('hoi-dap', 'HomeController@index')->name('hoi_dap');
+    
+});
+
 // tin tuc
-Route::get('/tin-tuc/tin-noi-bo', 'HomeController@index')->name('tin_noi_bo');
-Route::get('/tin-tuc/tin-cong-nghe', 'HomeController@index')->name('tin_cong_nghe');
-Route::get('/tin-tuc/su-kien', 'HomeController@index')->name('events');
+Route::group(['prefix' => 'tin-tuc'], function(){
+    Route::get('tin-noi-bo', 'HomeController@index')->name('tin_noi_bo');
+    Route::get('tin-cong-nghe', 'HomeController@index')->name('tin_cong_nghe');
+    Route::get('su-kien', 'HomeController@index')->name('events');
+});
 // hoi nhap quoc te
 Route::get('/hoi-nhap-quoc-te', 'HomeController@index')->name('hoi_nhap_quoc_te');
 // sinh vien
-Route::get('/sinh-vien/thoi-khoa-bieu', 'HomeController@index')
-    ->name('thoi_khoa_bieu');
-Route::get('/sinh-vien/ket-qua-hoc-tap', 'HomeController@index')
-    ->name('ket_qua_hoc_tap');
-Route::get('/sinh-vien/mau_van_ban', 'HomeController@index')
-    ->name('mau_van_ban');
+Route::group(['prefix' => 'sinh-vien'], function(){
+    Route::get('thoi-khoa-bieu', 'HomeController@index')
+        ->name('thoi_khoa_bieu');
+    Route::get('ket-qua-hoc-tap', 'HomeController@index')
+        ->name('ket_qua_hoc_tap');
+    Route::get('mau_van_ban', 'HomeController@index')
+        ->name('mau_van_ban');
+});
 // lien he
 Route::get('/lien-he', 'HomeController@index')->name('contact');
 
