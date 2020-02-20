@@ -67,6 +67,7 @@ Route::resource('/admin/subjects', 'SubjectController');
 Route::resource('/admin/results', 'ResultController');
 Route::resource('/admin/documents', 'DocumentController');
 Route::resource('/admin/courses', 'CoursesController');
+Route::resource('/admin/section', 'SectionController');
 
 Route::get('/admin/classes/{classId}/addStudent', 'ClassController@getAddStudent');
 Route::post('/admin/classes/{classId}', 'ClassController@postAddStudent');

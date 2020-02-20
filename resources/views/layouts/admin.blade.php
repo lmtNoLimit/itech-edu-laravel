@@ -43,8 +43,8 @@
           <span>Quản lý ngành đào tạo</span></a>
       </li>
       <li class="nav-item {{ request()->is('admin/courses*') ? 'active' : '' }}">
-        <a class="nav-link" href="/admin/courses">
-          <i class="fas fa-book"></i>
+        <a class="nav-link" href="/admin/ ">
+          <i class="fal fa-album-collection"></i>
           <span>Quản lý khóa học</span></a>
       </li>
       <li class="nav-item {{ request()->is('admin/classes*') ? 'active' : '' }}">
