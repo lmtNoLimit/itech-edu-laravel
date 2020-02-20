@@ -32,9 +32,9 @@
             <a href="/admin/sales/{{$item->course_id}}/edit" class="btn btn-sm btn-info mr-1">
               Sửa
             </a>
-            <button data-toggle="modal" data-target="#deleteModal{{$item->course_id}}"
+            <button data-toggle="modal" data-target="#deleteModal{{$item->id}}"
               class="btn btn-sm btn-danger">Xoá</button>
-            <div class="modal fade" id="deleteModal{{$item->course_id}}" tabindex="-1" role="dialog"
+            <div class="modal fade" id="deleteModal{{$item->id}}" tabindex="-1" role="dialog"
               aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">

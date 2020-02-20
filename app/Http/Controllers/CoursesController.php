@@ -28,11 +28,13 @@ class CoursesController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'course_id' => 'required|unique:courses',
+            'course_id' => 'required|unique:courses|regex:/^[a-z0-9-]+$/i ',
             'name' => 'required',
         ];
         $messages = [
-    		'course_id.required' => 'Yêu cầu nhập mã khóa học',
+        'course_id.required' => 'Yêu cầu nhập mã khóa học',
+        'course_id.regex' => "Mã khóa học chỉ được chứ những kí tự a-z, 0-9 và 
+            '-'",
     		'course_id.unique' => 'Mã khóa học đã tồn tại',
     		'name.required' => 'Yêu cầu nhập tên khóa học',
     	];
