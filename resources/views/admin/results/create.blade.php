@@ -9,51 +9,36 @@
     <div class="col">
       <div class="card display-inline">
         <div class="card-body">
-          <form id="form" action="/admin/news" method="POST" enctype="multipart/form-data">
+          <form id="form" action="/admin/results" method="POST">
             @csrf
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="title">Tiêu đề</label>
+              <label class="col-sm-2 col-form-label" for="class_id">Lớp</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                  value="{{ old('title') }}">
-                @error('title')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                <select class="form-control" name="class_id" id="class_id">
+                  @foreach ($classes as $class)
+                  <option value="{{$class->class_id}}">
+                    {{ $class->class_id}} - {{$class->name }}
+                  </option>
+                  @endforeach
+                </select>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="description">Mô tả</label>
+              <label class="col-sm-2 col-form-label" for="description">Môn học</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control @error('description') is-invalid @enderror" id="description"
-                  name="description" value="{{ old('description') }}">
-                @error('description')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                <select class="form-control" name="subject_id" id="subject_id">
+                  @foreach ($subjects as $subject)
+                  <option value="{{ $subject->subject_id }}">
+                    {{ $subject->subject_id}} - {{ $subject->name }}
+                  </option>
+                  @endforeach
+                </select>
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="image">
-                Ảnh
-              </label>
-              <div class="col-sm-10">
-                <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image"
-                  name="image">
-                @error('image')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="content"> Nội dung</label>
+              <label class="col-sm-2 col-form-label" for="content">Nội dung</label>
               <div class="col-sm-10">
                 <textarea class="form-control @error('content') is-invalid @enderror" id="txtContent" name="content"
                   rows="10"></textarea>
@@ -65,22 +50,11 @@
               @enderror
             </div>
 
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label" for="name">Thể loại</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control @error('type') is-invalid @enderror" id="type" name="type"
-                  value="{{ old('type') }}">
-                @error('type')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-              </div>
-            </div>
-
             <div class="form-group text-center">
-              <button id="btnSubmit" type="submit" class="btn btn-primary">Đăng bài</button>
-              <a href="/admin/students" class="btn btn-secondary">Cancel</a>
+              <button id="btnSubmit" type="submit" class="btn btn-primary">
+                Cập nhật điểm
+              </button>
+              <a href="/admin/results" class="btn btn-secondary">Cancel</a>
             </div>
           </form>
         </div>
