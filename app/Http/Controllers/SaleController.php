@@ -19,11 +19,11 @@ class SaleController extends Controller
   public function index()
   {
       $sales = DB::table('sales')->get();
-      foreach ($sales as $item) {
-        $course = Course::where("course_id", $item->course_id)->first();
-        // dd($course);
-        // $item->course_name = $course->name;
-      }
+      // foreach ($sales as $item) {
+      //   $course = Course::where("course_id", $item->course_id)->first();
+      //   // dd($course);
+      //   // $item->course_name = $course->name;
+      // }
       // $courses = 
       return view('admin/sales/index', [
           'sales' => $sales

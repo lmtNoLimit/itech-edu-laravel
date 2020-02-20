@@ -17,7 +17,6 @@
       <thead class="thead-light">
         <tr>
           <th scope="col">Mã khóa học</th>
-          <th scope="col">Tên khóa học</th>
           <th scope="col">Từ ngày</th>
           <th scope="col">Tới ngày</th>
           <th scope="col">Action</th>
@@ -27,7 +26,6 @@
       @foreach($sales as $item)
         <tr>
           <td>{{$item->course_id}}</td>
-          <td>{{$item->course_name}}</td>
           <td>{{$item->from_date}}</td>
           <td>{{$item->to_date}}</td>
           <td>
