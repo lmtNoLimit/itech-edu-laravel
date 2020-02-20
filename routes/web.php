@@ -68,6 +68,7 @@ Route::resource('/admin/subjects', 'SubjectController');
 Route::resource('/admin/results', 'ResultController');
 Route::resource('/admin/documents', 'DocumentController');
 Route::resource('/admin/courses', 'CoursesController');
+Route::resource('/admin/section', 'SectionController');
 Route::resource('/admin/sales', 'SaleController');
 
 
