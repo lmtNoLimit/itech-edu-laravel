@@ -17,7 +17,7 @@ class CreateSalesTable extends Migration
             $table->bigIncrements('id');
             $table->string('course_id');
             $table->foreign('course_id')->references("course_id")->on("course");
-            $table->date('form_date');
+            $table->date('from_date');
             $table->date('to_date');
             $table->timestamps();
         });
