@@ -42,6 +42,11 @@
           <i class="fas fa-book"></i>
           <span>Quản lý ngành đào tạo</span></a>
       </li>
+      <li class="nav-item {{ request()->is('admin/courses*') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/courses">
+          <i class="fas fa-book"></i>
+          <span>Quản lý khóa học</span></a>
+      </li>
       <li class="nav-item {{ request()->is('admin/classes*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/classes">
           <i class="fas fa-users"></i>
