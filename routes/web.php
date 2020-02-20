@@ -16,14 +16,15 @@ Route::get('/', 'HomeController@index')->name('home');
 // gioi thieu
 Route::get('/about', 'HomeController@index')->name('about');
 // nganh dao tao
-Route::get('/nganh-dao-tao/ccna', 'HomeController@index')->name('ccna');
-Route::get('/nganh-dao-tao/mcsa', 'HomeController@index')->name('mcsa');
-Route::get('/nganh-dao-tao/linux', 'HomeController@index')->name('linux');
-Route::get('/nganh-dao-tao/ceh', 'HomeController@index')->name('ceh');
-Route::get('/nganh-dao-tao/chfi', 'HomeController@index')->name('chfi');
-Route::get('/nganh-dao-tao/php', 'HomeController@index')->name('php');
-Route::get('/nganh-dao-tao/android', 'HomeController@index')->name('android');
-Route::get('/nganh-dao-tao/graphic-design', 'HomeController@index')->name('graphic');
+Route::get('/nganh-dao-tao/ccna', 'HomeController@showLandingPages')->name('ccna');
+Route::get('/nganh-dao-tao/mcsa', 'HomeController@showLandingPages')->name('mcsa');
+Route::get('/nganh-dao-tao/linux', 'HomeController@showLandingPages')->name('linux');
+Route::get('/nganh-dao-tao/ceh', 'HomeController@showLandingPages')->name('ceh');
+Route::get('/nganh-dao-tao/chfi', 'HomeController@showLandingPages')->name('chfi');
+Route::get('/nganh-dao-tao/php', 'HomeController@showLandingPages')->name('php');
+Route::get('/nganh-dao-tao/android', 'HomeController@showLandingPages')->name('android');
+Route::get('/nganh-dao-tao/graphic-design', 'HomeController@showLandingPages')
+    ->name('graphic');
 // tuyen sinh
 Route::get('/tuyen-sinh/tin-tuyen-sinh', 'HomeController@index')->name('tin_tuyen_sinh');
 Route::get('/tuyen-sinh/quy-che-tuyen-sinh', 'HomeController@index')

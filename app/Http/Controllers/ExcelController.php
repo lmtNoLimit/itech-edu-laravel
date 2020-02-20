@@ -17,7 +17,7 @@ class ExcelController extends Controller
 
     public function import(Request $request)
     {
-        $request->
+        // $request->
         // $rules = [
         //     'file' => 'required|mimes:xls,xlsx'
         // ];
