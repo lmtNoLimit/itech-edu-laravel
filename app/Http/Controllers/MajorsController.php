@@ -29,12 +29,14 @@ class MajorsController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'majors_id' => 'required|unique:majors',
+            'majors_id' => 'required|unique:majors|regex:/^[a-z0-9-]+$/i',
             'name' => 'required',
             'type_of_education' => 'required',
         ];
         $messages = [
-    		'majors_id.required' => 'Yêu cầu nhập mã ngành',
+        'majors_id.required' => 'Yêu cầu nhập mã ngành',
+        'majors_id.regex' => "Mã ngành chỉ được chứ những kí tự a-z, 0-9 và 
+            '-'",
     		'majors_id.unique' => 'Mã ngành đã tồn tại',
     		'name.required' => 'Yêu cầu nhập tên ngành',
     	];

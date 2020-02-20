@@ -16,14 +16,6 @@ Route::get('/', 'HomeController@index')->name('home');
 // gioi thieu
 Route::get('/about', 'HomeController@index')->name('about');
 // nganh dao tao
-// Route::get('/nganh-dao-tao/ccna', 'HomeController@index')->name('ccna');
-// Route::get('/nganh-dao-tao/mcsa', 'HomeController@index')->name('mcsa');
-// Route::get('/nganh-dao-tao/linux', 'HomeController@index')->name('linux');
-// Route::get('/nganh-dao-tao/ceh', 'HomeController@index')->name('ceh');
-// Route::get('/nganh-dao-tao/chfi', 'HomeController@index')->name('chfi');
-// Route::get('/nganh-dao-tao/php', 'HomeController@index')->name('php');
-// Route::get('/nganh-dao-tao/android', 'HomeController@index')->name('android');
-// Route::get('/nganh-dao-tao/graphic-design', 'HomeController@index')->name('graphic');
 
 Route::group(['prefix' => "nganh-dao-tao"],function(){
     Route::get('ccna', 'HomeController@index')->name('ccna');
@@ -86,6 +78,11 @@ Route::resource('/admin/lessons', 'LessonController');
 Route::resource('/admin/registrations', 'RegistrationController');
 Route::resource('/admin/subjects', 'SubjectController');
 Route::resource('/admin/results', 'ResultController');
+Route::resource('/admin/documents', 'DocumentController');
+Route::resource('/admin/courses', 'CoursesController');
+Route::resource('/admin/section', 'SectionController');
+Route::resource('/admin/sales', 'SaleController');
+
 
 Route::get('/admin/classes/{classId}/addStudent', 'ClassController@getAddStudent');
 Route::post('/admin/classes/{classId}', 'ClassController@postAddStudent');

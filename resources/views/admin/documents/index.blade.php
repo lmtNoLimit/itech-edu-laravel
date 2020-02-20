@@ -4,38 +4,36 @@
 <div class="container-fluid">
   @include('message')
   <div class="d-sm-flex align-items-center justify-content-between mb-5">
-    <h1 class="h3 mb-0 text-gray-800">Quản tin điểm</h1>
+    <h1 class="h3 mb-0 text-gray-800">Quản lý mẫu tin</h1>
   </div>
   <div class="row m-2 d-flex justify-content-end">
-    <a href="/admin/results/create" class="btn btn-sm btn-success">
+    <a href="/admin/news/create" class="btn btn-sm btn-success">
       <i class="fas fa-plus"></i>
-      <span>Cập nhật bảng điểm</span>
+      <span>Thêm văn bản</span>
     </a>
   </div>
   <div class="row mx-2">
     <table class="table table-bordered table-hover">
       <thead class="thead-light">
         <tr>
-          <th scope="col">Mã lớp</th>
-          <th scope="col">Tên lớp</th>
-          <th scope="col">Mã môn</th>
-          <th scope="col">Tên môn</th>
+          <th scope="col">ID</th>
+          <th scope="col">Tiêu đề</th>
+          <th scope="col">Thể loại</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        @foreach ($results as $result)
+        @foreach ($news as $new)
         <tr>
-          <th scope="row">{{$result->class_id}}</th>
-          <td>{{$result->class_name}}</td>
-          <td>{{$result->subject_id}}</td>
-          <td>{{$result->subject_name}}</td>
+          <th scope="row">{{$new->id}}</th>
+          <td>{{$new->title}}</td>
+          <td>{{$new->type}}</td>
           <td>
-            <a href="/admin/results/{{$result->id}}/edit" class="btn btn-sm btn-info mr-1">Sửa</a>
-            <button data-toggle="modal" data-target="#deleteModal{{$result->id}}"
+            <a href="/admin/news/{{$new->id}}/edit" class="btn btn-sm btn-info mr-1">Sửa</a>
+            <button data-toggle="modal" data-target="#deleteModal{{$new->id}}"
               class="btn btn-sm btn-danger">Xoá</button>
           </td>
-          <div class="modal fade" id="deleteModal{{$result->id}}" tabindex="-1" role="dialog"
+          <div class="modal fade" id="deleteModal{{$new->id}}" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -46,7 +44,7 @@
                   </button>
                 </div>
                 <div class="modal-footer border-0">
-                  <form class="form-inline" action="/admin/results/{{$result->id}}" method="POST" id="form">
+                  <form class="form-inline" action="/admin/news/{{$new->id}}" method="POST" id="form">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-sm btn-secondary mr-2" type="button" data-dismiss="modal">Huỷ</button>

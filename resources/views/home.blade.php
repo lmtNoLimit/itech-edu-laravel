@@ -198,13 +198,13 @@
 </div>
 </section>
 
-<section id="features" class="mt-3">
+<section id="features" class="my-3">
   <div class="row px-3">
     <div class="col-lg p-3 bg-light hover-green ">
       <a href="#" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column">
           {{-- <img src="{{ asset('images/svg/trac_nghiem.svg') }}" alt="" class="my-2 svg" width="45"> --}}
-            <i class="far fa-ballot-check fa-3x my-2 hover-white text-green hover-white"></i>  
+          <i class="far fa-ballot-check fa-3x my-2 hover-white text-green hover-white"></i>
 
           <p class="text-center hover-white">BÀI TEST CHỌN NGÀNH NGHỀ</p>
         </div>
@@ -237,28 +237,11 @@
     <div class="col-lg p-3 bg-light hover-green">
       <a href="{{route('registration')}}" class="feature-item">
         <div class="d-flex justify-content-center align-items-center flex-column">
-          <i class="fas fa-tv fa-3x my-2 text-green hover-white" ></i>
+          <i class="fas fa-tv fa-3x my-2 text-green hover-white"></i>
           <p class="text-center hover-white">ĐĂNG KÝ DỰ TUYỂN ONLINE</p>
         </div>
       </a>
     </div>
-  </div>
-</section>
-
-<section id="facebook">
-  <div id="fb-root"></div>
-  <script>
-    (function(d, s, id) {
-				  var js, fjs = d.getElementsByTagName(s)[0];
-				  if (d.getElementById(id)) return;
-				  js = d.createElement(s); js.id = id;
-				  js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1&appId=297302807515934&autoLogAppEvents=1';
-				  fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));
-  </script>
-  <div class="container">
-    <div class="fb-comments" data-href="http://i-tech.edu.vn/" data-numposts="5" data-width="100%"
-      data-order-by="reverse_time"></div>
   </div>
 </section>
 </div>

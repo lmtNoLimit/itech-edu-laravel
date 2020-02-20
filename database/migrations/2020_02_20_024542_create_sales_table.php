@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResultsTable extends Migration
+class CreateSalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('class_id');
-            $table->foreign('class_id')->references("class_id")->on("classes");
-            $table->string('subject_id');
-            // $table->foreign('subject_id')->references("subject_id")->on("subjects");
-            $table->longText('content');
+            $table->string('course_id');
+            // $table->foreign('course_id')->references("course_id")->on("courses");
+            $table->date('from_date');
+            $table->date('to_date');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('sales');
     }
 }

@@ -50,4 +50,9 @@ class HomeController extends Controller
             'news' => $news
         ]);
     }
+
+    public function showLandingPages()
+    {
+        return view('client.landing.pages');
+    }
 }

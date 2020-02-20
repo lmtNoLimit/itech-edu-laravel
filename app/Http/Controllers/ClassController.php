@@ -66,13 +66,15 @@ class ClassController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'class_id' => 'required|unique:classes',
+            'class_id' => 'required|unique:classes|regex:/^[a-z0-9-]+$/i',
             'name' => 'required',
             'year' => 'required',
             'majors_id' => 'required'
         ];
         $messages = [
             'class_id.unique' => "Mã lớp đã tồn tại",
+            'class_id.regex' => "Mã khóa học chỉ được chứ những kí tự a-z, 0-9 và 
+            '-'",
             'class_id.required' => "Yêu cầu nhập mã lớp",
             'name.required' => 'Tên không được để trống',
             'year.required' => 'Năm học không được để trống',
