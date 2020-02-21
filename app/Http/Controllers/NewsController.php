@@ -63,6 +63,7 @@ class NewsController extends Controller
         }
         return redirect('/admin/news')->with('error', "Thêm tin tức không thành công");
     }
+    }
 
     public function edit($id)
     {
