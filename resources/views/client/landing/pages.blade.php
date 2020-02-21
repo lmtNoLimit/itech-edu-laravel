@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
   <div class="bg-light"> 
+
     @include('client.landing.partials.banner')
     @include('client.landing.partials.sales')
     @include('client.landing.partials.received')
