@@ -82,6 +82,11 @@
           <i class="fas fa-badge-percent"></i>
           <span>Quản lý ưu đãi</span></a>
       </li>
+      <li class="nav-item {{ request()->is('admin/lessons') ? 'active' : '' }}">
+        <a class="nav-link" href="/admin/lessons">
+          <i class="fas fa-atlas"></i>
+          <span>Quản lý bài học</span></a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

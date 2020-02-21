@@ -4,7 +4,7 @@
 <div class="container-fluid">
   @include('message')
   <div class="d-sm-flex align-items-center justify-content-between mb-5">
-    <h1 class="h3 mb-0 text-gray-800">Quản tin tức</h1>
+    <h1 class="h3 mb-0 text-gray-800">Quản lý ưu đãi</h1>
   </div>
   <div class="row m-2 d-flex justify-content-end">
     <a href="/admin/sales/create" class="btn btn-sm btn-success">
