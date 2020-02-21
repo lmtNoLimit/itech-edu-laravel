@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-  <div class="bg-light p-3">
+  <div class="bg-light">
     @include('client.landing.partials.banner')
     @include('client.landing.partials.sales')
     @include('client.landing.partials.received')
