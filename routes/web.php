@@ -15,17 +15,17 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 // gioi thieu
 Route::get('/about', 'HomeController@index')->name('about');
-// nganh dao tao
 
+// nganh dao tao
 Route::group(['prefix' => "nganh-dao-tao"],function(){
-    Route::get('ccna', 'HomeController@index')->name('ccna');
-    Route::get('mcsa', 'HomeController@index')->name('mcsa');
-    Route::get('linux', 'HomeController@index')->name('linux');
-    Route::get('ceh', 'HomeController@index')->name('ceh');
-    Route::get('chfi', 'HomeController@index')->name('chfi');
-    Route::get('php', 'HomeController@index')->name('php');
-    Route::get('android', 'HomeController@index')->name('android');
-    Route::get('graphic-design', 'HomeController@index')->name('graphic');
+    Route::get('ccna', 'HomeController@showLandingPages')->name('ccna');
+    Route::get('mcsa', 'HomeController@showLandingPages')->name('mcsa');
+    Route::get('linux', 'HomeController@showLandingPages')->name('linux');
+    Route::get('ceh', 'HomeController@showLandingPages')->name('ceh');
+    Route::get('chfi', 'HomeController@showLandingPages')->name('chfi');
+    Route::get('php', 'HomeController@showLandingPages')->name('php');
+    Route::get('android', 'HomeController@showLandingPages')->name('android');
+    Route::get('graphic-design', 'HomeController@showLandingPages')->name('graphic');
 });
 
 // tuyen sinh
