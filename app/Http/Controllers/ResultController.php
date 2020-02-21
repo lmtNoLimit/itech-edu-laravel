@@ -66,11 +66,10 @@ class ResultController extends Controller
     public function destroy($id)
     {
         try{
-            $result = Result::find($id);
-            $result->delete();
-            return \redirect('/admin/result')->with('success', "Xoá kết quả thành công");
+            $result = Result::find($id)->delete();
+            return redirect('/admin/results')->with('success', "Xoá kết quả thành công");
         } catch(Throwable $th){
-            return \redirect('/admin/news')->with('error', "Xoá tin không thành công");
+            return redirect('/admin/results')->with('error', "Xoá tin không thành công");
         }
     }
 }

@@ -26,7 +26,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
       <div class="sidebar-brand d-flex align-items-center justify-content-center">
-        <div class="sidebar-brand-text mx-3">LOGO</div>
+        <div class="sidebar-brand-text mx-3">I-TECH ADMIN</div>
       </div>
 
       <!-- Divider -->
@@ -43,9 +43,16 @@
           <span>Quản lý ngành đào tạo</span></a>
       </li>
       <li class="nav-item {{ request()->is('admin/courses*') ? 'active' : '' }}">
-        <a class="nav-link" href="/admin/courses">
+        <a class="nav-link" href="/admin/courses" data-toggle="collapse" data-target="#collapseUtilities">
           <i class="fas fa-book"></i>
-          <span>Quản lý khóa học</span></a>
+          <span>Quản lý khóa học</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="">Danh mục</a>
+            <a class="collapse-item" href="">Bài học</a>
+          </div>
+        </div>
       </li>
       <li class="nav-item {{ request()->is('admin/classes*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/classes">
@@ -89,7 +96,8 @@
       </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        <button class="rounded-circle border-0" id="sidebarToggle">
+        </button>
       </div>
     </ul>
     <!-- End of Sidebar -->
