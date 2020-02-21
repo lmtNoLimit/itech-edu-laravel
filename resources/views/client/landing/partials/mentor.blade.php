@@ -1,4 +1,8 @@
+<section id="mentor">
+  <h2 class="bg-warning text-light text-center py-2 text-uppercase">Chuyên gia sẽ đồng hành cùng bạn trong khóa học này</h2>
+  <div class="container">
 @if(request()->is('*/ccna'))
+  
   <div class="row p-2 bg-warning">
     <div class="col-md-8">
       <div class="bg-light rounded p-2">
@@ -49,6 +53,7 @@
 @endif
 
 @if(request()->is('*/mcsa'))
+
 <div class="row p-2 bg-warning">
   <div class="col-md-8">
     <div class="bg-light rounded p-2">
@@ -97,6 +102,7 @@
 @endif
 
 @if(request()->is('*/linux'))
+
 <div class="row p-2 bg-warning">
   <div class="col-md-8">
     <div class="bg-light rounded p-2">
@@ -145,6 +151,7 @@
 @endif
 
 @if(request()->is('*/ceh'))
+
 <div class="row p-2 bg-warning">
   <div class="col-md-8">
     <div class="bg-light rounded p-2">
@@ -193,6 +200,7 @@
 @endif
 
 @if(request()->is('*/chfi'))
+
 <div class="row p-2 bg-warning">
   <div class="col-md-8">
     <div class="bg-light rounded p-2">
@@ -289,6 +297,7 @@
 @endif
 
 @if(request()->is('*/android'))
+
 <div class="row p-2 bg-warning">
   <div class="col-md-8">
     <div class="bg-light rounded p-2">
@@ -337,6 +346,7 @@
 @endif
 
 @if(request()->is('*/graphic'))
+
 <div class="row p-2 bg-warning">
   <div class="col-md-8">
     <div class="bg-light rounded p-2">
@@ -383,3 +393,6 @@
   </div> 
 </div>
 @endif
+</div>
+
+</section>
