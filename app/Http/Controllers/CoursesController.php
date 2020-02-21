@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Course;
+use App\Section;
 
 class CoursesController extends Controller
 {
@@ -15,12 +16,10 @@ class CoursesController extends Controller
     public function index()
     {
         $courses = Course::all();
-        return view('admin/courses/index', [
-            'courses' => $courses
-        ]);
+        return view('admin/courses/index', compact('courses'));
     }
 
-    public function create() 
+    public function create()
     {
         return view('admin/courses/create');
     }
@@ -49,7 +48,55 @@ class CoursesController extends Controller
         return redirect('/admin/courses')->with('error', "Thêm không thành công");
     }
 
-    public function edit($course_id )
+    public function show($courseId)
+    {
+        $course = Course::where("course_id", $courseId)->first();
+        $sections = Section::join('courses', "courses.course_id", "=", "sections.course_id")
+            ->where("courses.course_id", $courseId)
+            ->select("id", "sections.name")
+            ->get();
+
+        return view("admin.courses.show", compact('course', 'sections'));
+    }
+
+    public function addSection(Request $request, $courseId)
+    {
+        $rules = [
+            'course_id' => 'required',
+            'section_name' => 'required',
+        ];
+        $messages = [
+    		'course_id.required' => 'Yêu cầu nhập mã khóa học',
+    		'section_name.required' => 'Yêu cầu nhập tên khóa học',
+    	];
+        $validator = validator()->make($request->all(), $rules, $messages);
+        
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->with('error', "Thêm không thành công")
+                ->withInput();
+    	} else {
+            Section::create([
+                'course_id' => $request->input('course_id'),
+                'name' => $request->input('section_name'),
+            ]);
+            return redirect("/admin/courses/$courseId")->with('success', "Thêm thành công");
+        }
+        return redirect("/admin/courses/$courseId")->with('error', "Thêm không thành công");
+    }
+
+    public function deleteSection($courseId, $sectionId)
+    {
+        try {
+            $section = Section::find($sectionId)->delete();
+            return redirect()->back()->with("success", "Xoá danh mục thành công");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with("error", "Xoá danh mục không thành công");
+        }
+    }
+
+    public function edit($course_id)
     {
         $courses = Course::where("course_id", $course_id)->first();
         return view('admin/courses/edit', [
@@ -83,10 +130,10 @@ class CoursesController extends Controller
         return redirect("/admin/courses")->with("error", "Cập nhật không thành công");
     }
 
-    public function destroy($courseId)
+    public function destroy($id)
     {
         try{
-            Course::where("course_id", $courseId)->delete();
+            Course::where("course_id", $id)->first()->delete();
             return redirect('/admin/courses')->with('success', "Xoá thành công");
         } catch (\Throwable $th){
             return redirect('/admin/courses')->with('error', "Xoá không thành công");

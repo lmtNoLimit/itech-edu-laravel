@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourseSectionsTable extends Migration
+class CreateSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateCourseSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_sections', function (Blueprint $table) {
+        Schema::create('sections', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('course_id');
-            $table->foreign('course_id')
-                ->references('course_id')
-                ->on('courses');
+            $table->foreign('course_id')->references("course_id")->on("courses");
             $table->string('name');
             $table->timestamps();
         });
@@ -31,6 +29,6 @@ class CreateCourseSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_sections');
+        Schema::dropIfExists('sections');
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use App\News;
+use App\Course;
 
 class HomeController extends Controller
 {
@@ -47,12 +49,14 @@ class HomeController extends Controller
         ];
         return view('home', [
             'questions' => $questions,
-            'news' => $news
+            'news' => $news,
+            'courses' => $courses
         ]);
     }
 
-    public function showLandingPages()
+    public function showLandingPages(Request $request, $courseId)
     {
-        return view('client.landing.pages');
+        $course = Course::where("course_id", $courseId)->first();
+        return view('client.landing.pages', compact('course'));
     }
 }

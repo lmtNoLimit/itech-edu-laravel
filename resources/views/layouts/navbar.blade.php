@@ -1,5 +1,5 @@
 @php
-$majors = [
+$courses = [
 'ccna' => "Giải pháp hạ tầng mạng trong doanh nghiệp (CCNA)",
 'mcsa' => "Giải pháp dịch vụ mạng trong doanh nghiệp (MCSA)",
 'linux' => "Quản trị server Linux",
@@ -54,9 +54,9 @@ $students = [
             <li class="nav-item dropdown-submenu">
               <span class="nav-link text-dark">Các khoá học ngắn hạn</span>
               <ul class="dropdown-menu animated fadeInLeft faster" style="width: 400px">
-                @foreach($majors as $key => $value)
+                @foreach($courses as $key => $value)
                 <li class="nav-item">
-                  <a class="nav-link text-dark" href="{{ route($key) }}">
+                  <a class="nav-link text-dark" href="/nganh-dao-tao/{{$key}}">
                     {{ $value }}
                   </a>
                 </li>

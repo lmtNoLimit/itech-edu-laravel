@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Section extends Model
 {
     protected $fillable = ['course_id', 'name'];
-    
-    public function section()
+
+    public function courses()
     {
-        return $this->hasMany(Section::class);
+        return $this->belongsTo(Course::class);
     }
 }

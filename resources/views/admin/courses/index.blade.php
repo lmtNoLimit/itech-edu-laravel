@@ -27,6 +27,7 @@
           <th scope="row">{{$item->course_id}}</th>
           <td>{{$item->name}}</td>
           <td>
+            <a href="/admin/courses/{{$item->course_id}}" class="btn btn-sm btn-info mr-1">Chi tiết</a>
             <a href="/admin/courses/{{$item->course_id}}/edit" class="btn btn-sm btn-info mr-1">
               Sửa
             </a>

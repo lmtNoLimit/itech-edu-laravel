@@ -43,21 +43,16 @@
           <span>Quản lý ngành đào tạo</span></a>
       </li>
       <li class="nav-item {{ request()->is('admin/courses*') ? 'active' : '' }}">
-        <a class="nav-link" href="/admin/courses" data-toggle="collapse" data-target="#collapseUtilities">
+        <a class="nav-link" href="/admin/courses">
           <i class="fas fa-book"></i>
           <span>Quản lý khóa học</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="">Danh mục</a>
-            <a class="collapse-item" href="">Bài học</a>
-          </div>
-        </div>
       </li>
       <li class="nav-item {{ request()->is('admin/classes*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/classes">
           <i class="fas fa-users"></i>
-          <span>Quản lý lớp</span></a>
+          <span>Quản lý lớp</span>
+        </a>
       </li>
       <li class="nav-item {{ request()->is('admin/subjects*') ? 'active' : '' }}">
         <a class="nav-link" href="/admin/subjects">
