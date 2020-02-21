@@ -19,4 +19,5 @@ mix.js("resources/js/app.js", "public/js")
         ["public/css/app.css", "public/css/custom.css"],
         "public/css/index.css"
     )
-    .minify("resources/js/admin.js");
+    .minify("resources/js/admin.js")
+    .options({ processCssUrls: false });
