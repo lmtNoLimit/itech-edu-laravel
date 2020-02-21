@@ -1,21 +1,21 @@
 @if(request()->is('*/ccna'))
-<h1>Banner CCNA</h1>
+	<img src="{{ asset('images/courses/banner/banner_ccna.jpg') }}" width="100%">
 @endif
 
 @if(request()->is('*/mcsa'))
-<h1>Banner MCSA</h1>
+	<img src="{{ asset('images/courses/banner/banner_mcsa.jpg') }}" width="100%">
 @endif
 
 @if(request()->is('*/linux'))
-<h1>Banner LINUX</h1>
+	<img src="{{ asset('images/courses/banner/banner_linux.jpg') }}" width="100%">
 @endif
 
 @if(request()->is('*/ceh'))
-<h1>Banner CEH</h1>
+	<img src="{{ asset('images/courses/banner/banner_ceh.jpg') }}" width="100%">
 @endif
 
 @if(request()->is('*/chfi'))
-<h1>Banner CHFI</h1>
+	<img src="{{ asset('images/courses/banner/banner_ceh.jpg') }}" width="100%">
 @endif
 
 @if(request()->is('*/php'))
